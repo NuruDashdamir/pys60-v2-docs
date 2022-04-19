@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="prev" href="node113.html" />
+<link rel="parent" href="node109.html" />
+<link rel="next" href="node115.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.1.5 Cancelling of Asynchronous Service Request</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.1.4 making Asynchronous Request"
+  href="node113.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.1 overview of scriptext"
+  href="node109.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.2 application Manager"
+  href="node115.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node113.html">6.1.4 Making Asynchronous Request</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node109.html">6.1 Overview of scriptext</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node115.html">6.2 Application Manager</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008150000000000000000"></a>
+<a name="subsec:pycancelasyncservice"></a>
+<br>
+6.1.5 Cancelling of Asynchronous Service Request
+</h2>
+
+<p>
+To cancel an asynchronous request, <code>Cancel</code> is passed as the operation argument in the <code>call()</code> API. The <code>transactionID</code> associated with the asynchronous operation also needs to be passed. After completing the cancel operation, the callback function is called with <code>Event_id</code> as <code>scriptext.EvenCanceled</code>.
+
+<p>
+<b>Syntax</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+serviceInstance.call('Cancel', {'TransactionID': serviceTransactionID})
+</pre></div>
+
+<p>
+where, <code>transactionID</code> is associated with the asynchronous operation, which needs to be cancelled.
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to send and cancel an SMS in asynchronous mode:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+messaging_handle = scriptext.load('Service.Messaging', 'IMessaging')
+
+def sms_send_callback(trans_id, event_id, output_params):
+    if sms_trans_id == trans_id:
+        if event_id == scriptext.EventCanceled:
+            print "SMS Send Canceled"
+        else:
+            print "Event_id was not scriptext.EventCanceled"
+    else:
+        print "Invalid transaction ID received"
+
+sms_trans_id = messaging_handle.call('Send', {'MessageType': u'SMS', 
+                                              'To': u'12345678', 'BodyText': u'Hi'}, 
+                                     callback=sms_send_callback)
+try:
+    messaging_handle.call('Cancel', {'TransactionID': sms_trans_id})
+except scriptext.ScriptextError, err:
+    print "Error cancelling request ", err
+</pre></div>
+
+<p>
+
+<p>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.1.4 making Asynchronous Request"
+  href="node113.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.1 overview of scriptext"
+  href="node109.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.2 application Manager"
+  href="node115.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node113.html">6.1.4 Making Asynchronous Request</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node109.html">6.1 Overview of scriptext</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node115.html">6.2 Application Manager</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

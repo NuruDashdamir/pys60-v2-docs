@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="prev" href="node125.html" />
+<link rel="parent" href="node119.html" />
+<link rel="next" href="node127.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.3.7 Key Values</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.3.6 RequestNotification"
+  href="node125.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.3 Calendar"
+  href="node119.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.4 Contacts"
+  href="node127.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node125.html">6.3.6 RequestNotification</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node119.html">6.3 Calendar</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node127.html">6.4 Contacts</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008370000000000000000"></a>
+<a name="subsec:calendarkeyval"></a>
+<br>
+6.3.7 Key Values
+</h2>
+
+<p>
+<b>Calendar Entry</b> <br>
+
+<p>
+Fields applicable for a particular 'Type' of entry are mentioned in <b>Add</b> Section, all other fields are ignored.
+<br><p></p>
+<div align="CENTER"><a name="10154"></a>
+<table>
+<caption><strong>Table 6.56:</strong>
+Key value- Calendar Entry</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>Key</b></td>
+<td align="LEFT" valign="TOP" width=340><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85>Type</td>
+<td align="LEFT" valign="TOP" width=340>Specifies whether the entry is a meeting, to-do item, reminder, event or anniversary.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>CalendarName</code></td>
+<td align="LEFT" valign="TOP" width=340>Specifies Calendar Name. It must be given in the format <b>Drivexxx:Filenamexxx</b>.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>Summary</code></td>
+<td align="LEFT" valign="TOP" width=340>Holds the summary for the calendar entry.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>SeqNum</code></td>
+<td align="LEFT" valign="TOP" width=340>Holds the sequence number for the calendar entry, used in group scheduling. The default value is 0.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>StartTime</code></td>
+<td align="LEFT" valign="TOP" width=340>Holds the start time for the calendar entry.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>EndTime</code></td>
+<td align="LEFT" valign="TOP" width=340>Holds the end time for the calendar entry.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85>Replication</td>
+<td align="LEFT" valign="TOP" width=340>Specifies replication status of the entry <br>
+<b>Open</b>: No restriction on access, this is the default value. <br>
+<b>Private</b>: Data is private, no access. <br>
+<b>Restricted</b>: Data is confidential, restricted access.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85>Method</td>
+<td align="LEFT" valign="TOP" width=340>The method property of an entry (only for <code>ICalendar</code> entry). <br>
+<code>None</code>: This is the default value if not specified. <br>
+<code>Publish</code> <br>
+<code>Request</code> <br>
+<code>Reply</code> <br>
+<code>Add</code> <br>
+<code>Cancel</code> <br>
+<code>Refresh</code> <br>
+<code>Counter</code> <br>
+<code>DeclineCounter</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85>Description</td>
+<td align="LEFT" valign="TOP" width=340>Holds the description for the calendar entry.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85>Priority</td>
+<td align="LEFT" valign="TOP" width=340>Specifies the priority for the calendar entry (range is 0-255, default value is 0).</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>AlarmTime</code></td>
+<td align="LEFT" valign="TOP" width=340>Holds the alarm time for the calendar entry, must be before <code>StartTime</code> entry. For entry type <code>ToDo</code>, it must be before <code>EndTime</code>.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85>Location</td>
+<td align="LEFT" valign="TOP" width=340>Holds the location name for an entry of type <code>Meeting</code>.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85>Status</td>
+<td align="LEFT" valign="TOP" width=340>Specifies the status for the calendar entry. <br>
+<code>Tentative</code> <br>
+<code>Confirmed</code> <br>
+<code>TodoNeedsAction</code> <br>
+<code>TodoCompleted</code> <br>
+<code>TodoInProcess</code> <br>
+<code>Cancelled</code> <br>
+<code>NullStatus</code>: This is the default value, if not specified.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>RepeatDates</code></td>
+<td align="LEFT" valign="TOP" width=340>Contains a list of out-of-sequence dates on which the calendar entry repeats.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>ExDates</code></td>
+<td align="LEFT" valign="TOP" width=340>Contains a list of exception dates that is, occurrences in the original schedule that have been removed and may be replaced with a different occurrence.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>PhoneOwner</code></td>
+<td align="LEFT" valign="TOP" width=340>Holds the details of the phone owner.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85>Organizer</td>
+<td align="LEFT" valign="TOP" width=340>Holds the organizer information, applicable for an entry of type <code>Meeting</code>.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85>Attendees</td>
+<td align="LEFT" valign="TOP" width=340>Holds the attendee information, applicable for an entry of type <code>Meeting</code>. For more information, see <b>Attendee structure</b>.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>RepeatRule</code></td>
+<td align="LEFT" valign="TOP" width=340>Contains name-value pairs. For more information, see <b>Repeat Rule Structure</b>.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Repeat Rule Structure</b> <br>
+
+<p>
+Most the fields in the following table are applicable for specific 'Type'.
+<br><p></p>
+<div align="CENTER"><a name="10177"></a>
+<table>
+<caption><strong>Table 6.57:</strong>
+Key value- Repeat Rule Structure</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>Key</b></td>
+<td align="LEFT" valign="TOP" width=28><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=283><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85>Type</td>
+<td align="LEFT" valign="TOP" width=28>int</td>
+<td align="LEFT" valign="TOP" width=283>Specifies the type of repeat rule: <br>
+(Daily) <br>
+(Weekly) <br>
+(Monthly) <br>
+(Yearly)</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>[StartDate]</code></td>
+<td align="LEFT" valign="TOP" width=28>datetime</td>
+<td align="LEFT" valign="TOP" width=283>Start Time. If not specified Entry <code>StartTime</code> is taken.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>[UntilDate]</code></td>
+<td align="LEFT" valign="TOP" width=28>datetime</td>
+<td align="LEFT" valign="TOP" width=283>Holds the end date until which this entry will repeat.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>[Interval]</code></td>
+<td align="LEFT" valign="TOP" width=28>int</td>
+<td align="LEFT" valign="TOP" width=283>Specifies the interval between instances of a repeating entry.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>[DaysInWeek]</code></td>
+<td align="LEFT" valign="TOP" width=28>List</td>
+<td align="LEFT" valign="TOP" width=283>List of integers. Specifies on what days of the week the rule must repeat. Values are 0(Monday) to 6(Sunday).</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>[MonthDays]</code></td>
+<td align="LEFT" valign="TOP" width=28>List</td>
+<td align="LEFT" valign="TOP" width=283>List of integers. Specifies on what days of the month (0-30) the rule must repeat.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>[DaysOfMonth]</code></td>
+<td align="LEFT" valign="TOP" width=28>List</td>
+<td align="LEFT" valign="TOP" width=283>List of maps each having the format: <br>
+Day (0 - 6): 32 bit int <br>
+<code>WeekNum</code>: 32 bit int</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>[Month]</code></td>
+<td align="LEFT" valign="TOP" width=28>int</td>
+<td align="LEFT" valign="TOP" width=283>Specifies the month for a yearly repeat rule. Values are 0(January) to 11(December).</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<div class="note"><b class="label">Note:</b>
+
+<ul>
+<li>Specify only Type and <code>UntilDate</code> for a 'Daily' repeat.
+</li>
+<li>Specify Type, <code>UntilDate</code>, and <code>DaysInWeek</code> for a 'Weekly' repeat rule.
+</li>
+<li>Specify Type, <code>UntilDate</code>, and <code>MonthDays</code> / <code>DaysOfMonth</code> for a 'Monthly' repeat rule. The <code>WeekNum</code> parameter can take values 1, 2, 3, 4 for the first, second, third, and fourth week of the month, or -1 for the last week of the month.
+</li>
+<li>Specify Type, <code>UntilDate</code>, <code>DaysOfMonth</code>, and <code>Month</code> for a 'Yearly' repeat rule. Only first entry in <code>DaysOfMonth</code> is taken. If specified, <code>DaysOfMonth</code> and <code>Month</code> must be given together.
+</li>
+<li>If <code>DaysInWeek</code>, <code>MonthDays</code>, <code>DaysOfMonth</code>, or <code>Month</code> (whichever applicable for repeat rule 'Type') is not specified, it is calculated from Entry <code>StartTime</code>.
+</li>
+<li>Interval is an optional parameter for all types.
+</li>
+<li><code>UntilDate</code> parameter is set to be the same value as specified for Third Edition and Third Edition FP1 onwards, it is modified internally to be the start time of the last instance of the repeat rule. <br>
+If <code>UntilDate</code> is not specified, it is taken as the maximum time.
+</li>
+</ul>
+</div>
+
+<p>
+<b>Attendee Structure</b> <br>
+
+<p>
+Most the fields in the following table are applicable for specific 'Type'.
+<br><p></p>
+<div align="CENTER"><a name="10234"></a>
+<table>
+<caption><strong>Table 6.58:</strong>
+Key value- Attendee Structure</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=57><b>Key</b></td>
+<td align="LEFT" valign="TOP" width=28><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=283><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=57><code>[CommonName]</code></td>
+<td align="LEFT" valign="TOP" width=28>string</td>
+<td align="LEFT" valign="TOP" width=283>Holds the common name for group scheduling.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=57><code>[Role]</code></td>
+<td align="LEFT" valign="TOP" width=28>string</td>
+<td align="LEFT" valign="TOP" width=283>Specifies the role of a meeting participant. The possible values are: <br>
+<code>Required</code> <br>
+<code>Optional</code> <br>
+<code>NonParticipant</code> <br>
+<code>Chair</code> <br>
+The default  value is <code>Required</code>.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=57><code>Address</code></td>
+<td align="LEFT" valign="TOP" width=28>string</td>
+<td align="LEFT" valign="TOP" width=283>Specifies the email address of a meeting participant.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=57><code>[Status]</code></td>
+<td align="LEFT" valign="TOP" width=28>string</td>
+<td align="LEFT" valign="TOP" width=283>Specifies the status of an attendee. The possible values are: <br>
+<code>NeedsAction</code> <br>
+<code>Accepted</code> <br>
+<code>Tentative</code> <br>
+<code>Confirmed</code> <br>
+<code>Declined</code> <br>
+<code>Completed</code> <br>
+<code>Delegated</code> <br>
+<code>InProcess</code> <br>
+The default value is <code>NeedsAction</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=57><code>[Rsvp]</code></td>
+<td align="LEFT" valign="TOP" width=28>Boolean</td>
+<td align="LEFT" valign="TOP" width=283>Specifies whether or not a response is requested for this attendee. Default value is 0(False).</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.3.6 RequestNotification"
+  href="node125.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.3 Calendar"
+  href="node119.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.4 Contacts"
+  href="node127.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node125.html">6.3.6 RequestNotification</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node119.html">6.3 Calendar</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node127.html">6.4 Contacts</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

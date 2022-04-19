@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node60.html" />
+<link rel="prev" href="node58.html" />
+<link rel="parent" href="node56.html" />
+<link rel="next" href="node60.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>3.9.2.3 class AccelerometerXYZAxisData</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="3.9.2.2 base Class"
+  href="node58.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="3.9.2 module for devices"
+  href="node56.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="3.9.2.4 class AccelerometerDoubleTappingData"
+  href="node60.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node58.html">3.9.2.2 Base Class</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node56.html">3.9.2 Module for devices</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node60.html">3.9.2.4 class AccelerometerDoubleTappingData</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h3><a name="SECTION005923000000000000000">
+3.9.2.3 class AccelerometerXYZAxisData</a>
+</h3>
+
+<p>
+
+<ul>
+<li>Detects movement gestures, such as moving the device up or down.
+</li>
+<li>Inherits from the <tt class="class">_Sensor</tt> base class.
+</li>
+</ul>
+
+<p>
+<b>Class Attributes</b> <br>
+
+<p>
+
+<ul>
+<li><b>x</b>: X-axis value
+</li>
+<li><b>y</b>: Y-axis value
+</li>
+<li><b>z</b>: Z-axis value
+</li>
+</ul>
+
+<p>
+<b>Set/Get Property</b> <br>
+
+<p>
+This sensor class provides additional functions that can be used to set or get some of the properties specific to this sensor.
+
+<p>
+The following table lists the set/get properties of the sensor class:
+<br><p></p>
+<div align="CENTER">
+<small class="SMALL"></small>
+<div align="CENTER"><small class="SMALL"></small><table cellpadding=3 border="1">
+<tr><td align="LEFT" valign="TOP" width=170><small class="SMALL">
+</small><small class="SMALL"><b>Set/Get properties</b> </small></td>
+<td align="LEFT" valign="TOP" width=255><small class="SMALL"> </small><small class="SMALL"><b>Description</b>  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SMALL"> 
+
+<code>get_available_data_rates()</code> </small></td>
+<td align="LEFT" valign="TOP" width=255><small class="SMALL"> Returns the data rates that can be used for this channel.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SMALL"> 
+
+<code>set_data_rate(data_rate)</code> </small></td>
+<td align="LEFT" valign="TOP" width=255><small class="SMALL"> Sets the data rate to be used for this channel.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SMALL"> 
+
+<code>get_data_rate()</code> </small></td>
+<td align="LEFT" valign="TOP" width=255><small class="SMALL"> Returns the current data rate for this channel.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SMALL"> 
+
+<code>set_measure_range(measurerange)</code> </small></td>
+<td align="LEFT" valign="TOP" width=255><small class="SMALL"> Sets the measure range. Pass 0 to set +-2g, 1 for +-8g  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SMALL"> 
+
+<code>get_measure_range()</code> </small></td>
+<td align="LEFT" valign="TOP" width=255><small class="SMALL"> Returns the current measure range. Returns 0 for +-2g, 1 for +-8g </small></td>
+</tr>
+</table><small class="SMALL"></small></div><small class="SMALL"></small>
+</div>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+from sensor import *
+import e32
+import time
+
+
+class DemoApp():
+
+    def __init__(self):
+        self.accelerometer = \
+            AccelerometerXYZAxisData(data_filter=LowPassFilter())
+        self.accelerometer.set_callback(data_callback=self.my_callback)
+        self.counter = 0
+
+    def my_callback(self):
+        # For stream sensor data the callback is hit 35 times per sec(On 5800).
+        # The device cannot handle resource hungry operations like print in the
+        # callback function for such high frequencies. A workaround is to
+        # sample the data as demonstrated below.
+        if self.counter % 5 == 0:
+            print  "X:%s, Y:%s, Z:%s" % (self.accelerometer.x,
+                                    self.accelerometer.y, self.accelerometer.z)
+            print "Timestamp:", self.accelerometer.timestamp
+        self.counter = self.counter + 1
+
+    def run(self):
+        self.accelerometer.start_listening()
+
+if __name__ == '__main__':
+    d = DemoApp()
+    d.run()
+    e32.ao_sleep(5)
+    d.accelerometer.stop_listening()
+    print "Exiting Accelorometer"
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="3.9.2.2 base Class"
+  href="node58.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="3.9.2 module for devices"
+  href="node56.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="3.9.2.4 class AccelerometerDoubleTappingData"
+  href="node60.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node58.html">3.9.2.2 Base Class</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node56.html">3.9.2 Module for devices</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node60.html">3.9.2.4 class AccelerometerDoubleTappingData</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

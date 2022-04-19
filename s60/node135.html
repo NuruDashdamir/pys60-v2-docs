@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node144.html" />
+<link rel="prev" href="node127.html" />
+<link rel="parent" href="scriptext.html" />
+<link rel="next" href="node136.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.5 Landmarks</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.4.7 key Values"
+  href="node134.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6. scriptext - Platform"
+  href="scriptext.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.5.1 New"
+  href="node136.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node134.html">6.4.7 Key Values</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="scriptext.html">6. scriptext - Platform</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node136.html">6.5.1 New</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h1><a name="SECTION008500000000000000000"></a>
+<a name="sec:scriptextlandmarks"></a>
+<br>
+6.5 Landmarks
+</h1>
+
+<p>
+The Landmark service enable run-time client applications to manage landmarks in a consistent manner, within a terminal. Landmarks can be stored in one or more databases within a terminal. You can manage landmarks and landmark categories within a database using this service.
+
+<p>
+A category is characteristic of a landmark. Categories denote a class of geographical or architectural interest, attraction or activity-related types of objects. Categorization is very useful when searching for landmarks by type. The classification of Landmark categories is as follows:
+
+<p>
+
+<ul>
+<li><b>Local category</b>: You can create the local category. It does not have global IDs, which distinguish it from the global categories.
+</li>
+<li><b>Global category</b>: Each global landmark category has a unique global identifier associated with it.
+</li>
+</ul>
+
+<p>
+Landmarks and Categories are stored in landmark databases. The classifications of Landmark databases are as follows:
+
+<p>
+
+<ul>
+<li><b>Local database</b>: Resides in the phone or in a device mapped to the file system of the phone.
+</li>
+<li><b>Remote database</b>: Stored in third party servers, accessed using a specific protocol. Currently remote database and associated operations are not supported.
+</li>
+</ul>
+
+<p>
+The <code>Landmarks</code> service provides the user facilities to access, create, add, delete, import, export, and organize landmarks.
+
+<p>
+The following sample code is used to load the provider:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+landmark_handle = scriptext.load('Service.Landmarks', 'IDataSource')
+</pre></div>
+
+<p>
+The following table summarizes the Landmarks Interface:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>Service provider</b></td>
+<td align="LEFT" valign="TOP" width=283><code>Service.Landmarks</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Supported interfaces</b></td>
+<td align="LEFT" valign="TOP" width=283><code>IDataSource</code></td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+The following table lists the services available in Landmarks:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Services</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>New</code> <a href="node136.html#subsec:landmarknew">6.5.1</a></td>
+<td align="LEFT">Get a template of landmark or category.</td>
+</tr>
+<tr><td align="LEFT"><code>Getlist</code> <a href="node137.html#subsec:landmarkgetlist">6.5.2</a></td>
+<td align="LEFT">Get a list of landmark databases, landmarks or landmark categories based on given criteria.</td>
+</tr>
+<tr><td align="LEFT"><code>Add</code> <a href="node138.html#subsec:landmarkadd">6.5.3</a></td>
+<td align="LEFT">Add or update a landmark and landmark category.</td>
+</tr>
+<tr><td align="LEFT"><code>Delete</code> <a href="node139.html#subsec:landmarkdel">6.5.4</a></td>
+<td align="LEFT">Delete a landmark and landmark category.</td>
+</tr>
+<tr><td align="LEFT"><code>Import</code> <a href="node140.html#subsec:landmarkimport">6.5.5</a></td>
+<td align="LEFT">Imports landmark(s).</td>
+</tr>
+<tr><td align="LEFT"><code>Export</code> <a href="node141.html#subsec:landmarkexport">6.5.6</a></td>
+<td align="LEFT">Launches application based on the Document.</td>
+</tr>
+<tr><td align="LEFT"><code>Organise</code> <a href="node142.html#subsec:landmarkorg">6.5.7</a></td>
+<td align="LEFT">Associate or disassociate a landmark category with a set of landmarks.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+
+<p><br /></p><hr class='online-navigation' />
+<div class='online-navigation'>
+<!--Table of Child-Links-->
+<a name="CHILD_LINKS"><strong>Subsections</strong></a>
+
+<ul class="ChildLinks">
+<li><a href="node136.html">6.5.1 New</a>
+<li><a href="node137.html">6.5.2 GetList</a>
+<li><a href="node138.html">6.5.3 Add</a>
+<li><a href="node139.html">6.5.4 Delete</a>
+<li><a href="node140.html">6.5.5 Import</a>
+<li><a href="node141.html">6.5.6 Export</a>
+<li><a href="node142.html">6.5.7 Organise</a>
+<li><a href="node143.html">6.5.8 Key Values</a>
+</ul>
+<!--End of Table of Child-Links-->
+</div>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.4.7 key Values"
+  href="node134.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6. scriptext - Platform"
+  href="scriptext.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.5.1 New"
+  href="node136.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node134.html">6.4.7 Key Values</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="scriptext.html">6. scriptext - Platform</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node136.html">6.5.1 New</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

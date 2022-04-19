@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node160.html" />
+<link rel="prev" href="node158.html" />
+<link rel="parent" href="node154.html" />
+<link rel="next" href="node160.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.8.5 ChangeStatus</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.8.4 CancelNotification"
+  href="node158.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.8 Messaging"
+  href="node154.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.8.6 Delete"
+  href="node160.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node158.html">6.8.4 CancelNotification</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node154.html">6.8 Messaging</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node160.html">6.8.6 Delete</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008850000000000000000"></a>
+<a name="subsec:msgchangestat"></a>
+<br>
+6.8.5 ChangeStatus
+</h2>
+
+<p>
+<code>ChangeStatus</code> method changes the read status of a message. The status can be <code>Read</code>, <code>Unread</code>, <code>Replied</code>, or <code>Forwarded</code>. It is available only in synchronous mode.
+
+<p>
+The following is an example for using <code>ChangeStatus</code>:
+
+<p>
+<b>Synchronous</b>
+
+<p>
+<div class="verbatim"><pre>
+messaging_handle.call('ChangeStatus', {'MessageId': message_id, 'Status': u'Unread'})
+</pre></div>
+
+<p>
+The following table summarizes the specification of <code>ChangeStatus</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT"><code>IMessaging</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT">Sets a given value for the given flag.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT">Synchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT">Valid instance of <code>IMessaging</code> interface is instantiated.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT">Message status changed to new status.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the message ID, and message status to be set.
+<br><p></p>
+<div align="CENTER"><a name="17890"></a>
+<table>
+<caption><strong>Table 6.178:</strong>
+Input parameters for ChangeStatus</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>MessageId</code></td>
+<td align="LEFT">32 bit int</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=227>Message Id</td>
+</tr>
+<tr><td align="LEFT">Status</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=85><code>Read</code> <br>
+<code>Unread</code> <br>
+<code>Replied</code> <br>
+<code>Forwarded</code></td>
+<td align="LEFT" valign="TOP" width=227>Message status to be set. <code>Replied</code> and <code>Forwarded</code> are applicable for email type of messages.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output parameters contain <code>ErrorCode</code>, and <code>ErrorMessage</code> if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="17907"></a>
+<table>
+<caption><strong>Table 6.179:</strong>
+Output parameters for ChangeStatus</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range (Type: string)</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">Error description in Engineering English.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="17923"></a>
+<table>
+<caption><strong>Table 6.180:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>0</code></td>
+<td align="LEFT">Success</td>
+</tr>
+<tr><td align="LEFT"><code>1000</code></td>
+<td align="LEFT">Invalid service argument</td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1003</code></td>
+<td align="LEFT">Missing argument</td>
+</tr>
+<tr><td align="LEFT"><code>1012</code></td>
+<td align="LEFT">Item Not found</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description: 
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="17949"></a>
+<table>
+<caption><strong>Table 6.181:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=227><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Messaging:ChangeStatus:MessageId Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the type of <code>MessageId</code> parameter is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Messaging:ChangeStatus:MessageId Value Incorrect</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the value of <code>MessageId</code> parameter is incorrect.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Messaging:ChangeStatus:MessageId Missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the <code>MessageId</code> parameter is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Messaging:ChangeStatus:Status Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the type of <code>Status</code> parameter is incorrect.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Messaging:ChangeStatus:Status Value Incorrect</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the range of <code>Status</code> parameter is exceeded.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Messaging:ChangeStatus:Status Missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the <code>Status</code> parameter is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Messaging:ChangeStatus:Asynchronous Operation not supported</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if <code>ChangeStatus</code> is called asynchronously.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to set SMS status as <code>Unread</code>:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+import appuifw
+
+messaging_handle = scriptext.load('Service.Messaging', 'IMessaging')
+
+sms_iter = messaging_handle.call('GetList', {'Type': u'Inbox'})
+id_list = []
+body_list = []
+for sms_dict in sms_iter:
+    if sms_dict['MessageType'] == 'SMS': 
+        id_list.append(sms_dict['MessageId'])
+        body_list.append(sms_dict['BodyText'])
+
+message_index = appuifw.selection_list(body_list)
+try:
+    messaging_handle.call('ChangeStatus', {'MessageId': id_list[message_index],
+                                           'Status': u'Unread'})
+except scriptext.ScriptextError, err:
+    print "Error setting message status to Unread"
+else:
+    print "Message status changed to Unread"
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.8.4 CancelNotification"
+  href="node158.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.8 Messaging"
+  href="node154.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.8.6 Delete"
+  href="node160.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node158.html">6.8.4 CancelNotification</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node154.html">6.8 Messaging</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node160.html">6.8.6 Delete</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

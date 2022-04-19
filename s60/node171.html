@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node172.html" />
+<link rel="prev" href="node170.html" />
+<link rel="parent" href="node168.html" />
+<link rel="next" href="node172.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.11.3 GetNotification</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.11.2 SetInfo"
+  href="node170.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.11 sys Info"
+  href="node168.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.11.4 key Values"
+  href="node172.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node170.html">6.11.2 SetInfo</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node168.html">6.11 Sys Info</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node172.html">6.11.4 Key Values</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION0081130000000000000000"></a>
+<a name="subsec:sysinfogetnotify"></a>
+<br>
+6.11.3 GetNotification
+</h2>
+
+<p>
+<code>GetNotification</code> method registers a callback function to receive notifications of system data. It takes a set of input parameters that specifies entity and key of System Attribute. <br>
+It is available in only asynchronous mode. 
+
+<p>
+The following is an example for using <code>GetNotification</code>:
+
+<p>
+<b>Asynchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+event_id = sysinfo_handle.call("GetNotification", 
+                               {"Entity": u"Battery", "Key":  u"ChargingStatus"}, 
+                               callback=sysinfo_callback)
+</pre></div>
+
+<p>
+where, <code>sysinfo_callback</code> is user defined function.
+
+<p>
+The following table summarizes the specification of <code>GetNotification</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT"><code>ISysinfo</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT">Registers a callback function for listening to notifications.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT">Asynchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT">ISysInfo Interface is loaded.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT">Returns the generic parameter system data on success.</td>
+</tr>
+</table>
+</div>
+<br> 
+
+<p>
+
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the Entity and Key of system attribute, and system data.
+<br><p></p>
+<div align="CENTER"><a name="20289"></a>
+<table>
+<caption><strong>Table 6.213:</strong>
+Input parameters for GetNotification</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=57><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Entity</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=57>For complete list of supported Entities, refer Key Values <a href="node172.html#subsec:sysinfokeyval">6.11.4</a> section.</td>
+<td align="LEFT" valign="TOP" width=170>Entity of system attribute. For example, <code>Battery</code> <br>
+<code>Network</code> and so on.</td>
+</tr>
+<tr><td align="LEFT">Key</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=57>For complete list of supported Keys, refer Key Values <a href="node172.html#subsec:sysinfokeyval">6.11.4</a> section.</td>
+<td align="LEFT" valign="TOP" width=170>Key of system attribute. For example, <code>BatteryStrenth</code> <br>
+<code>CurrentNetwork</code> and so on.</td>
+</tr>
+<tr><td align="LEFT">[SystemData]</td>
+<td align="LEFT">map</td>
+<td align="LEFT" valign="TOP" width=57>Status information <br>
+Status: int <br>
+
+<p>
+<code>DriveInfo</code> <br>
+Drive: unicode string <br>
+CriticalSpace: int</td>
+<td align="LEFT" valign="TOP" width=170>This is an optional parameter from API definition point of view. For some system attributes, you need to specify input. <br>
+
+<p>
+This map must contain one of the input data specifiers defined in System Data. <br>
+
+<p>
+For more information on input specifier refer the section Key Values <a href="node172.html#subsec:sysinfokeyval">6.11.4</a>. <br>
+
+<p>
+Here are some system attributes for which status information is used as input specifier. <br>
+
+<p>
+<code>DriveNumber</code> and critical space to be specified for drive critical memory notifications. <br>
+
+<p>
+For example,
+Battery- <code>BatteryStrength</code> (Threshold Strength value). <br>
+Network- <code>Signal</code> (Threshold Signal value).</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+
+<b>Output Parameters</b> <br>
+
+<p>
+Output parameter returns an object that contains the requested information. It also contains <code>ErrorCode</code> and an <code>ErrorMessage</code>, if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="20315"></a>
+<table>
+<caption><strong>Table 6.214:</strong>
+Output parameters for GetNotification</caption>
+<tr><td>
+<div align="CENTER">
+<small class="FOOTNOTESIZE"></small><table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><small class="FOOTNOTESIZE">
+</small><small class="FOOTNOTESIZE"><b>Name</b> </small></td>
+<td align="LEFT" valign="TOP" width=57><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Type</b> </small></td>
+<td align="LEFT" valign="TOP" width=85><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Range</b> </small></td>
+<td align="LEFT" valign="TOP" width=198><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Description</b>  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+<code>ErrorCode</code> </small></td>
+<td align="LEFT" valign="TOP" width=57><small class="FOOTNOTESIZE"> int </small></td>
+<td align="LEFT" valign="TOP" width=85><small class="FOOTNOTESIZE"> NA </small></td>
+<td align="LEFT" valign="TOP" width=198><small class="FOOTNOTESIZE"> Contains the SAPI specific error code when the operation fails.  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+<code>ErrorMessage</code> </small></td>
+<td align="LEFT" valign="TOP" width=57><small class="FOOTNOTESIZE"> string </small></td>
+<td align="LEFT" valign="TOP" width=85><small class="FOOTNOTESIZE"> NA </small></td>
+<td align="LEFT" valign="TOP" width=198><small class="FOOTNOTESIZE"> Error Description in Engineering English.  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+<code>ReturnValue</code> </small></td>
+<td align="LEFT" valign="TOP" width=57><small class="FOOTNOTESIZE"> map(System Data) <br>
+Entity: string <br>
+Key: string </small></td>
+<td align="LEFT" valign="TOP" width=85><small class="FOOTNOTESIZE"> For complete range of keys for the particular map, refer to </small><small class="FOOTNOTESIZE"><b>System Data</b> in </small><small class="FOOTNOTESIZE"><b>Key Value</b> section. </small></td>
+<td align="LEFT" valign="TOP" width=198><small class="FOOTNOTESIZE"> Output map always contains Entity and Key. Rest of the elements in the map depends on requested system attribute (Entity-Key). It will be one of the data specifiers defined in System Data. <br>
+</small>
+<p>
+<small class="FOOTNOTESIZE">On requesting drive information using system attribute (for example: <code>Memory</code>, <code>DriveInfo</code>), <code>ReturnValue</code> map will contain Keys defined in <code>DriveInfo</code> Map.   </small></td>
+</tr>
+</table><small class="FOOTNOTESIZE">
+
+</small></div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="20331"></a>
+<table>
+<caption><strong>Table 6.215:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<small class="FOOTNOTESIZE"></small><table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><small class="FOOTNOTESIZE">
+</small><small class="FOOTNOTESIZE"><b>Error code value</b> </small></td>
+<td align="LEFT"><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Description</b>  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+<code>1002</code> </small></td>
+<td align="LEFT"><small class="FOOTNOTESIZE"> Bad argument type  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+<code>1003</code> </small></td>
+<td align="LEFT"><small class="FOOTNOTESIZE"> Missing argument  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+<code>1006</code> </small></td>
+<td align="LEFT"><small class="FOOTNOTESIZE"> Service not ready  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+<code>1010</code> </small></td>
+<td align="LEFT"><small class="FOOTNOTESIZE"> Entry exists  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+<code>1012</code> </small></td>
+<td align="LEFT"><small class="FOOTNOTESIZE"> Item not found  </small></td>
+</tr>
+</table><small class="FOOTNOTESIZE">
+
+</small></div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description:
+<br><p></p>
+<div align="CENTER"><a name="20352"></a>
+<table>
+<caption><strong>Table 6.216:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=170><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>SysInfo:GetNotification: Insufficient Arguments to process</code></td>
+<td align="LEFT" valign="TOP" width=227>At least two input arguments are expected to process <code>GetNotification</code> service request.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>SysInfo:GetNotification: Entity:Input Parameter Missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates mandatory parameter Entity is missing in the service request.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>SysInfo:GetNotification: Key:Input Parameter Missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates mandatory parameter Key is missing in the service request.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>SysInfo:GetNotification: Incorrect SystemData Type, SystemData Must be a Map</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that either the optional parameter <code>SystemData</code> specified is not a map or content of the map is inappropriate to process request.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>SysInfo:GetNotification: Sync Version Not Supported</code></td>
+<td align="LEFT" valign="TOP" width=227>This message is given when <code>GetNotification</code> is requested without specifying callback or <code>CmdOptions</code> set to Synchronous request type.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+import e32
+
+lock = e32.Ao_lock()
+messaging_handle = scriptext.load('Service.SysInfo', 'ISysInfo')
+
+def sysinfo_callback(trans_id, event_id, input_params):
+    if event_id != scriptext.EventCompleted:   
+# Check the event status
+        print "Error in retrieving required info"
+        print "Error code is: " + str(input_params["ReturnValue"]["ErrorCode"])
+        if "ErrorMessage" in input_params["ReturnValue"]:
+            print "Error message is: " + input_params["ReturnValue"]["ErrorMessage"]
+    else:
+        print "Current Battery charging value: " + str(input_params["ReturnValue"]["Status"])
+    lock.signal()
+
+# Make a request to get notification
+event_id = sysinfo_handle.call("GetNotification", {"Entity": u"Battery", "Key": u"ChargingStatus"}, callback=sysinfo_callback)
+lock.wait()
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.11.2 SetInfo"
+  href="node170.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.11 sys Info"
+  href="node168.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.11.4 key Values"
+  href="node172.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node170.html">6.11.2 SetInfo</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node168.html">6.11 Sys Info</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node172.html">6.11.4 Key Values</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

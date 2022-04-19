@@ -1,0 +1,513 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node157.html" />
+<link rel="prev" href="node155.html" />
+<link rel="parent" href="node154.html" />
+<link rel="next" href="node157.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.8.2 Send</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.8.1 GetList"
+  href="node155.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.8 Messaging"
+  href="node154.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.8.3 RegisterNotification"
+  href="node157.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node155.html">6.8.1 GetList</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node154.html">6.8 Messaging</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node157.html">6.8.3 RegisterNotification</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008820000000000000000"></a>
+<a name="subsec:msgsend"></a>
+<br>
+6.8.2 Send
+</h2>
+
+<p>
+<code>Send</code> is used to send an SMS or MMS message. It takes a set of input parameters that specifies the message type, and the message details associated with that particular message type.
+
+<p>
+The following are the examples for using <code>Send</code>:
+
+<p>
+<b>Synchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+messaging_handle.call('Send', {'MessageType': u'SMS', 'To': u'12345678',
+                               'BodyText': u'Hi'})
+</pre></div>
+
+<p>
+<b>Asynchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+messaging_handle.call('Send', {'MessageType': u'SMS', 'To': u'12345678', 'BodyText': u'Hi'},
+                      callback=callback_function)
+</pre></div>
+
+<p>
+where, <code>callback_function</code> is a user defined callback function.
+
+<p>
+The following table summarizes the specification of <code>Send</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT"><code>IMessaging</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT">Sends the message.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT">Synchronous and asynchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT">Valid instance of <code>IMessaging</code> interface is instantiated.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT">Nil</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the type of messaging object and its details.
+<br><p></p>
+<div align="CENTER"><a name="17536"></a>
+<table>
+<caption><strong>Table 6.166:</strong>
+Input parameters for Send</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">MessageType</td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=85>SMS <br>
+MMS</td>
+<td align="LEFT" valign="TOP" width=170>This specifies the message type.</td>
+</tr>
+<tr><td align="LEFT">To</td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=170>Multiple recipients can be passed using <code>MessageParam</code>.</td>
+</tr>
+<tr><td align="LEFT">[BodyText]</td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=170>Body text for the message.</td>
+</tr>
+<tr><td align="LEFT">[Subject]</td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=170>Message subject. Not applicable for SMS.</td>
+</tr>
+<tr><td align="LEFT">[Attachment]</td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=85><code>FileName</code> with complete path.</td>
+<td align="LEFT" valign="TOP" width=170>Attachment Name (Full path). Valid for MMS only. Additional attachments can be passed using <code>MessageParam</code>.</td>
+</tr>
+<tr><td align="LEFT">[MimeType]</td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=170>Mime type of the attachment mentioned above.</td>
+</tr>
+<tr><td align="LEFT">[MessageParam]</td>
+<td align="LEFT" valign="TOP" width=85>map <br>
+[To]: List (unicode string) <br>
+[Cc]: List (unicode string) <br>
+[Bcc]: List (unicode string) <br>
+[AttachmentList]: List (map) <br>
+[TemplateId]: 32 bit int <br>
+[LaunchEditor]: bool <br>
+
+<p>
+<code>AttachmentList</code> map elements contains: <br>
+<code>FileName</code>: unicode string <br>
+<code>[MimeType]</code>: unicode string</td>
+<td align="LEFT" valign="TOP" width=85><code>FileName</code>: <code>FileName</code> with complete path. <br>
+
+<p>
+<code>MimeType</code> example: image/gif, image/jpeg and so on. <br>
+<code>MimeType</code> is searched in system for the given file name. It is used if found or, user provided <code>MimeType</code> is taken.</td>
+<td align="LEFT" valign="TOP" width=170>This parameter specifies the full details of the message depending on its type. It adds the body text as text attachment in case of MMS. Template Id is the message id, which is the template for new message. <code>Bcc</code> is supported for email only. (Currently email is not supported in the service) <br>
+
+<p>
+In case of template id, if the body text of message is specified and exists for the given template Id then both the body text specified will be appended to the template Id message body text and sent. <br>
+
+<p>
+If Launch Editor Flag is set to <b>ETrue</b> then, the Message Editor will be popped up over the application expecting you to act, by default it is <b>EFalse</b>.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output parameters contain <code>ErrorCode</code>, and <code>ErrorMessage</code> if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="17553"></a>
+<table>
+<caption><strong>Table 6.167:</strong>
+Output parameters for Send</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range (Type: string)</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">Error description in Engineering English.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="17571"></a>
+<table>
+<caption><strong>Table 6.168:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>0</code></td>
+<td align="LEFT">Success</td>
+</tr>
+<tr><td align="LEFT"><code>1000</code></td>
+<td align="LEFT">Invalid service argument</td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1003</code></td>
+<td align="LEFT">Missing argument</td>
+</tr>
+<tr><td align="LEFT"><code>1004</code></td>
+<td align="LEFT">Service not supported</td>
+</tr>
+<tr><td align="LEFT"><code>1007</code></td>
+<td align="LEFT">No memory</td>
+</tr>
+<tr><td align="LEFT"><code>1012</code></td>
+<td align="LEFT">Item Not found</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description: 
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="17642"></a>
+<table>
+<caption><strong>Table 6.169:</strong>
+Error messages</caption>
+<tr><td><small class="SCRIPTSIZE">
+</small>
+<div align="CENTER"><small class="SCRIPTSIZE"></small><table cellpadding=3 border="1">
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE">
+</small><small class="SCRIPTSIZE"><b>Error messages</b> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> </small><small class="SCRIPTSIZE"><b>Description</b> </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:MessageType Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of <code>MessageType</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:MessageType Value Incorrect</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the value of <code>MessageType</code> parameter is incorrect.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:MessageType Missing</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the <code>MessageType</code> parameter is missing.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:To Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of <code>To</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:To Value Incorrect</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the value of <code>To</code> parameter is incorrect.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:To Missing</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the <code>To</code> parameter is missing.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:BodyText Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of <code>BodyText</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:Subject Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of <code>Subject</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:Attachment Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of <code>Attachment</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:Attachment Value Incorrect</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the value of Attachment parameter is incorrect.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:MimeType Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies  if the type of <code>MimeType</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:MimeType Value Incorrect</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the value of <code>MimeType</code> parameter is incorrect.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:MessageParam Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of <code>MessageParam</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:TemplateId Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of <code>TemplateId</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:LaunchEditor Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of <code>LaunchEditor</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:To Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of <code>To</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:To List Element Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of element of <code>To List</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:To List Element Value Incorrect</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the value of element of <code>To List</code> parameter is incorrect.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:Cc Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of <code>Cc</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:Cc List Element Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of element of <code>Cc List</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:Cc List Element Value Incorrect</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the value of element of <code>Cc List</code> parameter is incorrect.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:Bcc Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of <code>Bcc</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:Bcc List Element Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of element of <code>Bcc List</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:Bcc List Element Value Incorrect</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the value of element of <code>Bcc List</code> parameter is incorrect.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:AttachmentList Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of <code>AttachmentList</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:AttachmentList Element Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of element of <code>AttachmentList</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:FileName Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of <code>FileName</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:FileName Value Incorrect</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the value <code>FileName</code> parameter is incorrect.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:MimeType Type Invalid</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the type of <code>MimeType</code> parameter is invalid.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><small class="SCRIPTSIZE"> 
+
+<code>Messaging:Send:MimeType Value Incorrect</code> </small></td>
+<td align="LEFT" valign="TOP" width=227><small class="SCRIPTSIZE"> Specifies if the value <code>MimeType</code> parameter is incorrect.  </small></td>
+</tr>
+</table><small class="SCRIPTSIZE">
+</small></div><small class="SCRIPTSIZE"></small></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to send SMS message to the specified phone number:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+
+messaging_handle = scriptext.load('Service.Messaging', 'IMessaging')
+
+try:
+    messaging_handle.call('Send', {'MessageType': u'SMS', 'To': u'12345678',
+                                   'BodyText': u'Hi'})
+except scriptext.ScriptextError, err:
+    print "Error sending SMS : ", err
+else:
+    print "SMS sent successfully"
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.8.1 GetList"
+  href="node155.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.8 Messaging"
+  href="node154.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.8.3 RegisterNotification"
+  href="node157.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node155.html">6.8.1 GetList</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node154.html">6.8 Messaging</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node157.html">6.8.3 RegisterNotification</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

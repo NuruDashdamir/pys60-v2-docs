@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node135.html" />
+<link rel="prev" href="node119.html" />
+<link rel="parent" href="scriptext.html" />
+<link rel="next" href="node128.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.4 Contacts</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.3.7 key Values"
+  href="node126.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6. scriptext - Platform"
+  href="scriptext.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.4.1 GetList"
+  href="node128.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node126.html">6.3.7 Key Values</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="scriptext.html">6. scriptext - Platform</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node128.html">6.4.1 GetList</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h1><a name="SECTION008400000000000000000"></a>
+<a name="sec:scriptextcontact"></a>
+<br>
+6.4 Contacts
+</h1>
+
+<p>
+The Contacts service enables Python applications to access and manage contacts information. This information can reside in one or more contacts databases stored on a device or, in the SIM card database. <br>
+It enables applications to perform the following operations on the Contacts Database:
+
+<ul>
+<li>Retrieve contact or group information
+</li>
+<li>Add contact or group
+</li>
+<li>Edit a particular contact or group
+</li>
+<li>Import and export a contact
+</li>
+<li>Delete a contact or group item
+</li>
+</ul>
+
+<p>
+The following sample code is used to load the provider:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+contact_handle = scriptext.load('Service.Contact', 'IDataSource')
+</pre></div>
+
+<p>
+The following table summarizes the Contacts Interface:
+
+<p>
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Service provider</b></td>
+<td align="LEFT"><code>Service.Contact</code></td>
+</tr>
+<tr><td align="LEFT"><b>Supported interfaces</b></td>
+<td align="LEFT"><code>IDataSource</code></td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+The following table lists the services available in Calendar:
+
+<p>
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>Services</b></td>
+<td align="LEFT" valign="TOP" width=283><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>GetList</code> <a href="node128.html#subsec:contactgetlist">6.4.1</a></td>
+<td align="LEFT" valign="TOP" width=283>Retrieves a list of contacts or groups in the default or specified database, also used to get the list of existing databases.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>Add</code> <a href="node129.html#subsec:contactadd">6.4.2</a></td>
+<td align="LEFT" valign="TOP" width=283>Adds contact or group to the specified or default contacts database.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>Delete</code> <a href="node130.html#subsec:contactdel">6.4.3</a></td>
+<td align="LEFT" valign="TOP" width=283>Deletes an array of contacts or groups from the specified or default contacts database.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>Import</code> <a href="node131.html#subsec:contactimport">6.4.4</a></td>
+<td align="LEFT" valign="TOP" width=283>Imports contact to the specified contacts database.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>Export</code> <a href="node132.html#subsec:contactexport">6.4.5</a></td>
+<td align="LEFT" valign="TOP" width=283>Exports the selected item from the contacts database specified as VCard.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>Organise</code> <a href="node133.html#subsec:contactorg">6.4.6</a></td>
+<td align="LEFT" valign="TOP" width=283>Associate or Disassociate a list of contacts in a database to and from a group.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+
+<p><br /></p><hr class='online-navigation' />
+<div class='online-navigation'>
+<!--Table of Child-Links-->
+<a name="CHILD_LINKS"><strong>Subsections</strong></a>
+
+<ul class="ChildLinks">
+<li><a href="node128.html">6.4.1 GetList</a>
+<li><a href="node129.html">6.4.2 Add</a>
+<li><a href="node130.html">6.4.3 Delete</a>
+<li><a href="node131.html">6.4.4 Import</a>
+<li><a href="node132.html">6.4.5 Export</a>
+<li><a href="node133.html">6.4.6 Organise</a>
+<li><a href="node134.html">6.4.7 Key Values</a>
+</ul>
+<!--End of Table of Child-Links-->
+</div>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.3.7 key Values"
+  href="node126.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6. scriptext - Platform"
+  href="scriptext.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.4.1 GetList"
+  href="node128.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node126.html">6.3.7 Key Values</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="scriptext.html">6. scriptext - Platform</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node128.html">6.4.1 GetList</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

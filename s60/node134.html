@@ -1,0 +1,437 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="prev" href="node133.html" />
+<link rel="parent" href="node127.html" />
+<link rel="next" href="node135.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.4.7 Key Values</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.4.6 Organise"
+  href="node133.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.4 Contacts"
+  href="node127.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.5 Landmarks"
+  href="node135.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node133.html">6.4.6 Organise</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node127.html">6.4 Contacts</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node135.html">6.5 Landmarks</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008470000000000000000"></a>
+<a name="subsec:contactkeyval"></a>
+<br>
+6.4.7 Key Values
+</h2>
+
+<p>
+For uri- <b>cntdb://c:contacts.cdb</b>:
+
+<p>
+
+<ul>
+<li>All keys are supported on S60 3rd Edition FP2 and S60 5th Edition devices.
+</li>
+<li>Keys documented in 
+<font color="#00ff00">green</font> are not supported in S60 3rd Edition and S60 3rd Edition FP1.
+</li>
+<li>Keys documented in 
+<font color="#0000ff">blue</font> are not supported in S60 3rd Edition only.
+</li>
+</ul>
+
+<p>
+For uri- <b>sim://global_adn</b>, which is supported only on <b>3.2</b> and <b>5.0</b>:
+
+<p>
+
+<ul>
+<li>Keys documented in 
+<font color="#ff0000">red</font> are only supported.
+</li>
+</ul>
+
+<p>
+Keys supported are dependent on the accessing database and not platform dependent. <br>
+
+<p>
+The keys listed in the following table are a superset of all the keys supported on all Third Edition and Fifth Edition platforms and different databases altogether. If you try to add an unsupported key on a given database and a given platform, the API returns an error message. <br>
+
+<p>
+<div class="note"><b class="label">Note:</b>
+
+SyncClass field is added to the contact by default, with a <b>Synchronisation</b> label and <b>private</b> value. (unless specified as <b>public</b>). All values other than <b>private</b> or <b>public</b> are stored as <b>private</b>.
+</div>
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>Description</b></td>
+<td align="LEFT"><b>Max Length</b></td>
+</tr>
+<tr><td align="LEFT"><font color="#ff0000">LastName</font></td>
+<td align="LEFT">Last name field</td>
+<td align="LEFT">50 (14 for sim)</td>
+</tr>
+<tr><td align="LEFT">FirstName</td>
+<td align="LEFT">First name field</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">Prefix</td>
+<td align="LEFT">Name prefix field</td>
+<td align="LEFT">10</td>
+</tr>
+<tr><td align="LEFT">Suffix</td>
+<td align="LEFT">Name suffix field</td>
+<td align="LEFT">10</td>
+</tr>
+<tr><td align="LEFT">SecondName</td>
+<td align="LEFT">Second name field</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">LandPhoneHome</td>
+<td align="LEFT">Home land phone number</td>
+<td align="LEFT">48</td>
+</tr>
+<tr><td align="LEFT">MobilePhoneHome</td>
+<td align="LEFT">Home mobile phone number</td>
+<td align="LEFT">48</td>
+</tr>
+<tr><td align="LEFT">VideoNumberHome</td>
+<td align="LEFT">Home video number field</td>
+<td align="LEFT">48</td>
+</tr>
+<tr><td align="LEFT">FaxNumberHome</td>
+<td align="LEFT">Home FAX number</td>
+<td align="LEFT">48</td>
+</tr>
+<tr><td align="LEFT">VoipHome</td>
+<td align="LEFT">Home VOIP phone number</td>
+<td align="LEFT">100</td>
+</tr>
+<tr><td align="LEFT">EmailHome</td>
+<td align="LEFT">Home Email address</td>
+<td align="LEFT">150</td>
+</tr>
+<tr><td align="LEFT">URLHome</td>
+<td align="LEFT">Home URL</td>
+<td align="LEFT">1000</td>
+</tr>
+<tr><td align="LEFT">AddrLabelHome</td>
+<td align="LEFT">Home Address label</td>
+<td align="LEFT">250</td>
+</tr>
+<tr><td align="LEFT">AddrPOHome</td>
+<td align="LEFT">Home address post office</td>
+<td align="LEFT">20</td>
+</tr>
+<tr><td align="LEFT">AddrEXTHome</td>
+<td align="LEFT">Home address extension</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">AddrStreetHome</td>
+<td align="LEFT">Home address street</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">AddrLocalHome</td>
+<td align="LEFT">Home address local</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">AddrRegionHome</td>
+<td align="LEFT">Home address region</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">AddrPostCodeHome</td>
+<td align="LEFT">Home address post code</td>
+<td align="LEFT">20</td>
+</tr>
+<tr><td align="LEFT">AddrCountryHome</td>
+<td align="LEFT">Home address country</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">JobTitle</td>
+<td align="LEFT">Job title field</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">CompanyName</td>
+<td align="LEFT">Company name field</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">LandPhoneWork</td>
+<td align="LEFT">Work land phone number</td>
+<td align="LEFT">48</td>
+</tr>
+<tr><td align="LEFT">MobilePhoneWork</td>
+<td align="LEFT">Work mobile phone number</td>
+<td align="LEFT">48</td>
+</tr>
+<tr><td align="LEFT">VideoNumberWork</td>
+<td align="LEFT">Work video number field</td>
+<td align="LEFT">48</td>
+</tr>
+<tr><td align="LEFT">FaxNumberWork</td>
+<td align="LEFT">Work FAX number</td>
+<td align="LEFT">48</td>
+</tr>
+<tr><td align="LEFT">VoipWork</td>
+<td align="LEFT">Work VOIP</td>
+<td align="LEFT">100</td>
+</tr>
+<tr><td align="LEFT">EmailWork</td>
+<td align="LEFT">Work email id</td>
+<td align="LEFT">150</td>
+</tr>
+<tr><td align="LEFT">URLWork</td>
+<td align="LEFT">Work URL field</td>
+<td align="LEFT">1000</td>
+</tr>
+<tr><td align="LEFT">AddrLabelWork</td>
+<td align="LEFT">Work address label</td>
+<td align="LEFT">250</td>
+</tr>
+<tr><td align="LEFT">AddrPOWork</td>
+<td align="LEFT">Work address post office</td>
+<td align="LEFT">20</td>
+</tr>
+<tr><td align="LEFT">AddrEXTWork</td>
+<td align="LEFT">Work address extension</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">AddrStreetWork</td>
+<td align="LEFT">Work address street</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">AddrLocalWork</td>
+<td align="LEFT">Work address local field</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">AddrRegionWork</td>
+<td align="LEFT">Work address region</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">AddrPostCodeWork</td>
+<td align="LEFT">Work address post code</td>
+<td align="LEFT">20</td>
+</tr>
+<tr><td align="LEFT">AddrCountryWork</td>
+<td align="LEFT">Work address country</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">LandPhoneGen</td>
+<td align="LEFT">General land phone number</td>
+<td align="LEFT">48</td>
+</tr>
+<tr><td align="LEFT"><font color="#ff0000">MobilePhoneGen</font></td>
+<td align="LEFT">General mobile phone number</td>
+<td align="LEFT">48</td>
+</tr>
+<tr><td align="LEFT">VideoNumberGen</td>
+<td align="LEFT">General video number</td>
+<td align="LEFT">48</td>
+</tr>
+<tr><td align="LEFT">FaxNumberGen</td>
+<td align="LEFT">General FAX number</td>
+<td align="LEFT">48</td>
+</tr>
+<tr><td align="LEFT">VOIPGen</td>
+<td align="LEFT">General VOIP</td>
+<td align="LEFT">100</td>
+</tr>
+<tr><td align="LEFT">POC</td>
+<td align="LEFT">POC field (Push to Talk Over Cellular)</td>
+<td align="LEFT">100</td>
+</tr>
+<tr><td align="LEFT"><font color="#00ff00">SWIS</font></td>
+<td align="LEFT"><font color="#00ff00">SWIS field (See What I See).</font></td>
+<td align="LEFT">100</td>
+</tr>
+<tr><td align="LEFT">SIP</td>
+<td align="LEFT">SIP Identity field</td>
+<td align="LEFT">100</td>
+</tr>
+<tr><td align="LEFT">EmailGen</td>
+<td align="LEFT">General Email id</td>
+<td align="LEFT">150</td>
+</tr>
+<tr><td align="LEFT">URLGen</td>
+<td align="LEFT">General URL field</td>
+<td align="LEFT">1000</td>
+</tr>
+<tr><td align="LEFT">AddrLabelGen</td>
+<td align="LEFT">General address label</td>
+<td align="LEFT">250</td>
+</tr>
+<tr><td align="LEFT">AddrPOGen</td>
+<td align="LEFT">General address post office</td>
+<td align="LEFT">20</td>
+</tr>
+<tr><td align="LEFT">AddrExtGen</td>
+<td align="LEFT">General address extension</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">AddrStreetGen</td>
+<td align="LEFT">General address street</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">AddrLocalGen</td>
+<td align="LEFT">General address local field</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">AddrRegionGen</td>
+<td align="LEFT">General address region</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">AddrPostCodeGen</td>
+<td align="LEFT">General address post code</td>
+<td align="LEFT">20</td>
+</tr>
+<tr><td align="LEFT">AddrCountryGen</td>
+<td align="LEFT">General address country</td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT">PageNumber</td>
+<td align="LEFT">Pager number</td>
+<td align="LEFT">48</td>
+</tr>
+<tr><td align="LEFT">DTMFString</td>
+<td align="LEFT">DTMF String</td>
+<td align="LEFT">60</td>
+</tr>
+<tr><td align="LEFT">Date</td>
+<td align="LEFT">Date field</td>
+<td align="LEFT">This field is in TTime format</td>
+</tr>
+<tr><td align="LEFT">Note</td>
+<td align="LEFT">Note field</td>
+<td align="LEFT">1000</td>
+</tr>
+<tr><td align="LEFT">Ringtone</td>
+<td align="LEFT">Ring tone field</td>
+<td align="LEFT">256</td>
+</tr>
+<tr><td align="LEFT"><font color="#0000ff">MiddleName</font></td>
+<td align="LEFT"><font color="#0000ff">Middle name field</font></td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT"><font color="#0000ff">Department</font></td>
+<td align="LEFT"><font color="#0000ff">Department name field</font></td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT"><font color="#0000ff">AsstName</font></td>
+<td align="LEFT"><font color="#0000ff">Assistant name field</font></td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT"><font color="#0000ff">Spouse</font></td>
+<td align="LEFT"><font color="#0000ff">Spouse name field</font></td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT"><font color="#0000ff">Children</font></td>
+<td align="LEFT"><font color="#0000ff">Children field</font></td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT"><font color="#0000ff">AsstPhone</font></td>
+<td align="LEFT"><font color="#0000ff">Assistant phone number</font></td>
+<td align="LEFT">50</td>
+</tr>
+<tr><td align="LEFT"><font color="#0000ff">CarPhone</font></td>
+<td align="LEFT"><font color="#0000ff">Car phone number</font></td>
+<td align="LEFT">48</td>
+</tr>
+<tr><td align="LEFT"><font color="#0000ff">Anniversary</font></td>
+<td align="LEFT"><font color="#0000ff">Anniversary field</font></td>
+<td align="LEFT">This field is in TTime format</td>
+</tr>
+<tr><td align="LEFT"><font color="#0000ff">SyncClass</font></td>
+<td align="LEFT"><font color="#0000ff">Synchronisation field</font> <br>
+
+<p>
+
+<font color="#0000ff">Possible values of this field are <b>Public</b> or <b>Private</b>, all other entries takes the value <b>Private</b>.</font></td>
+<td align="LEFT">1000</td>
+</tr>
+<tr><td align="LEFT">LOCPrivacy</td>
+<td align="LEFT">Locality Privacy field</td>
+<td align="LEFT">256</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.4.6 Organise"
+  href="node133.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.4 Contacts"
+  href="node127.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.5 Landmarks"
+  href="node135.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node133.html">6.4.6 Organise</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node127.html">6.4 Contacts</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node135.html">6.5 Landmarks</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

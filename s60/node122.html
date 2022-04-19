@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node123.html" />
+<link rel="prev" href="node121.html" />
+<link rel="parent" href="node119.html" />
+<link rel="next" href="node123.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.3.3 Delete</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.3.2 Add"
+  href="node121.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.3 Calendar"
+  href="node119.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.3.4 Import"
+  href="node123.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node121.html">6.3.2 Add</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node119.html">6.3 Calendar</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node123.html">6.3.4 Import</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008330000000000000000"></a>
+<a name="subsec:calendardel"></a>
+<br>
+6.3.3 Delete
+</h2>
+
+<p>
+<code>Delete</code> is used to remove a calendar from the device or, one or more entries from a calendar. Entries are deleted from the specified calendar or, from the default one if no calendar is specified. You can delete a calendar in synchronous mode. You can delete calendar entries both in synchronous and asynchronous mode.
+
+<p>
+<div class="note"><b class="label">Note:</b>
+
+<ul>
+<li>You cannot delete the default calendar.
+</li>
+<li>To delete a calendar or entries from a calendar, the corresponding calendar file must exist on the device.
+</li>
+</ul>
+</div>
+
+<p>
+The following are the examples for using <code>Delete</code>:
+
+<p>
+<b>Synchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+event_id = calendar_handle.call('Delete', {'Type': u'CalendarEntry', 'id': del_id_list})
+</pre></div>
+
+<p>
+<b>Asynchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+event_id = calendar_handle.call('Delete', {'Type': u'CalendarEntry', 'id': del_id_list}, callback= del_callback)
+</pre></div>
+
+<p>
+where <code>del_callback</code> is a user defined callback function.
+
+<p>
+The following table summarizes the specification of <code>Delete</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT" valign="TOP" width=227><code>IDataSource</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT" valign="TOP" width=227>Deletes the specified calendar from the Device or, one or more entries / instances from a specific calendar file.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT" valign="TOP" width=227>Synchronous for type <code>Calendar</code> and both synchronous and asynchronous for type <code>CalendarEntry</code>.</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT" valign="TOP" width=227><code>IDataSource</code> interface is loaded.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT" valign="TOP" width=227>Nil</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters for Calendar</b> <br>
+
+<p>
+Input parameter specifies the type on which the operation is performed and the details of the particular type.
+<br><p></p>
+<div align="CENTER"><a name="9613"></a>
+<table>
+<caption><strong>Table 6.38:</strong>
+Input parameters for Calendar Delete</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT"><code>Calendar</code></td>
+<td align="LEFT" valign="TOP" width=170>Performs the operation on all available calendars if the  type is <code>Calendar</code>.</td>
+</tr>
+<tr><td align="LEFT">Data</td>
+<td align="LEFT">map</td>
+<td align="LEFT"><code>CalendarName</code>: unicode string</td>
+<td align="LEFT" valign="TOP" width=170>Deletes the given calendar. You cannot delete the default calendar.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters for Calendar</b> <br>
+
+<p>
+Output parameter contains <code>ErrorCode</code> and an optional <code>ErrorMessage</code>, which is displayed when the operation fails. 
+<br><p></p>
+<div align="CENTER"><a name="9630"></a>
+<table>
+<caption><strong>Table 6.39:</strong>
+Output parameters for Calendar Delete</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">Error description in Engineering English.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Input Parameters for Calendar Entry</b> <br>
+
+<p>
+Input parameter specifies the type on which the operation is performed and the details of the particular type.
+<br><p></p>
+<div align="CENTER"><a name="9665"></a>
+<table>
+<caption><strong>Table 6.40:</strong>
+Input parameters for Calendar Entry Delete</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=113><code>CalendarEntry</code></td>
+<td align="LEFT" valign="TOP" width=170>Performs the operation on entries of the specified calendar, if the type is <code>CalendarEntry</code>.</td>
+</tr>
+<tr><td align="LEFT">Data</td>
+<td align="LEFT">map</td>
+<td align="LEFT" valign="TOP" width=113><b>[CalendarName]</b>: unicode string <br>
+<b>[IdList]</b> or <b>[LocalIdList]</b>: List of unicode string <br>
+<b>[StartRange]</b>: datetime <br>
+<b>[EndRange]</b>: datetime <br>
+<b>[DeleteAll]</b>: bool</td>
+<td align="LEFT" valign="TOP" width=170>Uses the default calendar if the <code>CalendarName</code> is not specified. <br>
+You can specify either <code>IdList</code> or <code>LocalIdList</code> with StartRange or EndRange or, both. <br>
+Deletes the instances within the specified range if range is specified. Deletes entries that match the <code>IdList</code> or <code>LocalIdList</code> if no range is specified. <br>
+Deletes all entries within the specified calendar if the <code>DeleteAll</code> field is set. <br>
+
+<p>
+One of the fields from the set <code>IdList</code> or <code>LocalIdList</code>, <code>StartRange</code>, <code>EndRange</code>, and <code>DeleteAll</code> must be passed to delete entries. If not, error is returned. Invalid <code>id</code> or <code>LocalIds</code> from list are ignored.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters for Calendar Entry</b> <br>
+
+<p>
+Output parameter contains <code>ErrorCode</code>, and an <code>ErrorMessage</code>, which is displayed when the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="9682"></a>
+<table>
+<caption><strong>Table 6.41:</strong>
+Output parameters for Calendar Entry Delete</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">Error description in Engineering English.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the errors and their values:
+<br><p></p>
+<div align="CENTER"><a name="9696"></a>
+<table>
+<caption><strong>Table 6.42:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>1000</code></td>
+<td align="LEFT">Invalid service argument</td>
+</tr>
+<tr><td align="LEFT"><code>1004</code></td>
+<td align="LEFT">Service not supported</td>
+</tr>
+<tr><td align="LEFT"><code>1012</code></td>
+<td align="LEFT">Item not found</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the errors messages and their description:
+<br><p></p>
+<div align="CENTER"><a name="9728"></a>
+<table>
+<caption><strong>Table 6.43:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Delete:Type is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Delete called with invalid Type</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Delete:CalendarName is missing</code></td>
+<td align="LEFT" valign="TOP" width=170>Delete (type <code>Calendar</code>) called without passing <code>CalendarName</code></td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Delete:CalendarName is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type is passed for <code>CalendarName</code></td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Delete:StartRange is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type is passed for <code>StartRange</code> parameter</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Delete:EndRange is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type is passed for <code>EndRange</code> parameter</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Delete:DeleteAll is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type is passed for <code>DeleteAll</code> parameter</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Delete:IdList is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type is passed for <code>IdList</code> parameter</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Delete:LocalIdList is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type is passed for <code>LocalIdList</code> parameter</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Delete:Data is missing</code></td>
+<td align="LEFT" valign="TOP" width=170>Delete (type <code>CalendarEntry</code>) called with invalid delete <code>Data</code></td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Delete:Data is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type is passed for <code>Data</code> parameter</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to delete a specified calendar entry in asynchronous mode:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+import e32
+
+# Using e32.Ao_lock() so that the main function can wait 
+# till the callback is hit.
+lock = e32.Ao_lock()
+
+# Callback function will be called when the requested service is complete
+def del_callback(trans_id, event_id, input_params):
+    if event_id != scriptext.EventCompleted:   
+# Check the event status
+        print "Error in the operation"
+        print "Error code is: " + str(input_params["ReturnValue"]["ErrorCode"])
+        if "ErrorMessage" in input_params["ReturnValue"]:
+            print "Error message is: " + input_params["ReturnValue"]["ErrorMessage"]
+    elif event_id == scriptext.EventCompleted:
+        print "Entry deleted successfully."
+
+    lock.signal()
+
+# Returns the list of calendar id's that needs to be deleted.
+del_id_list = get_cal_del_id()
+
+# Load Calendar service
+calendar_handle = scriptext.load('Service.Calendar', 'IDataSource')
+event_id = calendar_handle.call('Delete', {'Type': u'CalendarEntry', 'IdList': del_id_list}, callback=del_callback)
+
+print "Waiting for the request to be processed!"
+lock.wait()
+print "Request complete!"
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.3.2 Add"
+  href="node121.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.3 Calendar"
+  href="node119.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.3.4 Import"
+  href="node123.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node121.html">6.3.2 Add</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node119.html">6.3 Calendar</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node123.html">6.3.4 Import</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

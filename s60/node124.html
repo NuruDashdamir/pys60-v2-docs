@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node125.html" />
+<link rel="prev" href="node123.html" />
+<link rel="parent" href="node119.html" />
+<link rel="next" href="node125.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.3.5 Export</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.3.4 Import"
+  href="node123.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.3 Calendar"
+  href="node119.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.3.6 RequestNotification"
+  href="node125.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node123.html">6.3.4 Import</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node119.html">6.3 Calendar</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node125.html">6.3.6 RequestNotification</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008350000000000000000"></a>
+<a name="subsec:calendarexport"></a>
+<br>
+6.3.5 Export
+</h2>
+
+<p>
+<code>Export</code> is used to export the calendar entries to an output file. The information is exported to an <b>ICal</b> or <b>VCal</b> file. This method can be called both in synchronous and asynchronous mode. 
+
+<p>
+The following are the examples for using <code>Export</code>:
+
+<p>
+<b>Synchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+calendar_handle.call('Export', {'Type': u'CalendarEntry', 'FileName': u'C:\\Data\\output.txt', 'Format': u'VCal'})
+</pre></div>
+
+<p>
+<b>Asynchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+calendar_handle.call('Export', {'Type': u'CalendarEntry', 'FileName': u'C:\\data\\output.txt', 'Format': u'VCal'}, callback= exp_callback))
+</pre></div>
+
+<p>
+where, <code>exp_callback</code> is an user defined callback function.
+
+<p>
+The following table summarizes the specification of <code>Export</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT"><code>IDataSource</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT">Exports the calendar entries to an output file.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT">Synchronous and asynchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT"><code>IDataSource</code> interface is loaded.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT">Nil</td>
+</tr>
+<tr><td align="LEFT"><b>Note</b></td>
+<td align="LEFT">The specified calendar must exist.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the Type and its details to export. Input parameter properties are Type and Data.
+<br><p></p>
+<div align="CENTER"><a name="9915"></a>
+<table>
+<caption><strong>Table 6.48:</strong>
+Input parameters Export</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=113><code>CalendarEntry</code></td>
+<td align="LEFT" valign="TOP" width=170>Performs the operation on calendar entries.</td>
+</tr>
+<tr><td align="LEFT">Data</td>
+<td align="LEFT">map</td>
+<td align="LEFT" valign="TOP" width=113><b>[CalendarName]</b>: unicode string <br>
+<b>Idlist</b> or <b>LocalIdList</b>: List of unicode strings <br>
+<b>FileName</b>: unicode string <br>
+<b>Format</b>: unicode string</td>
+<td align="LEFT" valign="TOP" width=170>Exports entries to the default calendar if not specified. <code>CalendarName</code> must be in the format <b>Drivexxx:FileNamexxx</b>. <br>
+
+<p>
+Exports entries in the given format. Format can have values <b>ICal</b> or <b>VCal</b>. <b>ICal</b> is supported from Fifth Edition devices onwards. <br>
+
+<p>
+<code>IdList</code> or <code>LocalIdList</code> is a list of Ids of the entries to be exported. Specify either <code>IdList</code> or <code>LocalIdList</code>. It exports all the entries from the specified calendar file if the list is not specified. Also, it exports only for valid Ids and ignores the remaining Ids. <br>
+
+<p>
+Entries are exported to the file if <code>FileName</code> is specified else, 8-bit Data is returned as output.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output contains the requested information <code>ReturnValue</code>. It also contains <code>ErrorCode</code>, and an <code>ErrorMessage</code>, if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="9938"></a>
+<table>
+<caption><strong>Table 6.49:</strong>
+Output parameters Export</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=28><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=198><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=28>NA</td>
+<td align="LEFT" valign="TOP" width=198>Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=28>NA</td>
+<td align="LEFT" valign="TOP" width=198>Error description in Engineering English.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>ReturnValue</code> (Applicable in case <code>FileName</code> is not specified in data)</td>
+<td align="LEFT">8-bit data</td>
+<td align="LEFT" valign="TOP" width=28>NA</td>
+<td align="LEFT" valign="TOP" width=198>Contains the exported entries in the specified format. It is applicable if <code>FileName</code> is not specified in input parameters.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the errors and their values:
+<br><p></p>
+<div align="CENTER"><a name="9951"></a>
+<table>
+<caption><strong>Table 6.50:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>1000</code></td>
+<td align="LEFT">Invalid service argument</td>
+</tr>
+<tr><td align="LEFT"><code>1004</code></td>
+<td align="LEFT">Service not supported</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description:
+<br><p></p>
+<div align="CENTER"><a name="9978"></a>
+<table>
+<caption><strong>Table 6.51:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Export:Type is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Export called with invalid Type</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Export:Data is missing</code></td>
+<td align="LEFT" valign="TOP" width=170>Export called without passing input <code>Data</code></td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Export:Data is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type is passed for input <code>Data</code> parameter</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Export:Format is missing</code></td>
+<td align="LEFT" valign="TOP" width=170>Export Format not passed in <code>Data</code>.</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Export:FileName is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type for <code>FileName</code> parameter or, <code>FileName</code> exceeds 239 characters</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Export:IdList is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type for input <code>IdList</code> parameter</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Export:LocalIdList is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type for input <code>LocalIdList</code> parameter</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:Export:CalendarName is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type is passed for <code>CalendarName</code></td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample illustrates how to export a calendar entry:
+
+<p>
+<div class="verbatim"><pre>
+# Load Calendar service
+calendar_handle = scriptext.load('Service.Calendar', 'IDataSource')
+
+try:
+    calendar_handle.call('Export', {'Type': u'CalendarEntry', 'FileName': u'C:\\Data\\importfile.txt', 'Format': u'VCal' })
+except scriptext.ScriptextError:
+    print 'Error in servicing the request'
+else:
+    print "Export request successfully complete!"
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.3.4 Import"
+  href="node123.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.3 Calendar"
+  href="node119.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.3.6 RequestNotification"
+  href="node125.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node123.html">6.3.4 Import</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node119.html">6.3 Calendar</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node125.html">6.3.6 RequestNotification</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

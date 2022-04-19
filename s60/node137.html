@@ -1,0 +1,478 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node138.html" />
+<link rel="prev" href="node136.html" />
+<link rel="parent" href="node135.html" />
+<link rel="next" href="node138.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.5.2 GetList</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.5.1 New"
+  href="node136.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.5 Landmarks"
+  href="node135.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.5.3 Add"
+  href="node138.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node136.html">6.5.1 New</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node135.html">6.5 Landmarks</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node138.html">6.5.3 Add</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008520000000000000000"></a>
+<a name="subsec:landmarkgetlist"></a>
+<br>
+6.5.2 GetList
+</h2>
+
+<p>
+<code>GetList</code> is used to retrieve information about landmarks, landmark categories, or landmark databases. Landmarks and landmark categories are retrieved from the specified landmark database or, if no database is specified, from the default one.
+
+<p>
+The following are the examples for using <code>GetList</code>:
+
+<p>
+<b>Synchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+landmarkinfo = landmark_handle.call('GetList', {'Type': u'Landmark', 
+                                                'Filter':{'uDatabaseURI':  u'dataBaseUri', 
+                                                          'LandmarkName': u'AnyLandMarkNm'}, 
+                                                'Sort' :{'Key': u'LandmarkName', 
+                                                         'Order': u'Descending'}})
+</pre></div>
+
+<p>
+<b>Asynchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+event_id = landmark_handle.call('GetList', {'Type': u'Landmark',
+                                            'Filter':{'uDatabaseURI':u'dataBaseUri',
+                                                      'LandmarkName':u'AnyLandMarkNm'},
+                                            'Sort':{'Key':u'LandmarkName',
+                                                    'Order':u'Descending'}}, 
+                                callback=get_list)
+</pre></div>
+
+<p>
+where, <code>get_list</code> is a user defined callback function. 
+
+<p>
+The following table summarizes the specification of <code>GetList</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>Interface</b></td>
+<td align="LEFT" valign="TOP" width=283><code>IDataSource</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Description</b></td>
+<td align="LEFT" valign="TOP" width=283>Retrieves an iterable on items qualified by search criteria.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Response Model</b></td>
+<td align="LEFT" valign="TOP" width=283>Synchronous and asynchronous, depending on the criteria and use case.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Pre-condition</b></td>
+<td align="LEFT" valign="TOP" width=283><code>IDataSource</code> interface is loaded.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Post-condition</b></td>
+<td align="LEFT" valign="TOP" width=283>The iterable points to the first element in the list from an active or specified database. <br>
+The default or active database opened for reading landmarks and categories. Creates the database, if it does not exist and is set as active.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies what landmark information is returned and how the returned information is sorted.
+<br><p></p>
+<div align="CENTER"><a name="13232"></a>
+<table>
+<caption><strong>Table 6.90:</strong>
+Input parameters for Getlist</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=142><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=198><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=142><code>Landmark</code> <br>
+<code>Category</code> <br>
+<code>Database</code></td>
+<td align="LEFT" valign="TOP" width=198>Performs operation based on the specified content types.</td>
+</tr>
+<tr><td align="LEFT">[Filter]</td>
+<td align="LEFT" valign="TOP" width=85>map <br>
+Landmark search criteria: For more information, see Key Values <a href="node143.html#subsec:landmarkkeyval">6.5.8</a> section in Landmarks. <br>
+Category search criteria: For more information, see Key Values <a href="node143.html#subsec:landmarkkeyval">6.5.8</a> section in Landmarks. <br>
+Database search criteria <br>
+<code>[DbProtocol]</code>: unicode string</td>
+<td align="LEFT" valign="TOP" width=142><b>Landmark search criteria</b>: <br>
+It is the map containing the landmark search fields for setting the search criteria. <br>
+
+<p>
+<b>Text Criterion</b>: <br>
+The following fields can be specified: <br>
+<code>LandmarkName</code> <br>
+<code>LandmarkDesc</code> <br>
+
+<p>
+<b>Nearest Criterion</b>: <br>
+The following fields need to be specified: <br>
+<code>LandmarkPosition</code> <br>
+<code>CoverageRadiusOption</code> <br>
+<code>MaximumDistance</code> <br>
+
+<p>
+<b>Category Criterion</b>: <br>
+The following field needs to be specified: <br>
+<code>CategoryName</code> <br>
+
+<p>
+<b>Area Criterion</b>: <br>
+The following field needs to be specified: <br>
+<code>BoundedArea</code> <br>
+
+<p>
+<b>Category search criteria</b>: <br>
+It is the map containing the landmark category search fields for setting the search criteria. <br>
+
+<p>
+<b>Database search criteria</b>: <br>
+<code>DbProtocol</code>: Search criteria are the protocol string.</td>
+<td align="LEFT" valign="TOP" width=198>Optional Parameter. If filter is not specified, an iterator to all entries of the specified type is returned. <br>
+
+<p>
+Landmark search criteria: <br>
+Specify one or more search criteria to retrieve a list of landmarks. <br>
+
+<p>
+<code>CoverageRadiusOption</code> and <code>MaximumDistance</code> are required only when landmark Position is specified. <br>
+
+<p>
+Category Search Criteria: <br>
+Specify text with wild cards to iterate through the list of categories. <br>
+
+<p>
+Database Search Criteria: <br>
+If you do not specify protocol then all available databases will be listed.</td>
+</tr>
+<tr><td align="LEFT">[Sort]</td>
+<td align="LEFT" valign="TOP" width=85>map <br>
+[Key]: unicode string <br>
+Order: unicode string <br></td>
+<td align="LEFT" valign="TOP" width=142><b>Key:</b> <br>
+Possible Values for the types: <br>
+<b>Landmark</b>: <br>
+<code>LandmarkName</code> <br>
+<b>Category</b>: <br>
+<code>CategoryName</code> <br>
+<b>Database</b>: <br>
+<code>DatabaseURI</code>
+
+<p>
+<b>Order:</b> <br>
+Ascending <br>
+Descending <br></td>
+<td align="LEFT" valign="TOP" width=198>Optional Parameter. <br>
+
+<p>
+Default Value for Order <br>
+Type Landmarks: Ascending <br>
+Type Category: None <br>
+Type Database: Ascending <br>
+
+<p>
+Sorts qualified list based on sort key and sort order.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output parameters contain the requested information. They also contain <code>ErrorCode</code>, and <code>ErrorMessage</code> if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="13259"></a>
+<table>
+<caption><strong>Table 6.91:</strong>
+Output parameters for GetList</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Range (Type: string)</b></td>
+<td align="LEFT" valign="TOP" width=198><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ReturnValue</code></td>
+<td align="LEFT" valign="TOP" width=85>Iterable <br>
+To maps of requested type</td>
+<td align="LEFT" valign="TOP" width=85>map: <br>
+<code>Landmark</code> <br>
+<code>Category</code> <br>
+<code>Database</code></td>
+<td align="LEFT" valign="TOP" width=198>Iterator to the retrieved list of items of the requested type. For map of type, see <code>Landmark</code>, <code>Category</code>, and <code>Database</code> in the Key Values <a href="node143.html#subsec:landmarkkeyval">6.5.8</a> section.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT" valign="TOP" width=85>int</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=198>Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT" valign="TOP" width=85>string</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=198>Error description in Engineering English.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="13277"></a>
+<table>
+<caption><strong>Table 6.92:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>-304</code></td>
+<td align="LEFT">General Error</td>
+</tr>
+<tr><td align="LEFT"><code>0</code></td>
+<td align="LEFT">Success</td>
+</tr>
+<tr><td align="LEFT"><code>1000</code></td>
+<td align="LEFT">Invalid service argument</td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1003</code></td>
+<td align="LEFT">Missing argument</td>
+</tr>
+<tr><td align="LEFT"><code>1004</code></td>
+<td align="LEFT">Service not supported</td>
+</tr>
+<tr><td align="LEFT"><code>1012</code></td>
+<td align="LEFT">Item not found</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description: 
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="13315"></a>
+<table>
+<caption><strong>Table 6.93:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=198><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:GetList:Type is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates Type is missing or data type of Type is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:GetList:Type is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that Type is not a value in the given range.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:GetList:Data is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates Data is missing or data type of Data is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:GetList:LandmarkPosition is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates <code>LandmarkPostion</code> is missing or data type of <code>LandmarkPostion</code> is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:GetList:Latitude is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates Latitude is missing or data type of Latitude is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:GetList:Longitude is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates Longitude is missing or data type of Longitude is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:GetList:BoundedArea is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates <code>BoundedArea</code> is missing or data type of <code>BoundedArea</code> is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:GetList:NorthLatitude is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates <code>NorthLatitude</code> is missing or data type of <code>NorthLatitude</code> is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:GetList:SouthLatitude is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates <code>SouthLatitude</code> is missing or data type of <code>SouthLatitude</code> is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:GetList:EastLongitude is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates <code>EastLongitude</code> is missing or data type of <code>EastLongitude</code> is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:GetList:WestLongitude is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates <code>WestLongitude</code> is missing or data type of <code>WestLongitude</code> is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:GetList:MaximumMatches is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates <code>MaximumMatches</code> value provided is invalid that is, equal or less than 0.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:GetList:Sort is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates Sort is missing or data type of Sort is mismatched.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to query a list of Landmarks with search criteria, in asynchronous mode:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+import e32
+
+# Using e32.Ao_lock() to make main function wait till callback is hit
+lock = e32.Ao_lock()
+
+# Callback function will be called when the requested service is complete
+def get_list(trans_id, event_id, input_params):
+    if event_id != scriptext.EventCompleted:   
+# Check the event status
+        print "Error in retrieving required info"
+        print "Error code is: " + str(input_params["ReturnValue"]["ErrorCode"])
+        if "ErrorMessage" in input_params["ReturnValue"]:
+            print "Error message:" + input_params["ReturnValue"]["ErrorMessage"]
+    else:
+        print "The landmarks are"
+        for i in input_params["ReturnValue"]:
+            print "Name of Landmark"
+            print i["LandmarkName"]
+            print "Description of Landmark"
+            print i['LandmarkDesc']
+
+    lock.signal()
+
+# Async Query a list of Landmarks with search criteria
+landmark_handle = scriptext.load('Service.Landmarks', 'IDataSource')
+event_id = landmark_handle.call('GetList', {'Type': u'Landmark',
+                                            'Filter': {'uDatabaseURI':u'dataBaseUri',
+                                                      'LandmarkName':u'AnyLandMarkNm'},
+                                            'Sort': {'Key':u'LandmarkName',
+                                                     'Order':u'Descending'}}, 
+                                callback=get_list)
+
+print "Waiting for the request to be processed!"
+lock.wait()
+print "Request complete!"
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.5.1 New"
+  href="node136.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.5 Landmarks"
+  href="node135.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.5.3 Add"
+  href="node138.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node136.html">6.5.1 New</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node135.html">6.5 Landmarks</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node138.html">6.5.3 Add</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

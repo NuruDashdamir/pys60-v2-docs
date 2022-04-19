@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node140.html" />
+<link rel="prev" href="node138.html" />
+<link rel="parent" href="node135.html" />
+<link rel="next" href="node140.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.5.4 Delete</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.5.3 Add"
+  href="node138.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.5 Landmarks"
+  href="node135.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.5.5 Import"
+  href="node140.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node138.html">6.5.3 Add</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node135.html">6.5 Landmarks</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node140.html">6.5.5 Import</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008540000000000000000"></a>
+<a name="subsec:landmarkdel"></a>
+<br>
+6.5.4 Delete
+</h2>
+
+<p>
+<code>Delete</code> is used to delete the user specified object or data from the active or specified landmark database. It accepts a set of input parameters that define the Type and data for performing the delete operation. It is available only in synchronous mode.
+
+<p>
+The following is an example for using <code>Delete</code>:
+
+<p>
+<div class="verbatim"><pre>
+getlist_output = landmark_handle.call('GetList', {'Type': u'Landmark',
+                                                  'Filter': {'LandmarkName': u'land1'}})
+</pre></div>
+
+<p>
+The following table summarizes the specification of <code>Delete</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>Interface</b></td>
+<td align="LEFT" valign="TOP" width=283><code>IDataSource</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Description</b></td>
+<td align="LEFT" valign="TOP" width=283>Deletes an object from the active or specified landmark database.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Response Model</b></td>
+<td align="LEFT" valign="TOP" width=283>Synchronous</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Pre-condition</b></td>
+<td align="LEFT" valign="TOP" width=283><code>IDataSource</code> interface is loaded.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Post-condition</b></td>
+<td align="LEFT" valign="TOP" width=283>The default or active database opened for reading landmarks and categories. A default database is created, if it does not exist and is set as active. <br>
+
+<p>
+A Landmark/category is deleted from an active or specified database. <br>
+
+<p>
+Deleting a database, deletes it from terminal.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the Type Landmark/category to delete and details of the particular Type.
+<br><p></p>
+<div align="CENTER"><a name="13492"></a>
+<table>
+<caption><strong>Table 6.98:</strong>
+Input parameters for Delete</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=85><code>Landmark</code> <br>
+<code>Category</code></td>
+<td align="LEFT" valign="TOP" width=170>Performs operation based on the specified content types.</td>
+</tr>
+<tr><td align="LEFT">Data</td>
+<td align="LEFT" valign="TOP" width=85><b>Landmark</b> <br>
+map <br>
+<code>[DatabaseURI]</code>: unicode string <br>
+<code>ID</code>: unicode string <br>
+
+<p>
+<b>Category</b> <br>
+map <br>
+<code>[DatabaseURI]</code>: unicode string <br>
+<code>ID</code>: unicode string</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=170>the Type Landmark/Category to delete and details of the particular Type. <br>
+
+<p>
+<code>ID</code> is a mandatory field for deleting a landmark and category object.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output parameters contain <code>ErrorCode</code>, and <code>ErrorMessage</code> if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="13509"></a>
+<table>
+<caption><strong>Table 6.99:</strong>
+Output parameters for Delete</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range (Type: string)</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>Error description in Engineering English.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="13525"></a>
+<table>
+<caption><strong>Table 6.100:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1003</code></td>
+<td align="LEFT">Missing argument</td>
+</tr>
+<tr><td align="LEFT"><code>1004</code></td>
+<td align="LEFT">Service not supported</td>
+</tr>
+<tr><td align="LEFT"><code>1006</code></td>
+<td align="LEFT">Service not ready</td>
+</tr>
+<tr><td align="LEFT"><code>1011</code></td>
+<td align="LEFT">Access denied</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description: 
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="13546"></a>
+<table>
+<caption><strong>Table 6.101:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=170><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Landmarks:Delete:Type or Data is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates Type is missing or data type of Type is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Landmarks:Delete:Type is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that Type is not a value in the given range.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Landmarks:Delete:Data is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates Data is missing or data type of Data is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Landmarks:Delete:Id is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates <code>ID</code> is missing or data type of <code>ID</code> is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Landmarks:Delete:DatabaseURI is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates <code>DatabaseURI</code> is missing or data type of <code>DatabaseURI</code> is mismatched.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to delete an object from the active / specified landmark database:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+
+landmark_handle = scriptext.load('Service.Landmarks', 'IDataSource')
+try:
+    getlist_output = landmark_handle.call('GetList', {'Type': u'Landmark',
+                                                      'Filter': {'LandmarkName': u'land1'}})
+    getlist_error = getlist_output['ErrorCode']
+    if getlist_error != 0:
+        print "GetList error"
+    else:
+        retval = getlist_output['ReturnValue']
+        id = retval['id']
+        delete_output = landmark_handle.call('Delete',{'Type': u'Landmark',
+                                                       'Data': {'id': unicode(id)}})
+        delete_error = delete_output['ErrorCode']
+        if delete_error != 0:
+            print "Error in deleting landmark"
+        else:
+            print "Landmark deleted"
+except scriptext.ScriptextError, err:
+    print "Error performing the operation : ", err
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.5.3 Add"
+  href="node138.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.5 Landmarks"
+  href="node135.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.5.5 Import"
+  href="node140.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node138.html">6.5.3 Add</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node135.html">6.5 Landmarks</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node140.html">6.5.5 Import</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

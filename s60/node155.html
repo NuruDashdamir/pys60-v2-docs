@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node156.html" />
+<link rel="prev" href="node154.html" />
+<link rel="parent" href="node154.html" />
+<link rel="next" href="node156.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.8.1 GetList</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.8 Messaging"
+  href="node154.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.8 Messaging"
+  href="node154.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.8.2 Send"
+  href="node156.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node154.html">6.8 Messaging</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node154.html">6.8 Messaging</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node156.html">6.8.2 Send</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008810000000000000000"></a>
+<a name="subsec:msggetlist"></a>
+<br>
+6.8.1 GetList
+</h2>
+
+<p>
+<code>GetList</code> is used to retrieve a list of messaging objects from messaging center based on the search / sort inputs. Each object contains messaging information that is, data and metadata about a single message. It is available only in synchronous mode.
+
+<p>
+The following is an example for using <code>GetList</code>:
+
+<p>
+<div class="verbatim"><pre>
+sms_iter = messaging_handle.call('GetList', {'Type': u'Inbox'})
+</pre></div>
+
+<p>
+The following table summarizes the specification of <code>GetList</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT"><code>IMessaging</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT">Retrieves an iterable message list based on the search / sort inputs.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT">Synchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT">Valid instance of <code>IMessaging</code> interface is instantiated.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT">Nil</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the folder from which the messages are retrieved, also the Filter criteria and sort order for the returned list. Input parameter has three properties: Type, Filter and SortOrder.
+<br><p></p>
+<div align="CENTER"><a name="17367"></a>
+<table>
+<caption><strong>Table 6.162:</strong>
+Input parameters for Getlist</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT" valign="TOP" width=113>unicode string</td>
+<td align="LEFT" valign="TOP" width=113><code>Inbox</code></td>
+<td align="LEFT" valign="TOP" width=170>Performs operation based on the specified content types.</td>
+</tr>
+<tr><td align="LEFT">[Filter]</td>
+<td align="LEFT" valign="TOP" width=113>map <br>
+<code>[MessageTypeList]</code>: List of unicode strings <br>
+<code>[MessageId]</code>: 32 bit int <br>
+<code>[SenderList]</code>: List of unicode strings <br>
+<code>[Subject]</code>: unicode string <br>
+<code>[StartDate]</code>: Date <br>
+<code>[EndDate]</code>: Date</td>
+<td align="LEFT" valign="TOP" width=113><code>MessageTypeList</code>: <br>
+SMS <br>
+MMS</td>
+<td align="LEFT" valign="TOP" width=170>It specifies the search information. <br>
+
+<p>
+If <code>StartDate</code> alone is specified, all messaging from the data will be returned and if <code>EndDate</code> alone is specified, all messages before the end date will be returned. And if both are specified then all the messages within the two bounds will be returned. An exception will be raised if <code>EndDate</code> is earlier than <code>StartDate</code>.</td>
+</tr>
+<tr><td align="LEFT">[SortOrder]</td>
+<td align="LEFT" valign="TOP" width=113>map <br>
+Key: unicode string <br>
+Order: unicode string <br></td>
+<td align="LEFT" valign="TOP" width=113><b>Key:</b> <br>
+<code>Date</code> <br>
+<code>Size</code> <br>
+<code>Sender</code> <br>
+<code>Subject</code> <br>
+<code>MessageId</code> <br>
+
+<p>
+<b>Order:</b> <br>
+Ascending <br>
+Descending <br></td>
+<td align="LEFT" valign="TOP" width=170>Sort Information. If not specified sorting is done on <code>Date</code> in ascending order.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output parameters contain the requested information. They also contain <code>ErrorCode</code>, and <code>ErrorMessage</code> if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="17409"></a>
+<table>
+<caption><strong>Table 6.163:</strong>
+Output parameters for GetList</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Range (Type: string)</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ReturnValue</code></td>
+<td align="LEFT" valign="TOP" width=85>Iterable List (of maps) <br>
+map: <br>
+<code>MessageType</code>: string <br>
+<code>Sender</code>: string <br>
+<code>Subject</code>: string <br>
+<code>Time</code>: Time <br>
+<code>Priority</code>: string <br>
+<code>Attachment</code>: bool <br>
+<code>Unread</code>: bool <br>
+<code>MessageId</code>: 32 bit int <br>
+<code>BodyText</code>: string <br>
+<code>To</code>: List of strings <br>
+<code>Cc</code>: List of strings <br>
+<code>Bcc</code>: List of strings <br>
+<code>AttachmentList</code>: List of map <br>
+
+<p>
+<code>AttachmentList</code> contains a list of Map (Attachment): <br>
+<code>AttachmentMap</code>: <br>
+<code>FileName</code>: string <br>
+<code>FileHandle</code>: <code>FileBuffer</code> <br>
+<code>MimeType</code>: string <br>
+<code>FileSize</code>: int</td>
+<td align="LEFT" valign="TOP" width=113><code>MessageTypeList</code>: <br>
+SMS <br>
+MMS <br>
+Unknown <br>
+
+<p>
+Priority: <br>
+Low <br>
+Medium <br>
+High</td>
+<td align="LEFT" valign="TOP" width=170>An iterable list of the resultant messages. Current implementation recognizes only SMS and MMS, other types of messages are unknown. SMS does not support subject, so it returns first few characters of the body text. <br>
+
+<p>
+Priority is applicable for Email type of messages. For SMS and MMS, it gives default value set by underlying messaging server. <br>
+
+<p>
+<b>Note:</b> <br>
+Cc and Bcc fields are not applicable for SMS.
+Also, in case MMS has body text in it ; it appears as attachment. So the output value for body text field in case of MMS will be empty.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT" valign="TOP" width=85>int</td>
+<td align="LEFT" valign="TOP" width=113>NA</td>
+<td align="LEFT" valign="TOP" width=170>Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT" valign="TOP" width=85>string</td>
+<td align="LEFT" valign="TOP" width=113>NA</td>
+<td align="LEFT" valign="TOP" width=170>Error description in Engineering English.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="17426"></a>
+<table>
+<caption><strong>Table 6.164:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>0</code></td>
+<td align="LEFT">Success</td>
+</tr>
+<tr><td align="LEFT"><code>1000</code></td>
+<td align="LEFT">Invalid service argument</td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1003</code></td>
+<td align="LEFT">Missing argument</td>
+</tr>
+<tr><td align="LEFT"><code>1004</code></td>
+<td align="LEFT">Service not supported</td>
+</tr>
+<tr><td align="LEFT"><code>1007</code></td>
+<td align="LEFT">No memory</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description: 
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="17478"></a>
+<table>
+<caption><strong>Table 6.165:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=198><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList: Type Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the type of <code>Type</code> parameter is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:Type Value Incorrect</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the value of <code>MessageType</code> parameter is incorrect.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:Type Missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the <code>MessageType</code> parameter is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:Filter Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the type of Filter parameter is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:SenderList Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the type of <code>SenderList</code> parameter is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:SenderList Element Value Incorrect</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the value of element of <code>SenderList</code> parameter is incorrect.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:SenderList Element Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the type of element of <code>SenderList</code> parameter is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:MessageTypeList Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the type of <code>MessageTypeList</code> parameter is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:MessageTypeList Element Value Incorrect</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the value of element of <code>MessageTypeList</code> parameter is incorrect.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:MessageTypeList Element Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the type of element of MessageTypeList parameter is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:MessageId Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the type of <code>MessageId</code> parameter is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:Subject Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the type of <code>Subject</code> parameter is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:StartDate Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the type of <code>StartDate</code> parameter is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:StartDate Value Incorrect</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the value of <code>StartDate</code> parameter is incorrect.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:EndDate Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the type of <code>EndDate</code> parameter is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:EndDate Value Incorrect</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the value of <code>EndDate</code> parameter is incorrect.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:SortOrder Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the type of <code>SortOrder</code> parameter is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:SortOrder Value Incorrect</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the value of <code>SortOrder</code> parameter is incorrect.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:Key Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the type of <code>Key</code> parameter is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:Order Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if the type of <code>Order</code> parameter is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Messaging:GetList:Asynchronous Operation not supported</code></td>
+<td align="LEFT" valign="TOP" width=227>Specifies if <code>GetList</code> is called asynchronously.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to iterate through inbox and print the SMS 'Sender' IDs:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+
+messaging_handle = scriptext.load('Service.Messaging', 'IMessaging')
+# This 'GetList' request returns all the SMS in the inbox as an iterable map
+sms_iter = messaging_handle.call('GetList', {'Type': u'Inbox'})
+sender_list = []
+for sms_dict in sms_iter:
+    if sms_dict['MessageType'] == 'SMS':
+sender_list.append(sms_dict['Sender'])
+print "ID list :", sender_list
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.8 Messaging"
+  href="node154.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.8 Messaging"
+  href="node154.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.8.2 Send"
+  href="node156.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node154.html">6.8 Messaging</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node154.html">6.8 Messaging</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node156.html">6.8.2 Send</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

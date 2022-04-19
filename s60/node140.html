@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node141.html" />
+<link rel="prev" href="node139.html" />
+<link rel="parent" href="node135.html" />
+<link rel="next" href="node141.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.5.5 Import</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.5.4 Delete"
+  href="node139.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.5 Landmarks"
+  href="node135.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.5.6 Export"
+  href="node141.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node139.html">6.5.4 Delete</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node135.html">6.5 Landmarks</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node141.html">6.5.6 Export</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008550000000000000000"></a>
+<a name="subsec:landmarkimport"></a>
+<br>
+6.5.5 Import
+</h2>
+
+<p>
+<code>Import</code> is used to import a set of Landmarks. It accepts a set of input parameters that define the Type and data for performing the operation. It is available only in synchronous mode.
+
+<p>
+The following is an example for using <code>Import</code>:
+
+<p>
+<div class="verbatim"><pre>
+getlist_output = landmark_handle.call('GetList', {'Type': u'Landmark', 
+                                                 'Filter': {'LandmarkName': u'land1'}})
+</pre></div>
+
+<p>
+The following table summarizes the specification of <code>Import</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>Interface</b></td>
+<td align="LEFT" valign="TOP" width=283><code>IDataSource</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Description</b></td>
+<td align="LEFT" valign="TOP" width=283>Imports a set of Landmarks.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Response Model</b></td>
+<td align="LEFT" valign="TOP" width=283>Synchronous</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Pre-condition</b></td>
+<td align="LEFT" valign="TOP" width=283><code>IDataSource</code> interface is loaded.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Post-condition</b></td>
+<td align="LEFT" valign="TOP" width=283>The default or active database is opened for reading landmarks and categories. A default database is created, if it does not exist and is set as active. <br>
+
+<p>
+The iterator points to the first item in the list of imported objects. <br>
+Updates the Database with the list of imported landmarks.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the Type and Data of the particular landmark to import.
+<br><p></p>
+<div align="CENTER"><a name="13594"></a>
+<table>
+<caption><strong>Table 6.102:</strong>
+Input parameters for Import</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=85><code>Landmark</code></td>
+<td align="LEFT" valign="TOP" width=170>Performs operation based on the specified content types.</td>
+</tr>
+<tr><td align="LEFT">Data</td>
+<td align="LEFT" valign="TOP" width=85>map <br>
+<code>[DatabaseURI]</code>: unicode string <br>
+<code>SourceFile</code>: unicode string <br>
+<code>MimeType</code>: unicode string</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=170><b>DatabaseURI</b>: Import landmarks to the database. If this is not specified landmarks / categories is imported to the default database. <br>
+
+<p>
+<b>SourceFile</b>: Import landmarks from this file. <br>
+
+<p>
+<b>MimeType</b>: Encoding algorithm. <br>
+
+<p>
+You must specify the Mime type of the landmark content that must be parsed. Mime enables the inclusion of media other than plain text and the inclusion of several entities in one single message. <br>
+
+<p>
+Supported Mime types:
+
+<p>
+<b>application/vnd.nokia.landmarkcollection+xml</b>.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output parameters contain <code>ReturnValue</code>. It also <code>ErrorCode</code>, and <code>ErrorMessage</code> if the operation fails. <code>ReturnValue</code> is an iterator to an array of Landmarks.
+<br><p></p>
+<div align="CENTER"><a name="13620"></a>
+<table>
+<caption><strong>Table 6.103:</strong>
+Output parameters for Import</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=57><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Range (Type: string)</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT" valign="TOP" width=57>int</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=227>Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT" valign="TOP" width=57>string</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=227>Error description in Engineering English.</td>
+</tr>
+<tr><td align="LEFT"><code>ReturnValue</code></td>
+<td align="LEFT" valign="TOP" width=57>Iterable <br>
+To maps of imported Landmark.</td>
+<td align="LEFT" valign="TOP" width=85>map <br>
+<b>Landmark</b>. For more information, refer Key Values <a href="node143.html#subsec:landmarkkeyval">6.5.8</a> section.</td>
+<td align="LEFT" valign="TOP" width=227>Iterator to the list of imported landmarks. For map, see <b>Landmark</b> in the Key Values <a href="node143.html#subsec:landmarkkeyval">6.5.8</a> section.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="13639"></a>
+<table>
+<caption><strong>Table 6.104:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1003</code></td>
+<td align="LEFT">Missing argument</td>
+</tr>
+<tr><td align="LEFT"><code>1004</code></td>
+<td align="LEFT">Service not supported</td>
+</tr>
+<tr><td align="LEFT"><code>1010</code></td>
+<td align="LEFT">Entry exists</td>
+</tr>
+<tr><td align="LEFT"><code>1011</code></td>
+<td align="LEFT">Access denied</td>
+</tr>
+<tr><td align="LEFT"><code>1012</code></td>
+<td align="LEFT">Item not found</td>
+</tr>
+<tr><td align="LEFT"><code>1013</code></td>
+<td align="LEFT">Unknown format</td>
+</tr>
+<tr><td align="LEFT"><code>1017</code></td>
+<td align="LEFT">Path not found</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description: 
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="13660"></a>
+<table>
+<caption><strong>Table 6.105:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=170><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Landmarks:Import:Type or Data is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates Type is missing or data type of Type is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Landmarks:Import:Type is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that Type is not a value in the given range.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Landmarks:Import:Data is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates Data is missing or data type of Data is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Landmarks:Import:MimeType is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates <code>MimeType</code> is missing or data type of <code>MimeType</code> is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Landmarks:Import:SourceFile is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates <code>SourceFile</code> is missing or data type of <code>SourceFile</code> is mismatched.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to import a set of landmarks:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+
+landmark_handle = scriptext.load('Service.Landmarks', 'IDataSource')
+try:
+    import_output = landmark_handle.call('Import', {'Type': u'Landmark',
+                                         'Data': {'SourceFile': u'c:\data\land_import.txt',
+                                         'MimeType': 
+                                          u'application/vnd.nokia.landmarkcollection+xml'}})
+    error = import_output['ErrorCode']
+    if error != 0:
+        print "Error in importing landmark"
+    else:
+        print "Landmark imported"
+
+except scriptext.ScriptextError, err:
+    print "Error performing the operation : ", err
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.5.4 Delete"
+  href="node139.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.5 Landmarks"
+  href="node135.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.5.6 Export"
+  href="node141.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node139.html">6.5.4 Delete</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node135.html">6.5 Landmarks</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node141.html">6.5.6 Export</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

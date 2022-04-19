@@ -1,0 +1,434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node151.html" />
+<link rel="prev" href="node149.html" />
+<link rel="parent" href="node149.html" />
+<link rel="next" href="node151.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.7.1 Add</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.7 Logging"
+  href="node149.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.7 Logging"
+  href="node149.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.7.2 GetList"
+  href="node151.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node149.html">6.7 Logging</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node149.html">6.7 Logging</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node151.html">6.7.2 GetList</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008710000000000000000"></a>
+<a name="subsec:logadd"></a>
+<br>
+6.7.1 Add
+</h2>
+
+<p>
+<code>Add</code> is used to add a new event to the event log. It takes a set of input parameters that define the Type and properties of the event log to add.
+
+<p>
+The following is an example for using <code>Add</code>:
+
+<p>
+<div class="verbatim"><pre>
+log_id = logging_handle.call('Add',{'Type': u'Log', 'Item': {'EventType': 3, 'Direction': 1, 'EventDuration': 2, 'DeliveryStatus': 1, 'PhoneNumber': u'666'}})
+</pre></div>
+
+<p>
+The following table summarizes the specification of <code>Add</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT"><code>IDataSource</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT">Adds a new event to the event log.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT">Synchronous and asynchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT">IDataSource interface is loaded.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT">A new event is added to the event log.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the Type, and the properties of the event log. Input parameter properties are Type and Item.
+<br><p></p>
+<div align="CENTER"><a name="16327"></a>
+<table>
+<caption><strong>Table 6.144:</strong>
+Input parameters for Add</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=57><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT" valign="TOP" width=57>unicode string</td>
+<td align="LEFT" valign="TOP" width=170><code>Log</code></td>
+<td align="LEFT" valign="TOP" width=113>Specifies the Content Type.</td>
+</tr>
+<tr><td align="LEFT">Item</td>
+<td align="LEFT" valign="TOP" width=57>map <br>
+For more information, refer map <a href="#tab:addmap">6.145</a></td>
+<td align="LEFT" valign="TOP" width=170><b>EventType</b> (Indicates the type of log Event) <br>
+<code>EKLogCallEventType</code>: 0 <br>
+<code>EKLogDataEventType</code>: 1 <br>
+<code>EKLogFaxEventType</code>: 2 <br>
+<code>EKLogShortMessageEventType</code>: 3 <br>
+<code>EKLogPacketDataEventType</code>: 4 <br>
+
+<p>
+<b>Direction</b> <br>
+<code>EIncomingEvent</code>: 0 <br>
+<code>EOutgoingEvent</code>: 1 <br>
+<code>EIncomingEvent</code> <code>Alternateline</code>: 2 <br>
+<code>EOutgoingEvent</code> <code>Alternateline</code>: 3 <br>
+<code>EFetchedEvent</code>: 4 <br>
+<code>EMissedEvent</code>: 5 <br>
+<code>EMissedEvent</code> <code>Alternateline</code>: 6 <br>
+
+<p>
+<b>DeliveryStatus</b> <br>
+<code>EStatusPending</code>: 0 <br>
+<code>EStatusSent</code>: 1 <br>
+<code>EStatusFalied</code>: 2 <br>
+<code>EStatusNone</code>: 3 <br>
+<code>EStatusDone</code>: 4 <br>
+<code>EStatusNotSent</code>: 5 <br>
+<code>EStatusScheduled</code>: 6 <br>
+
+<p>
+<b>LogFlags</b> <br>
+<code>EKLogEventContactSearched</code>: 0 <br>
+<code>EKLogEventRead</code>: 1 <br>
+
+<p>
+<b>note:</b> <br>
+Flag <code>EKLogEventRead</code> is set when you read the event in the log database. <br>
+Flag <code>EKLogEventContactSearched</code> is set when you search through contact database for performing any operation, like voice call or sms.</td>
+<td align="LEFT" valign="TOP" width=113>Adds the given event to the event log.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="16350"></a>
+<table>
+<caption><strong>Table 6.145:</strong>
+map</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>Key</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Value</b></td>
+<td align="LEFT" valign="TOP" width=198><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>EventType</code></td>
+<td align="LEFT" valign="TOP" width=85>32 bit int</td>
+<td align="LEFT" valign="TOP" width=198>Unique Id to identify event type.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>[RemoteParty]</code></td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=198>Describes the destination of the out going event or source of incoming event. If the length of the specified string is greater than 64 characters, then the data is truncated.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>[Direction]</code></td>
+<td align="LEFT" valign="TOP" width=85>32 bit int</td>
+<td align="LEFT" valign="TOP" width=198>The direction of a call means incoming, outgoing, and so on.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>[EventDuration]</code></td>
+<td align="LEFT" valign="TOP" width=85>32 bit int</td>
+<td align="LEFT" valign="TOP" width=198>Time in seconds.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>[DeliveryStatus]</code></td>
+<td align="LEFT" valign="TOP" width=85>32 bit int</td>
+<td align="LEFT" valign="TOP" width=198>Delivered, pending, or failed.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>[Subject]</code></td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=198>Describes the subject for the event. If the length of the specified string is greater than 64 characters, then the data is truncated.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>[PhoneNumber]</code></td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=198>The phone number is associated with the event. This is used when the number cannot be stored in any other field. If the length of the specified string is greater than 100 characters, then the number is truncated.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>[EventData]</code></td>
+<td align="LEFT" valign="TOP" width=85>8-bit Data</td>
+<td align="LEFT" valign="TOP" width=198>Specific data associated with the event.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>[Link]</code></td>
+<td align="LEFT" valign="TOP" width=85>32 bit int</td>
+<td align="LEFT" valign="TOP" width=198>Link is used to relate this event to an entity in other application. <br>
+For example, it can be used to associate the event with the call ID or the message ID for emails and faxes.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>[LogFlags]</code></td>
+<td align="LEFT" valign="TOP" width=85>32 bit int</td>
+<td align="LEFT" valign="TOP" width=198>Sets the specified flags for this event. The function does not change any of the other flag bit settings.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85>[RepeatDates]</td>
+<td align="LEFT" valign="TOP" width=85>List of dates</td>
+<td align="LEFT" valign="TOP" width=198>NA</td>
+</tr>
+</table>
+
+<a name="tab:addmap"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output contains <code>ReturnValue</code>. It also contains <code>ErrorCode</code> and an <code>Error Message</code> if the operation fails. <br>
+<code>ReturnValue</code> contains the identifier in the event log corresponding to the user specified input parameters.
+<br><p></p>
+<div align="CENTER"><a name="16372"></a>
+<table>
+<caption><strong>Table 6.146:</strong>
+Output parameters for Add</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=142><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">32 bit int</td>
+<td align="LEFT" valign="TOP" width=142>NA</td>
+<td align="LEFT" valign="TOP" width=113>Contains the SAPI specific error code when the operation fails.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=142>NA</td>
+<td align="LEFT" valign="TOP" width=113>Error Description in Engineering English.</td>
+</tr>
+<tr><td align="LEFT"><code>ReturnValue</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=142>Unique identifier for the particular event in the log.</td>
+<td align="LEFT" valign="TOP" width=113>&nbsp;</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="16387"></a>
+<table>
+<caption><strong>Table 6.147:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>1000</code></td>
+<td align="LEFT">Invalid service argument</td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1003</code></td>
+<td align="LEFT">Missing argument</td>
+</tr>
+<tr><td align="LEFT"><code>1004</code></td>
+<td align="LEFT">Service not supported</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description:
+<br><p></p>
+<div align="CENTER"><a name="16426"></a>
+<table>
+<caption><strong>Table 6.148:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=170><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Logging:Add:TypeInvalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid Type is passed to <code>contenttype</code> parameter.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Logging:Add:TypeMissing</code></td>
+<td align="LEFT" valign="TOP" width=227>Content Type missing in the inputparam list.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Logging:Add:ItemInvalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid Type is passed to Item parameter.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Logging:Add:ItemMissing</code></td>
+<td align="LEFT" valign="TOP" width=227>Item map missing in the inputparam list.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Logging:Add:EventTypeInvalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid Type is passed to <code>EventType</code> parameter.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Logging:Add:EventTypeMissing</code></td>
+<td align="LEFT" valign="TOP" width=227><code>EventType</code> field is missing in the Item map.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Logging:Add:RemotePartyInvalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid Type is passed to <code>RemoteParty</code> parameter.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Logging:Add:EventDurationInvalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid Type is passed to <code>EventDuration</code> parameter.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Logging:Add:DeliveryStatusInvalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid Type is passed to <code>DeliveryStatus</code> parameter.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Logging:Add:SubjectInvalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid Type is passed to <code>Subject</code> parameter.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Logging:Add:PhoneNumberInvalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid Type is passed to <code>PhoneNumber</code> parameter.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Logging:Add:EventDataInvalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid Type is passed to <code>EventData</code> parameter.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Logging:Add:LinkInvalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid Type is passed to <code>Link</code> parameter.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Logging:Add:LogFlagsInvalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid Type is passed to <code>LogFlags</code> parameter.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Logging:Add:DirectionInvalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid Type is passed to <code>Direction</code> parameter.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to add a log entry:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+logging_handle = scriptext.load('Service.Logging', 'IDataSource')
+log_id = logging_handle.call('Add', {'Type': u'Log', 'Item': {'EventType': 3, 'Direction': 1, 'EventDuration': 2, 'DeliveryStatus': 1, 'PhoneNumber': u'666'}})
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.7 Logging"
+  href="node149.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.7 Logging"
+  href="node149.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.7.2 GetList"
+  href="node151.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node149.html">6.7 Logging</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node149.html">6.7 Logging</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node151.html">6.7.2 GetList</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node163.html" />
+<link rel="prev" href="node161.html" />
+<link rel="parent" href="node161.html" />
+<link rel="next" href="node163.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.9.1 GetList</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.9 media Management"
+  href="node161.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.9 media Management"
+  href="node161.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.9.2 key Values"
+  href="node163.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node161.html">6.9 Media Management</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node161.html">6.9 Media Management</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node163.html">6.9.2 Key Values</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008910000000000000000"></a>
+<a name="subsec:mediamgmtgetlist"></a>
+<br>
+6.9.1 GetList
+</h2>
+
+<p>
+<code>GetList</code> takes a set of input parameters that define filter and sort criteria, and retrieves the metadata of media files based on media and metadata type. <br>
+
+<p>
+<code>GetList</code> implements the main functionality of Media Management service. It is available only in asynchronous mode.
+
+<p>
+The following is an example for using <code>GetList</code>:
+
+<p>
+<div class="verbatim"><pre>
+media_handle.call('GetList'[{'Type': string, 'Filter': map, 'Sort': map},
+                            callback=callback_function])
+</pre></div>
+
+<p>
+where, <code>callback_function</code> is user defined function.
+
+<p>
+The following table summarizes the specification of <code>GetList</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT"><code>IDataSource</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT">Retrieves the metadata of media files based on media and metadata type.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT">Asynchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT">Valid service object representing the provider and interface.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT">Nil</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the Type, the metadata of media file to fetch and the criteria for sorting. Input parameter has three properties: Type, Filter, and Sort.
+<br><p></p>
+<div align="CENTER"><a name="18734"></a>
+<table>
+<caption><strong>Table 6.186:</strong>
+Input parameters for GetList</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=255><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=85><code>Fileinfo</code></td>
+<td align="LEFT" valign="TOP" width=255>Operation performed on the specified type. <br>
+This field is mandatory.</td>
+</tr>
+<tr><td align="LEFT">Filter</td>
+<td align="LEFT">map</td>
+<td align="LEFT" valign="TOP" width=85>For more information, refer table <a href="#tab:getlistmediafiletype">6.187</a></td>
+<td align="LEFT" valign="TOP" width=255>It specifies the type of media file to fetch, and key for filtering the media files with their range. <code>FileType</code> field is mandatory. <br>
+
+<p>
+If key is specified, then it is mandatory to specify the range. <br>
+You must only mention the StartRange for keys, where EndRange is not applicable. <br>
+
+<p>
+For example, if key is <code>FileName</code> then, mention the desired file name in the StartRange and leaving the EndRange empty.</td>
+</tr>
+<tr><td align="LEFT">[Sort]</td>
+<td align="LEFT">map</td>
+<td align="LEFT" valign="TOP" width=85>For more information, refer table <a href="#tab:getlistkeyname">6.188</a></td>
+<td align="LEFT" valign="TOP" width=255>It specifies the key name on which the resulting output will be sorted and can be one of the values mentioned in the <b>Value</b> column. <br>
+By default, sorting is done in ascending order based on the <code>FileName</code>.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="18771"></a>
+<table>
+<caption><strong>Table 6.187:</strong>
+Media file type</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Value</b></td>
+<td align="LEFT" valign="TOP" width=57><b>Type</b></td>
+</tr>
+<tr><td align="LEFT"><code>FileType</code></td>
+<td align="LEFT" valign="TOP" width=170><code>Music</code> <br>
+<code>Sound</code> <br>
+<code>Image</code> <br>
+<code>Video</code> <br>
+<code>StreamingURL</code></td>
+<td align="LEFT" valign="TOP" width=57>unicode string</td>
+</tr>
+<tr><td align="LEFT"><code>[Key]</code></td>
+<td align="LEFT" valign="TOP" width=170><code>FileName</code> <br>
+<code>FileExtension</code> <br>
+<code>Drive</code> <br>
+<code>FileSize</code> <br>
+<code>FileDate</code> <br>
+<code>MimeType</code> <br>
+<code>FileNameAndPath</code> <br>
+<code>SongName</code> <br>
+<code>Artist</code> <br>
+<code>Album</code> <br>
+<code>Genre</code> <br>
+<code>TrackNumber</code> <br>
+<code>Composer</code> <br>
+<code>LinkFirstURL</code></td>
+<td align="LEFT" valign="TOP" width=57>unicode string</td>
+</tr>
+<tr><td align="LEFT"><code>[StartRange]</code></td>
+<td align="LEFT" valign="TOP" width=170>Valid for all keys</td>
+<td align="LEFT" valign="TOP" width=57>unicode string</td>
+</tr>
+<tr><td align="LEFT"><code>[EndRange]</code></td>
+<td align="LEFT" valign="TOP" width=170>Valid for the following keys: <br>
+
+<p>
+<code>FileSize</code>(bytes) <br>
+<code>FileDate</code>(YYYYMMDD:HHMMSS) <br>
+
+<p>
+For example, 20070303:010101</td>
+<td align="LEFT" valign="TOP" width=57>unicode string</td>
+</tr>
+</table>
+
+<a name="tab:getlistmediafiletype"></a>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="18799"></a>
+<table>
+<caption><strong>Table 6.188:</strong>
+Key name</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Value</b></td>
+<td align="LEFT"><b>Type</b></td>
+</tr>
+<tr><td align="LEFT"><code>[Key]</code></td>
+<td align="LEFT" valign="TOP" width=113><code>FileName</code> <br>
+<code>FileExtension</code> <br>
+<code>Drive</code> <br>
+<code>FileSize</code> <br>
+<code>FileDate</code> <br>
+<code>MimeType</code> <br>
+<code>FileNameAndPath</code> <br>
+<code>SongName</code> <br>
+<code>Artist</code> <br>
+<code>Album</code> <br>
+<code>Genre</code> <br>
+<code>TrackNumber</code> <br>
+<code>Composer</code> <br>
+<code>LinkFirstURL</code></td>
+<td align="LEFT">unicode string</td>
+</tr>
+<tr><td align="LEFT"><code>[Order]</code></td>
+<td align="LEFT" valign="TOP" width=113>Ascending or descending</td>
+<td align="LEFT">unicode string</td>
+</tr>
+</table>
+
+<a name="tab:getlistkeyname"></a>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output contains <code>ReturnValue</code>. It also contains <code>ErrorCode</code> and an <code>ErrorMessage</code> if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="18835"></a>
+<table>
+<caption><strong>Table 6.189:</strong>
+Output parameters for GetList</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=198><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=113>NA</td>
+<td align="LEFT" valign="TOP" width=198>Contains the SAPI specific error code when the operation fails.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=113>NA</td>
+<td align="LEFT" valign="TOP" width=198>Error Description in Engineering English.</td>
+</tr>
+<tr><td align="LEFT"><code>ReturnValue</code></td>
+<td align="LEFT">Iterable maps</td>
+<td align="LEFT" valign="TOP" width=113>Type: string <br>
+<code>FileName</code>: string <br>
+<code>FileExtension</code>: string <br>
+<code>Drive</code>: string <br>
+<code>FileSize</code>: int <br>
+<code>FileDate</code>: datetime <br>
+<code>MediaType</code>: int <br>
+<code>FileNameAndPath</code>: string <br>
+<code>SongName</code>: string <br>
+<code>Artist</code>: string <br>
+<code>Album</code>: string <br>
+<code>Genre</code>: string <br>
+<code>TrackNumber</code>: string <br>
+<code>Composer</code>: string <br>
+<code>MimeType</code>: string <br>
+<code>LinkFirstURL</code>: string</td>
+<td align="LEFT" valign="TOP" width=198>The output is an iterable which on each invocation returns a map, which will be filled by the service provider. <br>
+
+<p>
+Map stores the key names and its values. <br>
+The key-value pair that is, Property name and Value in the output map depends upon the file type in the input -Filter map.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="18848"></a>
+<table>
+<caption><strong>Table 6.190:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1003</code></td>
+<td align="LEFT">Missing argument</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description:
+<br><p></p>
+<div align="CENTER"><a name="18869"></a>
+<table>
+<caption><strong>Table 6.191:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=170><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=198><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>MediaMgmt:GetList:Server busy</code></td>
+<td align="LEFT" valign="TOP" width=198>Indicates provider is busy in processing another request.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>MediaMgmt:GetList:Type Missing</code></td>
+<td align="LEFT" valign="TOP" width=198>Indicates Type parameter is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>MediaMgmt:GetList:Type not supported(should be FileInfo)</code></td>
+<td align="LEFT" valign="TOP" width=198>Indicates that the content type is incorrect.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>MediaMgmt:GetList:Filter parameter missing</code></td>
+<td align="LEFT" valign="TOP" width=198>Indicates that the Filter parameter which is mandatory is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>MediaMgmt:GetList:Filter parameter type mismatch</code></td>
+<td align="LEFT" valign="TOP" width=198>Indicates that the type of Filter parameter is incorrect.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>MediaMgmt:GetList:Sort parameter type mismatch</code></td>
+<td align="LEFT" valign="TOP" width=198>Indicates that the type of Sort  parameter is incorrect.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>MediaMgmt:GetList:FileType missing in Filter map</code></td>
+<td align="LEFT" valign="TOP" width=198>Indicates that <code>FileType</code> parameter is not present in  Filter map or, <code>FileType</code> parameter type is incorrect.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b>
+
+<p>
+The following sample code illustrates how to get a list of all MP3s:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+import e32
+
+def media_callback(trans_id, event_id, output_params):
+    if trans_id == media_trans_id:
+        if event_id == scriptext.EventCompleted:
+            song_list = []
+            for item in output_params['ReturnValue']:
+                song_list.append(item['FileName'])
+            print "List of files retrieved:", song_list
+        else:
+            print "Event ID was not EventCompleted"
+    else:
+        print "Invalid Transaction ID"
+    lock.signal()
+
+lock = e32.Ao_lock()
+media_handle = scriptext.load('Service.MediaManagement', 'IDataSource')
+
+# Request for the list of mp3s in ascending order
+media_trans_id = media_handle.call('GetList', {'Type': u'FileInfo',
+                                               'Filter': {'FileType': u'Music',
+                                                          'Key': u'FileExtension',
+                                                          'StartRange': u'.mp3'},
+                                               'Sort': {'Key': u'FileName',
+                                                        'Order': u'Ascending'}},
+                                   callback=media_callback)
+
+lock.wait()
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.9 media Management"
+  href="node161.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.9 media Management"
+  href="node161.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.9.2 key Values"
+  href="node163.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node161.html">6.9 Media Management</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node161.html">6.9 Media Management</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node163.html">6.9.2 Key Values</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

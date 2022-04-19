@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node158.html" />
+<link rel="prev" href="node156.html" />
+<link rel="parent" href="node154.html" />
+<link rel="next" href="node158.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.8.3 RegisterNotification</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.8.2 Send"
+  href="node156.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.8 Messaging"
+  href="node154.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.8.4 CancelNotification"
+  href="node158.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node156.html">6.8.2 Send</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node154.html">6.8 Messaging</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node158.html">6.8.4 CancelNotification</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008830000000000000000"></a>
+<a name="subsec:msgregnotify"></a>
+<br>
+6.8.3 RegisterNotification
+</h2>
+
+<p>
+<code>RegisterNotification</code> method registers the widget to receive notifications of new incoming messages. For each new message, the method returns the header information of that message. It is available only in asynchronous mode.
+
+<p>
+The following is an example for using <code>RegisterNotification</code>:
+
+<p>
+<b>Asynchronous</b>
+
+<p>
+<div class="verbatim"><pre>
+sms_id = messaging_handle.call('RegisterNotification', {'Type': u'NewMessage'}, 
+                               callback=new_sms_callback)
+</pre></div>
+
+<p>
+where, <code>new_sms_callback</code> is a user defined callback function.
+
+<p>
+The following table summarizes the specification of <code>RegisterNotification</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT"><code>IMessaging</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT">Registers for getting notification for new messages.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT">Asynchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT">Valid instance of <code>IMessaging</code> interface is instantiated.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT">Nil</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the request for notification of new messages. The object must contain the <code>NotificationType</code> property (unicode string), and this property must contain the value <code>NewMessage</code>.
+<br><p></p>
+<div align="CENTER"><a name="17684"></a>
+<table>
+<caption><strong>Table 6.170:</strong>
+Input parameters for RegisterNotification</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT"><code>NewMessage</code></td>
+<td align="LEFT">Performs operation based on the specified content types.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output parameters contain the requested information. They also contain <code>ErrorCode</code>, and <code>ErrorMessage</code> if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="17712"></a>
+<table>
+<caption><strong>Table 6.171:</strong>
+Output parameters for RegisterNotification</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=57><b>Range (MessageType: string)</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ReturnValue</code></td>
+<td align="LEFT" valign="TOP" width=85>map: <br>
+<code>MessageType</code>: string <br>
+<code>Sender</code>: string <br>
+<code>Subject</code>: string <br>
+<code>Time</code>: Time <br>
+<code>Priority</code>: string <br>
+<code>Attachment</code>: bool <br>
+<code>Unread</code>: bool <br>
+<code>MessageId</code>: 32 bit int</td>
+<td align="LEFT" valign="TOP" width=57>MessageType: <br>
+SMS <br>
+MMS <br>
+Unknown <br>
+
+<p>
+Priority: <br>
+Low <br>
+Medium <br>
+High</td>
+<td align="LEFT" valign="TOP" width=227>It contains the list of message header fields. <br>
+
+<p>
+SMS does not support subject, so it returns first few characters of body text.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT" valign="TOP" width=85>int</td>
+<td align="LEFT" valign="TOP" width=57>NA</td>
+<td align="LEFT" valign="TOP" width=227>Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT" valign="TOP" width=85>string</td>
+<td align="LEFT" valign="TOP" width=57>NA</td>
+<td align="LEFT" valign="TOP" width=227>Error description in Engineering English.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="17728"></a>
+<table>
+<caption><strong>Table 6.172:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>0</code></td>
+<td align="LEFT">Success</td>
+</tr>
+<tr><td align="LEFT"><code>1000</code></td>
+<td align="LEFT">Invalid service argument</td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1003</code></td>
+<td align="LEFT">Missing argument</td>
+</tr>
+<tr><td align="LEFT"><code>1010</code></td>
+<td align="LEFT">Entry exists</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description: 
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="17748"></a>
+<table>
+<caption><strong>Table 6.173:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=255><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=198><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=255><code>Messaging:RegisterNotification:Type Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=198>Specifies if the type of <code>Type</code> parameter is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=255><code>Messaging:RegisterNotification:Type Value Incorrect</code></td>
+<td align="LEFT" valign="TOP" width=198>Specifies if the value of <code>Type</code> parameter is incorrect.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=255><code>Messaging:RegisterNotification:Type Missing</code></td>
+<td align="LEFT" valign="TOP" width=198>Specifies if the <code>Type</code> parameter is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=255><code>Messaging:RegisterNotification:Synchronous Operation not supported</code></td>
+<td align="LEFT" valign="TOP" width=198>Specifies if <code>RegisterNotification</code> is called synchronously.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to register for a new message notification, send a SMS and then cancel the notification request, asynchronously:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+import e32
+
+lock = e32.Ao_lock()
+messaging_handle = scriptext.load('Service.Messaging', 'IMessaging')
+
+def new_sms_callback(trans_id, event_id, output_params):
+    if trans_id == sms_id and event_id == scriptext.EventCompleted:
+        print "SMS received from" + output_params['ReturnValue']['Sender'])
+    else:
+        print "Error in callback"
+    # Cancel notification request
+    messaging_handle.call('CancelNotification', {'Type': u'NewMessage'})
+    lock.signal()
+
+# The callback 'new_sms_callback' will be called when a sms is received
+sms_id = messaging_handle.call('RegisterNotification', {'Type': u'NewMessage'}, 
+                               callback=new_sms_callback)
+
+# Send SMS to self so that the notification callback is hit
+messaging_handle.call('Send', {'MessageType': u'SMS', 'To': u'12345678', 
+                               'BodyText': u'Hi self'})
+lock.wait()
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.8.2 Send"
+  href="node156.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.8 Messaging"
+  href="node154.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.8.4 CancelNotification"
+  href="node158.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node156.html">6.8.2 Send</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node154.html">6.8 Messaging</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node158.html">6.8.4 CancelNotification</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node61.html" />
+<link rel="prev" href="node59.html" />
+<link rel="parent" href="node56.html" />
+<link rel="next" href="node61.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>3.9.2.4 class AccelerometerDoubleTappingData</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="3.9.2.3 class AccelerometerXYZAxisData"
+  href="node59.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="3.9.2 module for devices"
+  href="node56.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="3.9.2.5 class MagnetometerXYZAxisData"
+  href="node61.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node59.html">3.9.2.3 class AccelerometerXYZAxisData</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node56.html">3.9.2 Module for devices</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node61.html">3.9.2.5 class MagnetometerXYZAxisData</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h3><a name="SECTION005924000000000000000">
+3.9.2.4 class AccelerometerDoubleTappingData</a>
+</h3>
+
+<p>
+
+<ul>
+<li>Detects a double-tap on the device where the taps occur in quick succession, in the same direction.
+</li>
+<li>Inherits from the <tt class="class">_Sensor</tt> base class.
+</li>
+</ul>
+
+<p>
+<b>Class Attribute</b> <br>
+
+<p>
+<b>Direction</b>: Hex value indicating the tap direction. The direction can be determined in human readable form using <code>get_logicalname</code> API and class name as <code>AccelerometerDirection</code>.
+
+<p>
+<b>Set/Get Property</b> <br>
+
+<p>
+This sensor class provides additional functions that can be used to set or get some of the properties specific to this sensor.
+
+<p>
+The following table lists the set/get properties of the sensor class:
+<br><p></p>
+<div align="CENTER">
+<small class="SMALL"></small>
+<div align="CENTER"><small class="SMALL"></small><table cellpadding=3 border="1">
+<tr><td align="LEFT" valign="TOP" width=198><small class="SMALL">
+</small><small class="SMALL"><b>Set/Get properties</b> </small></td>
+<td align="LEFT" valign="TOP" width=255><small class="SMALL"> </small><small class="SMALL"><b>Description</b>  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><small class="SMALL"> 
+
+<code>get_axis_active()</code> </small></td>
+<td align="LEFT" valign="TOP" width=255><small class="SMALL"> Returns </small><small class="SMALL"><b>x</b>, </small><small class="SMALL"><b>y</b>, </small><small class="SMALL"><b>z</b> values: 1 if axis is active else 0.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><small class="SMALL"> 
+
+<code>set_axis_active([x=None, y=None, z=None])</code> </small></td>
+<td align="LEFT" valign="TOP" width=255><small class="SMALL"> Sets one or more axis as active. Pass 1 to set the axis and 0 to disable it.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><small class="SMALL"> 
+
+<code>get_properties()</code> </small></td>
+<td align="LEFT" valign="TOP" width=255><small class="SMALL"> Returns a dictionary with <code>"DoubleTapThreshold"</code>, <code>"DoubleTapDuration"</code>, <code>"DoubleTapLatency"</code>, <code>"DoubleTapInterval"</code> as the keys and their respective values.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><small class="SMALL"> 
+
+<code>set_properties([DoubleTapThreshold = None, DoubleTapDuration = None, DoubleTapLatency = None, DoubleTapInterval = None])</code> </small></td>
+<td align="LEFT" valign="TOP" width=255><small class="SMALL"> Sets the tap related properties.  </small></td>
+</tr>
+</table><small class="SMALL"></small></div><small class="SMALL"></small>
+</div>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+from sensor import *
+import e32
+
+
+class DemoApp():
+
+    def __init__(self):
+        self.doubletap = AccelerometerDoubleTappingData()
+        self.doubletap.set_axis_active(x=0, y=1, z=1)
+        print "Active Axis are: ", self.doubletap.get_axis_active()
+        self.doubletap.set_callback(data_callback=self.my_callback)
+
+    def my_callback(self):
+        print "Raw Direction value:", self.doubletap.direction
+        print "Direction:", get_logicalname(AccelerometerDirection,
+                                             self.doubletap.direction)
+        print "Timestamp:", self.doubletap.timestamp
+
+    def run(self):
+        self.doubletap.start_listening()
+
+if __name__ == '__main__':
+    d = DemoApp()
+    d.run()
+    e32.ao_sleep(15)
+    d.doubletap.stop_listening()
+    print "Exiting Double Tap"
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="3.9.2.3 class AccelerometerXYZAxisData"
+  href="node59.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="3.9.2 module for devices"
+  href="node56.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="3.9.2.5 class MagnetometerXYZAxisData"
+  href="node61.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node59.html">3.9.2.3 class AccelerometerXYZAxisData</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node56.html">3.9.2 Module for devices</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node61.html">3.9.2.5 class MagnetometerXYZAxisData</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

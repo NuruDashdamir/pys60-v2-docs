@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="prev" href="node162.html" />
+<link rel="parent" href="node161.html" />
+<link rel="next" href="node164.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.9.2 Key Values</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.9.1 GetList"
+  href="node162.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.9 media Management"
+  href="node161.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.10 Sensors"
+  href="node164.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node162.html">6.9.1 GetList</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node161.html">6.9 Media Management</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node164.html">6.10 Sensors</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008920000000000000000"></a>
+<a name="subsec:mediamgmtkeyval"></a>
+<br>
+6.9.2 Key Values
+</h2>
+
+<p>
+<b>File Types</b> <br>
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>Description</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Supported Metadata</b></td>
+</tr>
+<tr><td align="LEFT"><code>Music</code></td>
+<td align="LEFT">Retrieves media files of Music type.</td>
+<td align="LEFT" valign="TOP" width=227>Artist, SongName, TrackNumber, Album, Genre, Composer, FileNameAndPath, FileName, FileExtension, Drive, MimeType, FileSize, FileDate.</td>
+</tr>
+<tr><td align="LEFT"><code>Sound</code></td>
+<td align="LEFT">Retrieves media files of Sound type.</td>
+<td align="LEFT" valign="TOP" width=227>FileNameAndPath, FileName, FileExtension, Drive, MimeType, FileSize, FileDate.</td>
+</tr>
+<tr><td align="LEFT"><code>Image</code></td>
+<td align="LEFT">Retrieves media files of Image type.</td>
+<td align="LEFT" valign="TOP" width=227>FileNameAndPath, FileName, FileExtension, Drive, MimeType, FileSize, FileDate.</td>
+</tr>
+<tr><td align="LEFT"><code>Video</code></td>
+<td align="LEFT">Retrieves media files of Video type.</td>
+<td align="LEFT" valign="TOP" width=227>FileNameAndPath, FileName, FileExtension, Drive, MimeType, FileSize, FileDate.</td>
+</tr>
+<tr><td align="LEFT"><code>StreamingUrl</code></td>
+<td align="LEFT">Retrieves media files of Link type.</td>
+<td align="LEFT" valign="TOP" width=227>LinkFirstURL, FileNameAndPath, FileName, FileExtension, Drive, MimeType, FileSize ,FileDate.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Keys</b> <br>
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT" valign="TOP" width=227>Always a media file.</td>
+</tr>
+<tr><td align="LEFT"><code>FileName</code></td>
+<td align="LEFT" valign="TOP" width=227>Filter/sort the result as per file name.</td>
+</tr>
+<tr><td align="LEFT"><code>FileExtension</code></td>
+<td align="LEFT" valign="TOP" width=227>Filter/sort the result based on file extension.</td>
+</tr>
+<tr><td align="LEFT"><code>Drive</code></td>
+<td align="LEFT" valign="TOP" width=227>Filter/sort the result as per file drive.</td>
+</tr>
+<tr><td align="LEFT"><code>FileSize</code></td>
+<td align="LEFT" valign="TOP" width=227>Filter/sort the result as per file size.</td>
+</tr>
+<tr><td align="LEFT"><code>FileData</code></td>
+<td align="LEFT" valign="TOP" width=227>Filter/sort the result as per file date.</td>
+</tr>
+<tr><td align="LEFT"><code>MediaType</code></td>
+<td align="LEFT" valign="TOP" width=227>Filter/sort the result as per file type. <br>
+
+<p>
+<b>Value</b>: <b>Description</b> <br>
+0: Unknown media type <br>
+1: Music media type <br>
+2: Sound media type <br>
+3: Image media type <br>
+4: Video media type <br>
+5: Streaming URLs</td>
+</tr>
+<tr><td align="LEFT"><code>FileNameAndPath</code></td>
+<td align="LEFT" valign="TOP" width=227>Filter/sort the result as per full path of file.</td>
+</tr>
+<tr><td align="LEFT"><code>SongName</code></td>
+<td align="LEFT" valign="TOP" width=227>Filter/sort the result as per song name.</td>
+</tr>
+<tr><td align="LEFT"><code>Artist</code></td>
+<td align="LEFT" valign="TOP" width=227>Filter/sort the result as per artist name.</td>
+</tr>
+<tr><td align="LEFT"><code>Album</code></td>
+<td align="LEFT" valign="TOP" width=227>Filter/sort the result as per album name.</td>
+</tr>
+<tr><td align="LEFT"><code>MimeType</code></td>
+<td align="LEFT" valign="TOP" width=227>Filter/Sort the result based on mime type.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Output maps for various values of FileType</b> <br>
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>FileType</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Output map</b></td>
+</tr>
+<tr><td align="LEFT"><code>Image</code></td>
+<td align="LEFT" valign="TOP" width=227><b>Key</b>: <b>Value</b> <br>
+Type: string <br>
+<code>FileName</code>: string <br>
+<code>FileExtension</code>: string <br>
+<code>Drive</code>: string <br>
+<code>FileSize</code>: int <br>
+<code>FileDate</code>: datetime <br>
+<code>FileNameAndPath</code>: string <br>
+<code>MimeType</code>: string</td>
+</tr>
+<tr><td align="LEFT"><code>Sound</code></td>
+<td align="LEFT" valign="TOP" width=227><b>Key</b>: <b>Value</b> <br>
+Type: string <br>
+<code>FileName</code>: string <br>
+<code>FileExtension</code>: string <br>
+<code>Drive</code>: string <br>
+<code>FileSize</code>: int <br>
+<code>FileDate</code>: datetime <br>
+<code>FileNameAndPath</code>: string <br>
+<code>MimeType</code>: string</td>
+</tr>
+<tr><td align="LEFT"><code>Video</code></td>
+<td align="LEFT" valign="TOP" width=227><b>Key</b>: <b>Value</b> <br>
+Type: string <br>
+<code>FileName</code>: string <br>
+<code>FileExtension</code>: string <br>
+<code>Drive</code>: string <br>
+<code>FileSize</code>: int <br>
+<code>FileDate</code>: datetime <br>
+<code>FileNameAndPath</code>: string <br>
+<code>MimeType</code>: string</td>
+</tr>
+<tr><td align="LEFT"><code>Music</code></td>
+<td align="LEFT" valign="TOP" width=227><b>Key</b>: <b>Value</b> <br>
+Type: string <br>
+<code>FileName</code>: string <br>
+<code>FileExtension</code>: string <br>
+<code>Drive</code>: string <br>
+<code>FileSize</code>: int <br>
+<code>FileDate</code>: datetime <br>
+<code>MimeType</code>: string <br>
+<code>FileNameAndPath</code>: string <br>
+<code>SongName</code>: string <br>
+<code>Artist</code>: string <br>
+<code>Album</code>: string <br>
+<code>TrackNumber</code>: string <br>
+<code>Genre</code>: string <br>
+<code>Composer</code>: string</td>
+</tr>
+<tr><td align="LEFT">&nbsp;</td>
+<td align="LEFT" valign="TOP" width=227>&nbsp;</td>
+</tr>
+<tr><td align="LEFT"><code>StreamingUrl</code></td>
+<td align="LEFT" valign="TOP" width=227><b>Key</b>: <b>Value</b> <br>
+Type: string <br>
+<code>FileName</code>: string <br>
+<code>FileExtension</code>: string <br>
+<code>Drive</code>: string <br>
+<code>FileSize</code>: int <br>
+<code>FileDate</code>: datetime <br>
+<code>FileNameAndPath</code>: string <br>
+<code>LinkFirstURL</code>: string <br>
+<code>MimeType</code>: string</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.9.1 GetList"
+  href="node162.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.9 media Management"
+  href="node161.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.10 Sensors"
+  href="node164.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node162.html">6.9.1 GetList</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node161.html">6.9 Media Management</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node164.html">6.10 Sensors</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

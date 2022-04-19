@@ -1,0 +1,408 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node167.html" />
+<link rel="prev" href="node165.html" />
+<link rel="parent" href="node164.html" />
+<link rel="next" href="node167.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.10.2 RegisterForNotification</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.10.1 FindSensorChannel"
+  href="node165.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.10 Sensors"
+  href="node164.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.10.3 GetChannelProperty"
+  href="node167.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node165.html">6.10.1 FindSensorChannel</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node164.html">6.10 Sensors</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node167.html">6.10.3 GetChannelProperty</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION0081020000000000000000"></a>
+<a name="subsec:sensorreqnotify"></a>
+<br>
+6.10.2 RegisterForNotification
+</h2>
+
+<p>
+<code>RegisterForNotification</code> is used to register for notification with a sensor channel to receive channel data or channel property changes. This is associated with the transaction ID of an asynchronous request. <br>
+These notifications are continuous in nature and are stopped by invoking the <code>Cancel</code> command on the retrieved transaction ID.
+
+<p>
+The following is an example for using <code>RegisterForNotification</code>:
+
+<p>
+<b>Asynchronous</b>
+
+<p>
+<div class="verbatim"><pre>
+sensor_handle.call('RegisterForNotification',
+                   {'ListeningType': u'ChannelData',
+                    'ChannelInfoMap': {'ChannelId': result['ChannelId'], 
+                                      'ContextType': result['ContextType'],
+                                      'Quantity': result['Quantity'], 
+                                      'ChannelType': result['ChannelType'], 
+                                      'Location': result['Location'], 
+                                      'VendorId': result['VendorId'], 
+                                      'DataItemSize': result['DataItemSize'], 
+                                      'ChannelDataTypeId': result['ChannelDataTypeId']}}, 
+                    callback=sensor_callback)
+</pre></div>
+
+<p>
+where, <code>sensor_callback</code> is the user defined callback function.
+
+<p>
+The following table summarizes the specification of <code>RegisterForNotification</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT"><code>ISensor</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT">Registers for notification with a sensor channel to receive channel data.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT">Asynchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT">ISensor interface is loaded.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT">Client application receives an array of channel information to open channels.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter is a set of arguments that specifies the <code>Listening</code> Type and the <code>ChannelInfoMap</code>.
+<br><p></p>
+<div align="CENTER"><a name="19389"></a>
+<table>
+<caption><strong>Table 6.197:</strong>
+Input parameters for RegisterForNotification</caption>
+<tr><td>
+<small class="FOOTNOTESIZE"></small>
+<div align="CENTER"><small class="FOOTNOTESIZE"></small><table cellpadding=3 border="1">
+<tr><td align="LEFT"><small class="FOOTNOTESIZE">
+</small><small class="FOOTNOTESIZE"><b>Name</b> </small></td>
+<td align="LEFT" valign="TOP" width=99><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Type</b> </small></td>
+<td align="LEFT" valign="TOP" width=85><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Range</b> </small></td>
+<td align="LEFT" valign="TOP" width=170><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Description</b> </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+<code>ListeningType</code> </small></td>
+<td align="LEFT" valign="TOP" width=99><small class="FOOTNOTESIZE"> unicode string </small></td>
+<td align="LEFT" valign="TOP" width=85><small class="FOOTNOTESIZE"> Range for <code>ListeningType</code> <br>
+<code>ChannelData</code>: Data listening </small></td>
+<td align="LEFT" valign="TOP" width=170><small class="FOOTNOTESIZE"> Determines the type of notification that needs to be registered for.  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+<code>ChannelInfoMap</code> </small></td>
+<td align="LEFT" valign="TOP" width=99><small class="FOOTNOTESIZE"> map as mentioned in <code>FindSensorChannel</code>. Refer </small><small class="FOOTNOTESIZE"><b>ChannelInfoMap</b> <a href="node165.html#tab:channelinfomap">6.194</a> </small></td>
+<td align="LEFT" valign="TOP" width=85><small class="FOOTNOTESIZE"> NA </small></td>
+<td align="LEFT" valign="TOP" width=170><small class="FOOTNOTESIZE"> The map is obtained by invoking <code>FindSensorChannel</code>.
+</small></td>
+</tr>
+</table><small class="FOOTNOTESIZE">
+</small></div><small class="FOOTNOTESIZE"></small></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br>
+<b>Output Parameters</b> <br>
+
+<p>
+Output contains <code>ReturnValue</code>. It also contains <code>ErrorCode</code> and an <code>ErrorMessage</code> if the operation fails. <code>ReturnValue</code> is an object, which contains output parameter details depending on the listening type and channel selected. 
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="19456"></a>
+<table>
+<caption><strong>Table 6.198:</strong>
+Output parameters for RegisterForNotification</caption>
+<tr><td>
+<small class="FOOTNOTESIZE"></small>
+<div align="CENTER"><small class="FOOTNOTESIZE"></small><table cellpadding=3 border="1">
+<tr><td align="LEFT"><small class="FOOTNOTESIZE">
+</small><small class="FOOTNOTESIZE"><b>Name</b> </small></td>
+<td align="LEFT" valign="TOP" width=142><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Type</b> </small></td>
+<td align="LEFT" valign="TOP" width=113><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Range</b> </small></td>
+<td align="LEFT" valign="TOP" width=142><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Description</b>  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+<code>ErrorCode</code> </small></td>
+<td align="LEFT" valign="TOP" width=142><small class="FOOTNOTESIZE"> int </small></td>
+<td align="LEFT" valign="TOP" width=113><small class="FOOTNOTESIZE"> NA </small></td>
+<td align="LEFT" valign="TOP" width=142><small class="FOOTNOTESIZE"> Contains the SAPI specific error code when the operation fails.  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+<code>ErrorMessage</code> </small></td>
+<td align="LEFT" valign="TOP" width=142><small class="FOOTNOTESIZE"> string </small></td>
+<td align="LEFT" valign="TOP" width=113><small class="FOOTNOTESIZE"> NA </small></td>
+<td align="LEFT" valign="TOP" width=142><small class="FOOTNOTESIZE"> Error Description in Engineering English.  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+<code>ReturnValue</code> </small></td>
+<td align="LEFT" valign="TOP" width=142><small class="FOOTNOTESIZE"> The output consists of one of the following maps depending on the listening type and channel selected: <br>
+</small>
+<p>
+<small class="FOOTNOTESIZE">For listening type - <code>ChannelData</code> and channel information corresponding to <code>AccelerometerAxis</code>: <br>
+</small><small class="FOOTNOTESIZE"><b>Type</b>: </small><small class="FOOTNOTESIZE"><b>Name</b> <br>
+string: <code>DataType</code> <br>
+Time: <code>TimeStamp</code> <br>
+32 bit int: <code>XAxisData</code> <br>
+32 bit int: <code>YAxisData</code> <br>
+32 bit int: <code>ZAxisData</code> <br>
+</small>
+<p>
+<small class="FOOTNOTESIZE">For listening type - <code>ChannelData</code> and channel information corresponding to <code>AccelerometerDoubleTapping</code>: <br>
+</small><small class="FOOTNOTESIZE"><b>Type</b>: </small><small class="FOOTNOTESIZE"><b>Name</b> <br>
+string: <code>DataType</code> <br>
+Time: <code>TimeStamp</code> <br>
+32 bit int: <code>DeviceDirection</code> <br>
+</small>
+<p>
+<small class="FOOTNOTESIZE">For listening type - <code>ChannelData</code> and channel information corresponding to <code>Orientation</code>: <br>
+</small><small class="FOOTNOTESIZE"><b>Type</b>: </small><small class="FOOTNOTESIZE"><b>Name</b> <br>
+string: <code>DataType</code> <br>
+Time: <code>TimeStamp</code> <br>
+string: <code>DeviceOrientation</code> <br>
+</small>
+<p>
+<small class="FOOTNOTESIZE">For listening type - <code>ChannelData</code> and channel info corresponding to <code>Rotation</code>: <br>
+</small><small class="FOOTNOTESIZE"><b>Type</b>: </small><small class="FOOTNOTESIZE"><b>Name</b> <br>
+string: <code>DataType</code> <br>
+Time: <code>TimeStamp</code> <br>
+32 bit int: <code>XRotation</code> <br>
+32 bit int: <code>YRotation</code> <br>
+32 bit int: <code>ZRotation</code> </small></td>
+<td align="LEFT" valign="TOP" width=113><small class="FOOTNOTESIZE"> <code>DataType</code> for <code>AccelerometerAxis</code> is <code>AxisData</code> <br>
+</small>
+<p>
+<small class="FOOTNOTESIZE"><code>DataType</code> for <code>AccelerometerDoubleTapping</code> is <code>DoubleTappingData</code> <br>
+</small>
+<p>
+<small class="FOOTNOTESIZE"><code>DataType</code> for <code>Orientation</code> is <code>OrientationData</code> <br>
+Range for <code>DeviceOrientation</code>: <br>
+Undefined <br>
+DisplayUp <br>
+DisplayDown <br>
+DisplayLeftUp <br>
+DisplayRightUp <br>
+DisplayUpwards <br>
+DisplayDownwards <br>
+</small>
+<p>
+<small class="FOOTNOTESIZE"><code>DataType</code> for <code>Rotation</code> is <code>RotationData</code> </small></td>
+<td align="LEFT" valign="TOP" width=142><small class="FOOTNOTESIZE"> A map is returned in case notification is received.  </small></td>
+</tr>
+</table><small class="FOOTNOTESIZE">
+</small></div><small class="FOOTNOTESIZE"></small></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="19472"></a>
+<table>
+<caption><strong>Table 6.199:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>0</code></td>
+<td align="LEFT">Success</td>
+</tr>
+<tr><td align="LEFT"><code>1000</code></td>
+<td align="LEFT">Invalid service argument</td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1003</code></td>
+<td align="LEFT">Missing argument</td>
+</tr>
+<tr><td align="LEFT"><code>1005</code></td>
+<td align="LEFT">Service in use</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description:
+<br><p></p>
+<div align="CENTER"><a name="19491"></a>
+<table>
+<caption><strong>Table 6.200:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=227><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Sensors:RegisterForNotification: Listening type missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the listening type for receiving notification is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Sensors:RegisterForNotification: Listening type is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the datatype of Listening type is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Sensors:RegisterForNotification: ChannelInfoMap missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the channel information map is not provided as input parameter.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Sensors:RegisterForNotification: Incomplete input param list</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the input parameter list is incomplete.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Sensors:RegisterForNotification: Listening type is out of allowed range</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the Listening type falls outside the allowed range of listening types.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Sensors:RegisterForNotification: Callback missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the callback function is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Sensors:RegisterForNotification: Notification is already registered on this channel</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the notification is already registered from the same user on the same channel.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to receive notification for channel data, on registering:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+import e32
+
+# Using e32.Ao_lock() to make main function wait till callback is hit
+lock = e32.Ao_lock()
+
+# Callback function will be called when the requested service is complete
+def register_operation(trans_id, event_id, input_params):
+    if trans_id != scriptext.EventCompleted:
+        print "DataType: ", input_params["ReturnValue"]["DataType"]
+        print "TimeStamp: ", input_params["ReturnValue"]["TimeStamp"]
+        print "X-Axis Rotation: ", input_params["ReturnValue"]["XRotation"]
+        print "Y-Axis Rotation: ", input_params["ReturnValue"]["YRotation"]
+        print "Z-Axis Rotation: ", input_params["ReturnValue"]["ZRotation"]
+</pre></div>
+
+<p>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.10.1 FindSensorChannel"
+  href="node165.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.10 Sensors"
+  href="node164.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.10.3 GetChannelProperty"
+  href="node167.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node165.html">6.10.1 FindSensorChannel</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node164.html">6.10 Sensors</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node167.html">6.10.3 GetChannelProperty</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

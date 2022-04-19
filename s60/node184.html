@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node185.html" />
+<link rel="prev" href="node180.html" />
+<link rel="parent" href="extendandembed.html" />
+<link rel="next" href="node185.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>8.2 Embedding PyS60</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="8.1.3 distributing extension modules"
+  href="node183.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="8. extending and Embedding"
+  href="extendandembed.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="8.3 porting 1.4.x to"
+  href="node185.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node183.html">8.1.3 Distributing extension modules</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="extendandembed.html">8. Extending and Embedding</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node185.html">8.3 Porting 1.4.x to</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h1><a name="SECTION0010200000000000000000"></a>
+<a name="sec:embedPyS60"></a>
+<br>
+8.2 Embedding PyS60
+</h1>
+There is not much change with respect to embedding Python from what is mentioned in the
+Python mainline document apart from the custom memory allocator which is explained
+later in this Section.
+
+<p>
+The following code snippet, which prints 'Hello World!' on the screen,
+demonstrates the embedding of Python interpreter in a C code:
+
+<p>
+The source file contents are as follows:
+<div class="verbatim"><pre>
+#include &lt;Python.h&gt;
+/* This is a GCCE toolchain workaround needed when compiling with GCCE
+   and using main() entry point */
+#ifdef __GCCE__
+#include &lt;staticlibinit_gcce.h&gt;
+#endif
+
+int main(void)
+{
+
+    SPy_DLC_Init();
+    SPy_SetAllocator(SPy_DLC_Alloc, SPy_DLC_Realloc, SPy_DLC_Free, NULL);
+    Py_Initialize();
+    PyRun_SimpleString("print 'Hello World!'");
+    Py_Finalize();
+    SPy_DLC_Fini();
+    return 0;
+}
+</pre></div>
+
+<p>
+The basic initialization function is <tt class="cfunction">Py_Initialize()</tt>. This initializes
+the table of loaded modules, and creates the fundamental modules __builtin__,
+__main__ and sys. It also initializes the module search path (sys.path).
+<tt class="cfunction">Py_Finalize()</tt> is called when the application is done with its use of
+Python and wants to free all memory allocated by Python.
+
+<p>
+PyS60 provides a DLC custom allocator which can be used instead of Python memory allocator.
+<tt class="cfunction">SPy_SetAllocator()</tt> is used for redirecting the allocator used by
+Python. The arguments to this function are the custom functions for allocating,
+reallocating, freeing the memory and a context pointer in that order. <tt class="cfunction">SPy_DLC_Init()</tt>
+is used for initializing the DLC custom allocator. <tt class="cfunction">SPy_DLC_Fini()</tt> is used
+for finalizing the DLC custom allocator and doing a memory cleanup. If you want to use
+your own custom allocator you will have to define the allocation, reallocation
+and free memory functions and pass the function names to <tt class="cfunction">SPy_SetAllocator()</tt>.
+
+<p>
+For more information on embedding Python, refer <em class="citetitle"><a
+ href="../ext/embedding.html"
+ title="Embedding Python in Another Application"
+ >Embedding Python in Another Application</a></em>
+
+<p>
+The MMP file contents for the above source is as follows:
+
+<p>
+<div class="verbatim"><pre>
+TARGET        helloworld.exe
+TARGETTYPE    exe
+
+SYSTEMINCLUDE    \epoc32\include\python25
+SYSTEMINCLUDE    \epoc32\include\stdapis
+SYSTEMINCLUDE    \epoc32\include
+
+/* Using main() as entry point */
+STATICLIBRARY libcrt0.lib
+
+/* libc and euser are always needed when using main() entry point */
+LIBRARY libc.lib
+LIBRARY euser.lib
+LIBRARY python25.lib
+
+SOURCEPATH      ..\src
+SOURCE          helloworld.cpp
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="8.1.3 distributing extension modules"
+  href="node183.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="8. extending and Embedding"
+  href="extendandembed.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="8.3 porting 1.4.x to"
+  href="node185.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node183.html">8.1.3 Distributing extension modules</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="extendandembed.html">8. Extending and Embedding</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node185.html">8.3 Porting 1.4.x to</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

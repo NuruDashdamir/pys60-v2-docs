@@ -1,0 +1,346 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node117.html" />
+<link rel="prev" href="node115.html" />
+<link rel="parent" href="node115.html" />
+<link rel="next" href="node117.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.2.1 GetList</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.2 application Manager"
+  href="node115.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.2 application Manager"
+  href="node115.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.2.2 LaunchApp"
+  href="node117.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node115.html">6.2 Application Manager</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node115.html">6.2 Application Manager</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node117.html">6.2.2 LaunchApp</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008210000000000000000"></a>
+<a name="subsec:appmgrgetlist"></a>
+<br>
+6.2.1 GetList
+</h2>
+
+<p>
+<code>GetList</code> is used to retrieve information about user installed packages, all applications, and handler applications. It takes a set of input parameters that define Type and Filter to retrieve the required information. It is available only in synchronous mode.
+
+<p>
+The following is an example for using <code>GetList</code>:
+
+<p>
+<div class="verbatim"><pre>
+appmanager_info = appmanager_handle.call('GetList', {'Type': u'Application'})
+</pre></div>
+
+<p>
+The following table summarizes the specification of <code>GetList</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT" valign="TOP" width=283><code>IAppManager</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT" valign="TOP" width=283>Retrieves information about user installed packages or handler applications based on document path or MIME type.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT" valign="TOP" width=283>Synchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT" valign="TOP" width=283>Valid instance of <code>IAppManager</code> interface is instantiated.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT" valign="TOP" width=283>Nil</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameters specify the Type of package or application to retrieve, and the Filter for the retrieved information. Input parameter has properties called Type and Filter.
+<br><p></p>
+<div align="CENTER"><a name="8221"></a>
+<table>
+<caption><strong>Table 6.1:</strong>
+Input parameters for Getlist</caption>
+<tr><td><small class="FOOTNOTESIZE"></small>
+<div align="CENTER"><small class="FOOTNOTESIZE"></small><table cellpadding=3 border="1">
+<tr><td align="LEFT"><small class="FOOTNOTESIZE">
+</small><small class="FOOTNOTESIZE"><b>Name</b> </small></td>
+<td align="LEFT"><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Type</b> </small></td>
+<td align="LEFT" valign="TOP" width=113><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Range</b> </small></td>
+<td align="LEFT" valign="TOP" width=283><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Description</b> </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+Type </small></td>
+<td align="LEFT"><small class="FOOTNOTESIZE"> unicode string </small></td>
+<td align="LEFT" valign="TOP" width=113><small class="FOOTNOTESIZE"> <code>UserInstalledPackage</code>, <code>Application</code> </small></td>
+<td align="LEFT" valign="TOP" width=283><small class="FOOTNOTESIZE"> Performs service based on the following content types. This field is mandatory: <br>
+</small>
+<p>
+<small class="FOOTNOTESIZE">For <code>Application</code> content type, this API returns all the application present in the device, whether it is user installed or pre-installed. <br>
+</small>
+<p>
+<small class="FOOTNOTESIZE">For <code>UserInstalledPackage</code> content type, this API returns all user installed packages. This package contains either the application and the supporting DLL, or only the DLLs.  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+[Filter] </small></td>
+<td align="LEFT"><small class="FOOTNOTESIZE"> map </small></td>
+<td align="LEFT" valign="TOP" width=113><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Key</b>: <code>DocumentPath</code> or <code>MimeType</code> <br>
+</small><small class="FOOTNOTESIZE"><b>Value</b>: <code>unicode string</code> </small></td>
+<td align="LEFT" valign="TOP" width=283><small class="FOOTNOTESIZE"> This Filter Criteria is applicable when the Type is <code>Application</code>. It specifies the Document path or MIME type of the application. For example, document path: </small><small class="FOOTNOTESIZE"><b>C:&gt;\\data\\abcd.txt</b> and MIME type: </small><small class="FOOTNOTESIZE"><b>image/jpeg</b>.
+You can use the filter criteria to find out the Handler application.
+If both <code>DocumentPath</code> and <code>MimeType</code> are present in the Filter map then, <code>DocumentPath</code> gets preference over <code>MimeType</code>.  </small></td>
+</tr>
+</table><small class="FOOTNOTESIZE">
+</small></div><small class="FOOTNOTESIZE"></small></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output parameters contain the requested information. They also contain <code>ErrorCode</code>, and <code>ErrorMessage</code> if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="8253"></a>
+<table>
+<caption><strong>Table 6.2:</strong>
+Output parameters for GetList</caption>
+<tr><td><small class="FOOTNOTESIZE"></small>
+<div align="CENTER"><small class="FOOTNOTESIZE"></small><table cellpadding=3 border="1">
+<tr><td align="LEFT"><small class="FOOTNOTESIZE">
+</small><small class="FOOTNOTESIZE"><b>Name</b> </small></td>
+<td align="LEFT"><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Type</b> </small></td>
+<td align="LEFT" valign="TOP" width=85><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Range (Type: string)</b> </small></td>
+<td align="LEFT" valign="TOP" width=198><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>Description</b> </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+<code>ErrorCode</code> </small></td>
+<td align="LEFT"><small class="FOOTNOTESIZE"> int </small></td>
+<td align="LEFT" valign="TOP" width=85><small class="FOOTNOTESIZE"> NA </small></td>
+<td align="LEFT" valign="TOP" width=198><small class="FOOTNOTESIZE"> Service specific error code on failure of the operation.  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+<code>ErrorMessage</code> </small></td>
+<td align="LEFT"><small class="FOOTNOTESIZE"> string </small></td>
+<td align="LEFT" valign="TOP" width=85><small class="FOOTNOTESIZE"> NA </small></td>
+<td align="LEFT" valign="TOP" width=198><small class="FOOTNOTESIZE"> Error description in Engineering English.  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="FOOTNOTESIZE"> 
+
+<code>ReturnValue</code> </small></td>
+<td align="LEFT"><small class="FOOTNOTESIZE"> Iterable items </small></td>
+<td align="LEFT" valign="TOP" width=85><small class="FOOTNOTESIZE"> </small><small class="FOOTNOTESIZE"><b>InstalledPackage</b>: <br>
+<code>PackageName</code> <br>
+<code>Version</code> <br>
+<code>UID</code> <br>
+<code>Vendor</code> <br>
+<code>Drive</code> <br>
+</small><small class="FOOTNOTESIZE"><b>Application</b>: <br>
+<code>UID</code> <br>
+<code>Path</code> <br>
+<code>Caption</code> <br>
+<code>ShortCaption</code> </small></td>
+<td align="LEFT" valign="TOP" width=198><small class="FOOTNOTESIZE"> An Installed package contains the metadata field and value (for example: name, version, and UID) of the package in the form of a map.
+Installed package map contains the UID of package (In S60, it is UID of the </small><small class="FOOTNOTESIZE"><b>.sisx</b> file).
+<br>
+</small>
+<p>
+<small class="FOOTNOTESIZE">In case of <code>Application</code>, the API returns the UID, path, and caption of the application.
+The API returns the appropriate error code if the application does not match the given criteria. For example, if the Mime type given for one SDK or Device is not valid for another, it returns an error code.  </small></td>
+</tr>
+</table><small class="FOOTNOTESIZE">
+</small></div><small class="FOOTNOTESIZE"></small></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="8268"></a>
+<table>
+<caption><strong>Table 6.3:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>0</code></td>
+<td align="LEFT">Success</td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1004</code></td>
+<td align="LEFT">Service not supported</td>
+</tr>
+<tr><td align="LEFT"><code>1012</code></td>
+<td align="LEFT">Item not found</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description: 
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="8284"></a>
+<table>
+<caption><strong>Table 6.4:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=142><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=142><code>AppManager:GetList:Type Missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates missing of a content type or a mismatch in the datatype of the given content type.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=142><code>AppManager:GetList:Filter type mismatch</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates a mismatch in the datatype of the given filter.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=142><code>AppManger:GetList:Asynchronous version of API is not supported</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the asynchronous version of unsupported <code>GetList</code> is called.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to get the list of applications on S60 device:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+
+# Load the desired SAPI
+appmanager_handle = scriptext.load('Service.AppManager', 'IAppManager')
+try:
+   f = open('c:\\data.txt', 'a+')
+   app_info = []
+   appmanager_info = appmanager_handle.call('GetList', {'Type': u'Application'})
+   for item in appmanager_info:
+       app_info.append(item['UID'])
+       app_info.append(item['Caption'])
+       print item['UID']
+       print item['Path']
+       print item['Caption']
+       print item['ShortCaption']
+   f.write(str(app_info))
+except scriptext.ScriptextError, err:
+   print "Error getting the list of Installed Application: ", err
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.2 application Manager"
+  href="node115.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.2 application Manager"
+  href="node115.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.2.2 LaunchApp"
+  href="node117.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node115.html">6.2 Application Manager</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node115.html">6.2 Application Manager</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node117.html">6.2.2 LaunchApp</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node58.html" />
+<link rel="prev" href="node56.html" />
+<link rel="parent" href="node56.html" />
+<link rel="next" href="node58.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>3.9.2.1 Module Level Functions</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="3.9.2 module for devices"
+  href="node56.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="3.9.2 module for devices"
+  href="node56.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="3.9.2.2 base Class"
+  href="node58.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node56.html">3.9.2 Module for devices</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node56.html">3.9.2 Module for devices</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node58.html">3.9.2.2 Base Class</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h3><a name="SECTION005921000000000000000">
+3.9.2.1 Module Level Functions</a>
+</h3>
+
+<p>
+<b>List Channels</b> <br>
+Function signature: <tt class="method">list_channels</tt>
+
+<p>
+This returns a list of dictionaries containing all the available sensors on the device. The returned dictionary has the following format:
+
+<p>
+<div class="verbatim"><pre>
+[
+ {'id': channel id, 'type': channel type, 'name': channel name}
+
+ {'id': channel id, 'type': channel type, 'name': channel name}
+
+....
+]
+</pre></div>
+
+<p>
+where, <code>channel_id</code>, <code>channel_type</code>, and <code>channel_name</code> have strings as values of the respective channels.
+
+<p>
+<b>Query Logical Name</b> <br>
+Function signature : <tt class="method">get_logicalname(&lt;DataLookupClass&gt;, value)</tt>
+
+<p>
+This function can be used for querying the logical name based on value. The file <b>sensor_defs.py</b> has the mapping of different sensor properties to their respective hex/decimal values. The following table contains the sensor classes, supported by <tt class="method">get_logicalname()</tt> and the respective data lookup classes.
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Sensor Class</b></td>
+<td align="LEFT"><b>DataLookupClass</b></td>
+</tr>
+<tr><td align="LEFT"><code>ProximityMonitor</code></td>
+<td align="LEFT"><code>ProximityState</code></td>
+</tr>
+<tr><td align="LEFT"><code>OrientationData</code></td>
+<td align="LEFT"><code>DeviceOrientation</code></td>
+</tr>
+<tr><td align="LEFT"><code>AmbientLightData</code></td>
+<td align="LEFT"><code>AmbientLightData</code></td>
+</tr>
+<tr><td align="LEFT"><code>AccelerometerDoubleTappingData</code></td>
+<td align="LEFT"><code>AccelerometerDirection</code></td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="3.9.2 module for devices"
+  href="node56.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="3.9.2 module for devices"
+  href="node56.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="3.9.2.2 base Class"
+  href="node58.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node56.html">3.9.2 Module for devices</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node56.html">3.9.2 Module for devices</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node58.html">3.9.2.2 Base Class</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

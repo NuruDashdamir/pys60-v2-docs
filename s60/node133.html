@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node134.html" />
+<link rel="prev" href="node132.html" />
+<link rel="parent" href="node127.html" />
+<link rel="next" href="node134.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.4.6 Organise</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.4.5 Export"
+  href="node132.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.4 Contacts"
+  href="node127.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.4.7 key Values"
+  href="node134.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node132.html">6.4.5 Export</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node127.html">6.4 Contacts</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node134.html">6.4.7 Key Values</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008460000000000000000"></a>
+<a name="subsec:contactorg"></a>
+<br>
+6.4.6 Organise
+</h2>
+
+<p>
+<code>Organise</code> is used to add contacts to a contact group (association) or remove contacts from a contact group (disassociation). The operation is performed on the specified database or, if no database is specified, on the default one. <br>
+
+<p>
+This method can be called in both synchronous and asynchronous mode.
+
+<p>
+The following is an example for using <code>Organise</code>:
+
+<p>
+<b>Asynchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+event_id = contacts_handle.call('Organise', {'Type': u'Group','Data': {'id': unicode(req_groupid[0]),'IdList': [req_id]}, 'OperationType': u'Associate'},callback=export_contact)
+</pre></div>
+
+<p>
+where, <code>export_contact</code> is a user defined function.
+
+<p>
+The following table summarizes the specification of <code>Organise</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>Interface</b></td>
+<td align="LEFT" valign="TOP" width=283><code>IDataSource</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Operation</b></td>
+<td align="LEFT" valign="TOP" width=283>Associates or disassociates a list of contacts in a database to and from a group.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Response Model</b></td>
+<td align="LEFT" valign="TOP" width=283>Asynchronous and synchronous for Third Edition FP2 and Fifth Edition devices. <br>
+Synchronous for Third Edition and Third Edition FP1 devices.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Pre-condition</b></td>
+<td align="LEFT" valign="TOP" width=283>Valid <code>IDataSource</code> interface is loaded. The IDs specified for group and contact must exist and can be retrieved using <code>GetList</code>.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Post-condition</b></td>
+<td align="LEFT" valign="TOP" width=283>Contacts from the default or specified contacts database are associated/ disassociated to and from a group.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies which contact group to organize.
+<br><p></p>
+<div align="CENTER"><a name="12032"></a>
+<table>
+<caption><strong>Table 6.82:</strong>
+Input parameters Organise</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=85><code>Group</code></td>
+<td align="LEFT" valign="TOP" width=170>Operation is performed on the specified type.</td>
+</tr>
+<tr><td align="LEFT">Data</td>
+<td align="LEFT" valign="TOP" width=85>map <br>
+<code>[DBUri]</code>: unicode string <br>
+<code>id</code>: unicode string <br>
+<code>IdList</code>: List <br>
+		<em>id1</em> <br>
+		<em>id2</em> and so on</td>
+<td align="LEFT" valign="TOP" width=85>All string values in the map are unicode. <br>
+
+<p>
+<em>id1</em>, <em>id2</em>, ... are strings. These are obtained by calling <code>GetList</code>.</td>
+<td align="LEFT" valign="TOP" width=170><code>DBUri</code>: Organise groups in the specified database or to the default database if not specified. <br>
+
+<p>
+<code>id</code>: Associate or disassociate contacts to the particular <code>Id</code>. <br>
+
+<p>
+<code>IdList</code>: Organise a particular list of contacts.</td>
+</tr>
+<tr><td align="LEFT"><code>OperationType</code></td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=85><b>OperationType:</b> <br>
+Associate <br>
+Disassociate</td>
+<td align="LEFT" valign="TOP" width=170>NA</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+The output is an object, which contains <code>ErrorCode</code> and an <code>ErrorMessage</code> if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="12050"></a>
+<table>
+<caption><strong>Table 6.83:</strong>
+Output parameters for Organise</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>Contains the SAPI specific error code when the operation fails and <code>SErrNone</code> on success.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>Error Description in Engineering English.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the errors and their values:
+<br><p></p>
+<div align="CENTER"><a name="12063"></a>
+<table>
+<caption><strong>Table 6.84:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1011</code></td>
+<td align="LEFT">Access denied</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description:
+<br><p></p>
+<div align="CENTER"><a name="12090"></a>
+<table>
+<caption><strong>Table 6.85:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=198><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Contacts:Organise:Type is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates Type is missing</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Contacts:Organise:Invalid Content Type, it must be Group</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates invalid value for Type, it can be only Contact.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Contacts:Organise:Organise Data Missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the key <code>Data</code> is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Contacts:Organise:Invalid Type of Data, Map is required</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the value of the Data is not a Map.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Contacts:Organise:List of Ids is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that Contact id list is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Contacts:Organise:Id is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that Group id is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Contacts:Organise:OperationType is Missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that OperationType is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Contacts:Organise:Operation Type is Wrong</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that OperationType is not a string.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Contacts:Organise:Invalid Operation Type</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the Operation type is neither associate nor disassociate.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Contacts:Organise:Id type is wrong</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the id is not a string.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Contacts:Organise:IdList type is wrong</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that IdList is not a of type List.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Contacts:Organise:Wrong Type of ContentType</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the value for Type is not a string.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Contacts:Organise:Mandatory Argument is not present</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that not all mandatory arguments are present.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Contacts:Organise:Id List is empty</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the mandatory Idlist is given but is empty.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to associate or disassociate a contact from a group:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+import e32
+# Using e32.Ao_lock() to make main function wait till callback is hit
+lock = e32.Ao_lock()
+req_groupid = []
+
+# Callback function will be called when the requested service is complete
+def export_contact(trans_id, event_id, input_params):
+    if event_id != scriptext.EventCompleted:   # Check the event status
+        print "Error in retrieving required info"
+        print "Error code is: " + str(input_params["ReturnValue"]["ErrorCode"])
+        if "ErrorMessage" in input_params["ReturnValue"]:
+            print "Error message:" + input_params["ReturnValue"]["ErrorMessage"]
+    else:
+        print "The contact is organised"
+        lock.signal()
+
+# Load contacts module
+contacts_handle = scriptext.load("Service.Contact", "IDataSource")
+
+list_contacts = contacts_handle.call('GetList', {'Type': u'Contact', 'Filter': {'SearchVal': u'Clark'}})
+
+for i in list_contacts: req_id = i['id']
+
+list_groups = contacts_handle.call('GetList', {'Type': u'Group'})
+
+for j in list_groups:
+    req_groupid.append(j['id'])
+
+event_id = contacts_handle.call('Organise', {'Type': u'Group', 'Data': {'id': unicode(req_groupid[0]), 'IdList': [req_id]}, 'OperationType': u'Associate'}, callback=export_contact)
+
+print "Waiting for the request to be processed!"
+lock.wait()
+print "Request complete!"
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.4.5 Export"
+  href="node132.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.4 Contacts"
+  href="node127.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.4.7 key Values"
+  href="node134.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node132.html">6.4.5 Export</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node127.html">6.4 Contacts</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node134.html">6.4.7 Key Values</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

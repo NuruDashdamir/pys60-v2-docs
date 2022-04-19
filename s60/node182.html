@@ -1,0 +1,203 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node183.html" />
+<link rel="prev" href="node181.html" />
+<link rel="parent" href="node180.html" />
+<link rel="next" href="node183.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>8.1.2 Compiling the extension module</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="8.1.1 example Extension Module"
+  href="node181.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="8.1 extending PyS60"
+  href="node180.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="8.1.3 distributing extension modules"
+  href="node183.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node181.html">8.1.1 Example Extension Module</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node180.html">8.1 Extending PyS60</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node183.html">8.1.3 Distributing extension modules</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION0010120000000000000000">
+8.1.2 Compiling the extension module</a>
+</h2>
+
+<p>
+<b>Requirements</b> <br>
+
+<ul>
+<li>Series 60 SDK, 3rdEd or higher
+</li>
+<li>Python for S60 1.9.x SDK package
+</li>
+<li>Open C/C++ plug-in. Refer the release notes for the version of OpenC to be
+      installed for this release.
+</li>
+</ul>
+
+<p>
+<b>Installation</b> <br>
+Place the Python for Series 60 SDK 3rdEd under the Symbian SDK installation
+directory, at the same level as the "epoc32" directory. Extract the SDK zip
+package here(On Windows if you have WinZip installed, right-click on the zip
+and in the menu select : 'Winzip-&gt;Extract to here')
+
+<p>
+<b>Building</b> <br>
+Modify the mmp file to include "Location" capability while building for 3rdEdFp2
+and higher devices. A script file build_all.cmd that does all the necessary
+steps (and some extra cleanup, just to be sure) has been provided for
+convenience. You can either use that or perform the build manually using these
+instructions.
+
+<p>
+
+<ul>
+<li>Go to the elemlist directory. Enter:
+<br><b>bldmake bldfiles</b>
+
+<p>
+</li>
+<li>To build the extension for the device, enter: 
+<br>
+<b>abld build gcce urel
+<br>
+abld freeze gcce
+<br>
+abld build gcce urel
+<br></b>
+
+<p>
+You should find the built module in (path to your SDK)<span class="MATH"><IMG
+ WIDTH="12" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\backslash$"></span>epoc32<span class="MATH"><IMG
+ WIDTH="12" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\backslash$"></span>release<span class="MATH"><IMG
+ WIDTH="12" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\backslash$"></span>gcce<span class="MATH"><IMG
+ WIDTH="12" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\backslash$"></span>urel<span class="MATH"><IMG
+ WIDTH="12" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\backslash$"></span>kf_elemlist.pyd
+
+<p>
+</li>
+<li>To build it for the emulator environment, enter: 
+<br>
+<b>abld build winscw udeb
+<br>
+abld freeze winscw
+<br>
+abld build winscw udeb
+<br></b>
+
+<p>
+You should find the built module in (path to your SDK)<span class="MATH"><IMG
+ WIDTH="12" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\backslash$"></span>epoc32<span class="MATH"><IMG
+ WIDTH="12" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\backslash$"></span>release<span class="MATH"><IMG
+ WIDTH="12" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\backslash$"></span>winscw<span class="MATH"><IMG
+ WIDTH="12" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\backslash$"></span>ubed<span class="MATH"><IMG
+ WIDTH="12" HEIGHT="32" ALIGN="MIDDLE" BORDER="0"
+ SRC="img15.png"
+ ALT="$\backslash$"></span>kf_elemlist.pyd
+</li>
+</ul>
+
+<p>
+<span class="note"><b class="label">Note:</b>
+The "freeze" step needs to be done only when you add any function exports.
+       After "freeze", just one "abld build gcce urel" or "abld build winscw udeb"
+       will rebuild the code properly.</span>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="8.1.1 example Extension Module"
+  href="node181.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="8.1 extending PyS60"
+  href="node180.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="8.1.3 distributing extension modules"
+  href="node183.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node181.html">8.1.1 Example Extension Module</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node180.html">8.1 Extending PyS60</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node183.html">8.1.3 Distributing extension modules</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

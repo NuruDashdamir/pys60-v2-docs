@@ -1,0 +1,506 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node26.html" />
+<link rel="prev" href="node24.html" />
+<link rel="parent" href="module-appuifw.html" />
+<link rel="next" href="node26.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>3.1.10 Canvas Type</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="3.1.9 content_handler Type"
+  href="node24.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="3.1 appuifw  "
+  href="module-appuifw.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="3.1.11 infopopup Type"
+  href="node26.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node24.html">3.1.9 Content_handler Type</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="module-appuifw.html">3.1 appuifw  </a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node26.html">3.1.11 InfoPopup Type</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION0051100000000000000000"></a>
+<a name="subsec:canvas"></a>
+<br>
+3.1.10 Canvas Type
+</h2>
+<tt class="class">Canvas</tt> is a UI control that provides a drawable area on the screen 
+and support for handling raw key events. <tt class="class">Canvas</tt> supports the 
+standard drawing methods that are documented in Section <a href="module-graphics.html#sec:graphics">3.3</a>.
+
+<p>
+<dl><dt><table cellpadding="0" cellspacing="0"><tr valign="baseline">
+  <td><nobr><b><span class="typelabel">class</span>&nbsp;<tt id='l2h-134' xml:id='l2h-134' class="class">Canvas</tt></b>(</nobr></td>
+  <td><var></var><big>[</big><var>redraw_callback=None, event_callback=None,
+                                  resize_callback=None</var><big>]</big><var></var>)</td></tr></table></dt>
+<dd>
+Constructs a <tt class="class">Canvas</tt>. The optional parameters are callbacks
+that are called when specific events occur. 
+
+<p>
+<span class="note"><b class="label">Note:</b>
+Watch out for cyclic
+references here. For example, if the callbacks are methods of an
+object that holds a reference to the <tt class="class">Canvas</tt>, a reference cycle
+is formed that must be broken at cleanup time or the
+<tt class="class">Canvas</tt> will not be freed.</span>
+
+<p>
+<var>redraw_callback</var> is called whenever a part of the <tt class="class">Canvas</tt> 
+has been obscured by something, is then revealed, and needs to be
+redrawn. This can typically happen, for example, when the user
+switches away from the Python application and back again, or after
+displaying a pop-up menu. The callback takes as its argument a
+four-element tuple that contains the top-left and the bottom-right
+corner of the area that needs to be redrawn. In many cases redrawing
+the whole
+<tt class="class">Canvas</tt> is a reasonable option. 
+
+<p>
+<var>event_callback</var> is called whenever a raw key event is received or when a 
+pointer event occurs(only on touch input supported devices).
+There are three kinds of key events: <code>EEventKeyDown</code>,
+<code>EEventKey</code>, and <code>EEventKeyUp</code>. When a user presses a key 
+down, events <code>EEventKeyDown</code> and <code>EEventKey</code> are generated. 
+When the key is released, an <code>EEventKeyUp</code> event is generated.
+
+<p>
+Pointer events are generated by touch input supported devices. When the screen
+is touched the <code>EButton1Down</code> event is generated, <code>EDrag</code> while the
+finger/stylus is dragged across the screen and then <code>EButton1Up</code> when the
+finger/stylus is lifted.
+
+<p>
+The argument to the <var>event_callback</var> is a dictionary that contains 
+the following data:
+
+<p>
+For key events:
+
+<ul>
+<li><code>'type'</code>: one of <code>EEventKeyDown</code>, <code>EEventKey</code>, or 
+<code>EEventKeyUp</code>
+</li>
+<li><code>'keycode'</code>: the keycode of the key
+</li>
+<li><code>'scancode'</code>: the scancode of the key
+</li>
+<li><code>'modifiers'</code>: the modifiers that apply to this key event
+</li>
+</ul>
+
+<p>
+For pointer events:
+
+<ul>
+<li><code>'type'</code>: one of the several pointer events - <code>EButton1Up</code>, 
+<code>EButton1Down</code>, <code>EDrag</code> etc..
+</li>
+<li><code>'modifiers'</code>: the modifiers that apply to this pointer event
+</li>
+<li><code>'pos'</code>: A tuple containing the x-y pointer co-ordinates
+</li>
+</ul>
+
+<p>
+Each key on the keyboard has one or more scancodes and zero or more keycodes 
+associated with it. A scancode represents the physical key itself and a 
+keycode is the result of state-related operating system defined processing 
+done on the key. For keys that correspond to a symbol in the current 
+character set of the phone, the keycode is equal to the code of the 
+corresponding symbol in that character set. For example, if you are using 
+the Nokia Wireless Keyboard (SU-8W), pressing the key A will always produce 
+the scancode 65 (ASCII code for an upper case A), but the keycode 
+could be either 65 or 91 (ASCII code for a lower case A) depending on 
+whether or not the Shift key is pressed or Caps Lock is active. 
+
+<p>
+The <tt class="module">key_codes</tt> module contains definitions for the keycodes and 
+scancodes. See Figure&nbsp;<a href="#fig:keyboard">3.7</a> for the codes of the most 
+common keys on the phone keypad. 
+
+<p>
+Some keys are handled in a special way:
+
+<p>
+
+<ul>
+<li>A short press of the Edit key causes it to stay down, meaning that no <code>EEventKeyUp</code> event is sent. The event is only sent after a long press.
+</li>
+<li>Detecting presses of the Voice tags key or the Power key is not supported.
+</li>
+<li>If the right softkey is pressed, the <code>appuifw.app.exit_key_handler</code> callback is always executed.
+</li>
+</ul>
+
+<p>
+There is no way to prevent the standard action of the Hang-up key, the Menu 
+key, the Power key or the Voice tags key from taking place.
+
+<p>
+
+<div align="CENTER"><a name="fig:keyboard"></a><a name="1312"></a>
+<table>
+<caption align="BOTTOM"><strong>Figure 3.7:</strong>
+Keycodes and scancodes for phone keys usable from Python applications</caption>
+<tr><td>
+<div align="CENTER">
+
+</div>
+<IMG
+ WIDTH="575" HEIGHT="412" ALIGN="BOTTOM" BORDER="0"
+ SRC="img11.png"
+ ALT="\includegraphics[width=5in]{6630keyboard}">
+<div class="center"><table class="realtable">
+  <thead>
+    <tr>
+      <th class="left"  >Key</th>
+      <th>Keycode</th>
+      <th>Scancode</th>
+      </tr>
+    </thead>
+  <tbody>
+    <tr><td class="left"   valign="baseline">1.</td>
+        <td>EKeyLeftSoftkey</td>
+        <td>EScancodeLeftSoftkey</td></tr>
+    <tr><td class="left"   valign="baseline">2.</td>
+        <td>EKeyYes</td>
+        <td>EScancodeYes</td></tr>
+    <tr><td class="left"   valign="baseline">3.</td>
+        <td>EKeyMenu</td>
+        <td>EScancodeMenu</td></tr>
+    <tr><td class="left"   valign="baseline">4.</td>
+        <td>EKey0...9</td>
+        <td>EScancode0...9</td></tr>
+    <tr><td class="left"   valign="baseline">5.</td>
+        <td>EKeyStar</td>
+        <td>EScancodeStar</td></tr>
+    <tr><td class="left"   valign="baseline">6.</td>
+        <td>EKeyLeftArrow</td>
+        <td>EScancodeLeftArrow</td></tr>
+    <tr><td class="left"   valign="baseline">7.</td>
+        <td>EKeyUpArrow</td>
+        <td>EScancodeUpArrow</td></tr>
+    <tr><td class="left"   valign="baseline">8.</td>
+        <td>EKeySelect</td>
+        <td>EScancodeSelect</td></tr>
+    <tr><td class="left"   valign="baseline">9.</td>
+        <td>EKeyRightArrow</td>
+        <td>EScancodeRightArrow</td></tr>
+    <tr><td class="left"   valign="baseline">10.</td>
+        <td>EKeyDownArrow</td>
+        <td>EScancodeDownArrow</td></tr>
+    <tr><td class="left"   valign="baseline">11.</td>
+        <td>EKeyRightSoftkey</td>
+        <td>EScancodeRightSoftkey</td></tr>
+    <tr><td class="left"   valign="baseline">12.</td>
+        <td>EKeyNo</td>
+        <td>EScancodeNo</td></tr>
+    <tr><td class="left"   valign="baseline">13.</td>
+        <td>EKeyBackspace</td>
+        <td>EScancodeBackspace</td></tr>
+    <tr><td class="left"   valign="baseline">14.</td>
+        <td>EKeyEdit</td>
+        <td>EScancodeEdit</td></tr>
+    <tr><td class="left"   valign="baseline">15.</td>
+        <td>EKeyHash</td>
+        <td>EScancodeHash</td></tr></tbody>
+</table></div></td></tr>
+</table>
+</div>
+
+<p>
+<var>resize_callback</var> is called when screen size is changed when the 
+<tt class="class">Canvas</tt> rect size has been changed. The callback takes as its argument a
+two-element tuple that contains the new clientRect width and height. 
+
+<p>
+</dl>
+
+<p>
+Instances of <tt class="class">Canvas</tt> type have the following methods:
+
+<p>
+<dl><dt><table cellpadding="0" cellspacing="0"><tr valign="baseline">
+  <td><nobr><b><tt id='l2h-135' xml:id='l2h-135' class="method">bind</tt></b>(</nobr></td>
+  <td><var>pointer_event, callable</var><big>[</big><var>, ((x1, y1), (x2, y2))</var><big>]</big><var></var>)</td></tr></table></dt>
+<dd>
+This method can be used to listen to specific pointer events. The
+<var>pointer_event</var> argument can be any one of the pointer events listed in the
+<tt class="module">key_codes</tt> module.
+
+<p>
+The most common pointer events are:
+
+<p>
+
+<ul>
+<li><code>EButton1Down</code> - Pen down event 
+</li>
+<li><code>EButton1Up</code>   - Pen up event
+</li>
+<li><code>EDrag</code>        - Drag event (This event is only received when button1 is down)
+</li>
+<li><code>ESwitchOn</code>    - Switch on event caused by a screen tap.
+</li>
+</ul>
+
+<p>
+<var>callable</var> is called when the pointer_event and the co-ordinate 
+(if specified) criterion matches.
+
+<p>
+<var>((x1, y1), (x2, y2))</var> is an optional argument that can be passed to
+specify the screen area to monitor for any specific pointer event. The two
+co-ordinate tuple corresponds to the top-left and bottom-right points. This
+argument will be ignored if the event is not a pointer event.
+
+<p>
+There are several ways in which bind can be used:
+
+<p>
+
+<ul>
+<li><code>my_canv.bind(EButton1Up, callback)</code> - The callback is called when
+EButton1Up event is generated anywhere in the canvas.
+
+<p>
+</li>
+<li><code>my_canv.bind(EButton1Up, green_callback, ((x1, y1), (x2, y2)))</code> - The 
+callback is called when the EButton1Up pointer event occurs inside the screen
+area specified.
+
+<p>
+</li>
+<li><code>my_canv.bind(EButton1Up, yellow_callback, ((x3, y3), (x4, y4)))</code> - 
+Registers another callback for a different region but for the same pointer
+event. When two screen areas overlap, the callback registered last will be
+called when pointer events occur in the intersected region. 
+
+<p>
+</li>
+<li><code>my_canv.bind(EButton1Up, callback3, ((x1, y1), (x2, y2)))</code> - If the
+pointer event and the screen area to be monitored are the same, the callback
+passed will replace the old callback already registered. 
+
+<p>
+</li>
+<li><code>my_canv.bind(EButton1Up, None, ((x1, y1), (x2, y2)))</code> - If the pointer
+event and the screen area to be monitored are the same, and the callback passed
+is None, the callback registered previously is cleared.
+
+<p>
+</li>
+<li><code>my_canv.bind(EButton1Up, None)</code> - All callbacks previously registered
+for this pointer event are cleared, regardless of whether it was for a specific
+screen area or for the entire canvas.
+</li>
+</ul>
+
+<p>
+
+<div align="CENTER"><a name="fig:bind-scenarios"></a><a name="1342"></a>
+<table>
+<caption align="BOTTOM"><strong>Figure 3.8:</strong>
+Canvas bind scenarios</caption>
+<tr><td>
+<div align="CENTER">
+
+</div>
+<IMG
+ WIDTH="575" HEIGHT="511" ALIGN="BOTTOM" BORDER="0"
+ SRC="img12.png"
+ ALT="\includegraphics[width=5in]{bind-scenarios}"></td></tr>
+</table>
+</div>
+
+<p>
+Clicking on the white spot should result in <code>green_callback</code> to be called. 
+Clicking on the red spot should result in <code>yellow_callback</code> to be called in both
+the scenarios shown above provided the <code>yellow_callback</code> was registered last. 
+Clicking on the purple spot should result in <code>yellow_callback</code> to be called.
+
+<p>
+</dl>
+
+<p>
+<dl><dt><table cellpadding="0" cellspacing="0"><tr valign="baseline">
+  <td><nobr><b><tt id='l2h-136' xml:id='l2h-136' class="method">begin_redraw</tt></b>(</nobr></td>
+  <td><var></var><big>[</big><var>((x1, y1), (x2, y2))</var><big>]</big><var></var>)</td></tr></table></dt>
+<dd>
+This is an explicit function that can be used to signal the window server that 
+"I'm about to redraw this area". This method tells the window server that the 
+window is about to respond to the last redraw event by redrawing the specified 
+rectangle. This causes the window server to clear the rectangle, and remove it 
+from the invalid region.
+The optional co-ordinates x1, y1, x2, y2 should be the rectangle that has to be marked
+for redrawing.
+
+<p>
+After the redraw is complete the application should call end_redraw().
+
+<p>
+<span class="note"><b class="label">Note:</b>
+The begin_redraw and end_redraw methods should not be called inside the
+redraw callback function.</span>
+
+<p>
+Couple of FAQs on redraw/non-redraw drawing:
+
+<p>
+Question: What is non-redraw drawing?
+
+<ul>
+<li>"Non-redraw drawing" is any canvas/graphics drawing operation performed 
+outside of begin_redraw()/end_redraw().
+</li>
+</ul>
+
+<p>
+Question: What should applications do instead of non-redraw drawing?
+
+<ul>
+<li>"Redraw drawing" is any drawing delimited by begin_redraw()/end_redraw().
+</li>
+</ul>
+
+<p>
+Question: Why is non-redraw drawing bad for performance?
+
+<ul>
+<li>The window server caches drawing operations in the redraw store.
+Delimiting drawing with begin_redraw()/end_redraw() allows window server to 
+efficiently manage drawing operations. 
+
+<p>
+If applications perform drawing operations outside begin_redraw/end_redraw,
+window server cannot cull drawing operations from its cache of drawing 
+operations, because it cannot know whether a set of drawing operations has 
+been superceded by a new set.
+In this scenario every frame of drawing that is done on a non-redraw drawing window 
+will become slower and slower as it draws all the drawing operations for the 
+entire history of the window (well actually up until the last begin_redraw/end_redraw 
+for the whole window).
+
+<p>
+If an application performs begin_redraw/end_redraw, it tells the window server 
+that it can throw away any old drawing operations it had for the area of the 
+window specified in the redraw, thus allowing for more optimal management of 
+drawing operations.
+</li>
+</ul>
+
+<p>
+Question: What are the changes required for redraw drawing?
+
+<ul>
+<li>Applications should delimit their drawing with begin_redraw()/end_redraw() 
+- i.e. they should replace non-redraw drawing with redraw drawing. Sometimes, 
+this is as straight forward as adding these calls to existing rendering code.
+In other cases (where the application has been drawing using "incremental updates" 
+to the window, the application drawing code would need to be reworked to perform a 
+full refresh of the area redrawn for the rect provided in begin_redraw(rect).
+</li>
+</ul>
+</dl>
+
+<p>
+<dl><dt><table cellpadding="0" cellspacing="0"><tr valign="baseline">
+  <td><nobr><b><tt id='l2h-137' xml:id='l2h-137' class="method">end_redraw</tt></b>(</nobr></td>
+  <td><var></var>)</td></tr></table></dt>
+<dd>
+Ends the current redraw. This function should be called when redrawing is complete.
+</dl>
+
+<p>
+Instances of <tt class="class">Canvas</tt> type have the following attribute:
+
+<p>
+<dl><dt><b><tt id='l2h-138' xml:id='l2h-138' class="member">size</tt></b></dt>
+<dd>
+A two-element tuple that contains the current width and height of the 
+<tt class="class">Canvas</tt> as integers.
+</dl>
+
+<p>
+Instances of <tt class="class">Canvas</tt> type have the same standard drawing methods 
+that are documented in Section <a href="module-graphics.html#sec:graphics">3.3</a>.
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="3.1.9 content_handler Type"
+  href="node24.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="3.1 appuifw  "
+  href="module-appuifw.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="3.1.11 infopopup Type"
+  href="node26.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node24.html">3.1.9 Content_handler Type</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="module-appuifw.html">3.1 appuifw  </a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node26.html">3.1.11 InfoPopup Type</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

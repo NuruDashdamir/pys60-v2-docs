@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node137.html" />
+<link rel="prev" href="node135.html" />
+<link rel="parent" href="node135.html" />
+<link rel="next" href="node137.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.5.1 New</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.5 Landmarks"
+  href="node135.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.5 Landmarks"
+  href="node135.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.5.2 GetList"
+  href="node137.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node135.html">6.5 Landmarks</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node135.html">6.5 Landmarks</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node137.html">6.5.2 GetList</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008510000000000000000"></a>
+<a name="subsec:landmarknew"></a>
+<br>
+6.5.1 New
+</h2>
+
+<p>
+<code>New</code> method is used to create an empty landmark or landmark category item. You can use the new item as a template. It is available only in synchronous mode.
+
+<p>
+The following is an example for using <code>New</code>:
+
+<p>
+<div class="verbatim"><pre>
+new_output = landmark_handle.call('New', {'Type': u'Landmark'})
+</pre></div>
+
+<p>
+The following table summarizes the specification of <code>New</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>Interface</b></td>
+<td align="LEFT" valign="TOP" width=283><code>IDataSource</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Operation</b></td>
+<td align="LEFT" valign="TOP" width=283>Creates an empty landmark or category item.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Response Model</b></td>
+<td align="LEFT" valign="TOP" width=283>Synchronous</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Pre-condition</b></td>
+<td align="LEFT" valign="TOP" width=283>IDataSource interface is loaded.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Post-condition</b></td>
+<td align="LEFT" valign="TOP" width=283>Nil</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the content type to create.
+<br><p></p>
+<div align="CENTER"><a name="13109"></a>
+<table>
+<caption><strong>Table 6.86:</strong>
+Input parameters for New</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=85><code>Landmark</code> <br>
+<code>Category</code></td>
+<td align="LEFT" valign="TOP" width=170>Specifies the content type to create.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output parameters contain <code>ErrorCode</code>, and <code>ErrorMessage</code> if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="13130"></a>
+<table>
+<caption><strong>Table 6.87:</strong>
+Output parameters for New</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Type</b></td>
+<td align="LEFT"><b>Range (Type: string)</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT" valign="TOP" width=85>int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT" valign="TOP" width=85>string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>Error description in Engineering English.</td>
+</tr>
+<tr><td align="LEFT"><code>ReturnValue</code></td>
+<td align="LEFT" valign="TOP" width=85>map <br>
+Landmark or category, as discussed in the Key Values <a href="node143.html#subsec:landmarkkeyval">6.5.8</a> section.</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>For content template description, see Landmark and Category in the Key Values <a href="node143.html#subsec:landmarkkeyval">6.5.8</a> section.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="13142"></a>
+<table>
+<caption><strong>Table 6.88:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>1007</code></td>
+<td align="LEFT">No memory</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description: 
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="13156"></a>
+<table>
+<caption><strong>Table 6.89:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=170><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Landmarks:New:Type is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates Type is missing or data type of Type is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Landmarks:New:Type is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that Type is not a value in the given range.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to create an empty landmark/category item:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+
+landmark_handle = scriptext.load('Service.Landmarks', 'IDataSource')
+try:
+    new_output = landmark_handle.call('New', {'Type': u'Landmark'})
+    error = new_output['ErrorCode']
+    if error != 0:
+        print "Error in creating the landmark item"
+    else:
+        print "The Landmark item is created"
+
+except scriptext.ScriptextError, err:
+    print "Error performing the operation : ", err
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.5 Landmarks"
+  href="node135.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.5 Landmarks"
+  href="node135.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.5.2 GetList"
+  href="node137.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node135.html">6.5 Landmarks</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node135.html">6.5 Landmarks</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node137.html">6.5.2 GetList</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

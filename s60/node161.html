@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node164.html" />
+<link rel="prev" href="node154.html" />
+<link rel="parent" href="scriptext.html" />
+<link rel="next" href="node162.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.9 Media Management</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.8.6 Delete"
+  href="node160.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6. scriptext - Platform"
+  href="scriptext.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.9.1 GetList"
+  href="node162.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node160.html">6.8.6 Delete</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="scriptext.html">6. scriptext - Platform</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node162.html">6.9.1 GetList</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h1><a name="SECTION008900000000000000000"></a>
+<a name="sec:scriptextmediamgmt"></a>
+<br>
+6.9 Media Management
+</h1>
+
+<p>
+The Media Management service allows Python applications to retrieve information from the media files stored in the media gallery of an S60 device. <br>
+
+<p>
+It is used to access information about different types of media including music, sounds, images, video, and streaming. <br>
+
+<p>
+You can create applications like custom photo viewer or audio player that displays or, otherwise incorporate media, using the Media Management service.
+
+<p>
+The following sample code is used to load the provider:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+msg_handle = scriptext.load('Service.MediaManagement', 'IDataSource')
+</pre></div>
+
+<p>
+The following table summarizes the Media Management Interface:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Service provider</b></td>
+<td align="LEFT"><code>Service.MediaManagement</code></td>
+</tr>
+<tr><td align="LEFT"><b>Supported interfaces</b></td>
+<td align="LEFT"><code>IDataSource</code></td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+The following table lists the services available in Media Management:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Services</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>Getlist</code> <a href="node162.html#subsec:mediamgmtgetlist">6.9.1</a></td>
+<td align="LEFT">Retrieves information from a given service or data source on S60 device.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+
+<p><br /></p><hr class='online-navigation' />
+<div class='online-navigation'>
+<!--Table of Child-Links-->
+<a name="CHILD_LINKS"><strong>Subsections</strong></a>
+
+<ul class="ChildLinks">
+<li><a href="node162.html">6.9.1 GetList</a>
+<li><a href="node163.html">6.9.2 Key Values</a>
+</ul>
+<!--End of Table of Child-Links-->
+</div>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.8.6 Delete"
+  href="node160.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6. scriptext - Platform"
+  href="scriptext.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.9.1 GetList"
+  href="node162.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node160.html">6.8.6 Delete</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="scriptext.html">6. scriptext - Platform</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node162.html">6.9.1 GetList</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

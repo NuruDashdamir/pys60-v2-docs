@@ -1,0 +1,547 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="prev" href="node173.html" />
+<link rel="parent" href="node172.html" />
+<link rel="next" href="node175.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.11.4.2 System Data</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.11.4.1 system Attributes"
+  href="node173.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.11.4 key Values"
+  href="node172.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.12 Appendix"
+  href="node175.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node173.html">6.11.4.1 System Attributes</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node172.html">6.11.4 Key Values</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node175.html">6.12 Appendix</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h3><a name="SECTION0081142000000000000000">
+6.11.4.2 System Data</a>
+</h3>
+
+<p>
+<code>SystemData</code> is a map whose keys are defined by one of the following data specifiers described in this section. These are added to the <code>ReturnValue</code> map. Typically, <code>SystemData</code> is status information that is represented using integer. In some cases, it is a map of network details, or a list having connection details of each connection. This section covers all the possible <code>SystemData</code> types.
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="20401"></a>
+<table>
+<caption><strong>Table 6.219:</strong>
+Status</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>DataType</b></td>
+<td align="LEFT" valign="TOP" width=283><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Status</td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=283>This Key provides status information of system attribute. For example, <code>BatteryLevel</code> (0-7), <code>NetworkMode</code>, and <code>BTPower</code> (0-OFF, 1-ON) and so on.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="20416"></a>
+<table>
+<caption><strong>Table 6.220:</strong>
+StringData</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>DataType</b></td>
+<td align="LEFT" valign="TOP" width=283><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>StringData</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=283>This Key provides data of type string to specify. For example, <code>WallpaperPath</code>, <code>IMEI Number</code>, and <code>PhoneModel</code> and so on.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="20441"></a>
+<table>
+<caption><strong>Table 6.221:</strong>
+NetworkInfo</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>DataType</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>NetworkName</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=227>This Key provides name of the network.</td>
+</tr>
+<tr><td align="LEFT"><code>NetworkStatus</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=227><b>Status</b>: <b>Description</b> <br>
+-1: Unknown <br>
+0: Available. A network that the ME is allowed to register to. <br>
+1: Current. This is the currently registered network. <br>
+2: Forbidden. A network that the ME is not allowed to register to.</td>
+</tr>
+<tr><td align="LEFT"><code>NetworkMode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=227><b>Mode</b>: <b>Description</b> <br>
+-1: Unknown <br>
+0: Unregistered <br>
+1: Global System for Mobile communications (GSM) <br>
+2: Advanced Mobile Phone System (AMPS) <br>
+3: Code Division Multiple Access (CDMA95) <br>
+4: Code Division Multiple Access (CDMA2000) <br>
+5: Wideband Code Division Multiple Access (WCDMA) <br>
+6: Time Division, Code Division Multiple Access (TDCDMA)</td>
+</tr>
+<tr><td align="LEFT"><code>CountryCode</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=227>Mobile Country Code (MCC).</td>
+</tr>
+<tr><td align="LEFT"><code>NetworkCode</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=227>Mobile Network Code (MNC).</td>
+</tr>
+<tr><td align="LEFT"><code>LocationStatus</code></td>
+<td align="LEFT">bool</td>
+<td align="LEFT" valign="TOP" width=227>True: Location Area Code (LAC), CellId are valid. <br>
+False: Location Area Code (LAC), <code>CellId</code> are invalid.</td>
+</tr>
+<tr><td align="LEFT"><code>AreaCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=227>Location Area Code LAC.</td>
+</tr>
+<tr><td align="LEFT"><code>CellId</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=227><code>CellId</code>.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="20454"></a>
+<table>
+<caption><strong>Table 6.222:</strong>
+ConnectionList</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>DataType</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ConnectionList</code></td>
+<td align="LEFT">Iterator</td>
+<td align="LEFT" valign="TOP" width=227>This Iterator points to the list of available active data connections. <code>ConnectionInfo</code> map represents a data connection.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="20477"></a>
+<table>
+<caption><strong>Table 6.223:</strong>
+ConnectionInfo</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>DataType</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ConnectionStatus</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=227>0: <code>DisConnected</code> <br>
+1: <code>Connected</code></td>
+</tr>
+<tr><td align="LEFT"><code>IAPID</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=227>Access point ID</td>
+</tr>
+<tr><td align="LEFT"><code>ConnectionType</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=227>Coloured connection types are not supported. <br>
+<b>Mode</b>: <b>Description</b> <br>
+-1: Unknown <br>
+0: Circuit Switch Data (CSD) <br>
+1: WCDMA <br>
+2: LAN [Emulator] <br>
+3: CDMA2000 <br>
+4: General Packet Radio Service (GPRS) <br>
+5: High Speed Circuit Switched Data (HSCSD) <br>
+6: Enhanced Data rates for Global Evolution GPRS(EdgeGPRS) <br>
+7: Wireless Local Area Network(WLAN) <br>
+8: Bluetooth <br>
+9: Virtual VPN</td>
+</tr>
+<tr><td align="LEFT"><code>IAPName</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=227>Access Point Name. For example, www.airtelgprs.com.</td>
+</tr>
+<tr><td align="LEFT"><code>NetworkName</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=227>Network name applicable for WLAN networks.</td>
+</tr>
+<tr><td align="LEFT"><code>IAPConnectionName</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=227>The access point connection name that is, <code>MobileOffice</code>, <code>MyGprs</code>.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="20490"></a>
+<table>
+<caption><strong>Table 6.224:</strong>
+AccessoryInfo</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>DataType</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>AccessoryType</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT">-1: Unknown <br>
+0: HeadSet <br>
+1: BTHeadSet <br>
+2: CarKit <br>
+3: BTCarKit</td>
+</tr>
+<tr><td align="LEFT"><code>AccessoryState</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT">-1: Unknown <br>
+0: Disconnected <br>
+1: Connected <br></td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="20503"></a>
+<table>
+<caption><strong>Table 6.225:</strong>
+AccessoryList</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>DataType</b></td>
+<td align="LEFT" valign="TOP" width=283><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>AccessoryList</code></td>
+<td align="LEFT">Iterator</td>
+<td align="LEFT" valign="TOP" width=283>This Iterator points to the list connected accessories. <code>AccessoryInfo</code> map represents an accessory.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="20515"></a>
+<table>
+<caption><strong>Table 6.226:</strong>
+LanguageList</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>DataType</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>LanguageList</code></td>
+<td align="LEFT">List of int</td>
+<td align="LEFT">This List points to the list of supported language enumerations, which are defined in S60.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="20529"></a>
+<table>
+<caption><strong>Table 6.227:</strong>
+Version</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>DataType</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>MajorVersion</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">This List points to the list of supported language enumerations, which are defined in S60.</td>
+</tr>
+<tr><td align="LEFT"><code>MinorVersion</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">Minor number of the version. For example, for 3.1, <code>1</code> will be minor.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="20565"></a>
+<table>
+<caption><strong>Table 6.228:</strong>
+DriveInfo</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>DataType</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>Drive</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=227>Drive is a string. For example, <b>c:&gt;\\</b>, <b>d:&gt;\\</b> and so on.</td>
+</tr>
+<tr><td align="LEFT"><code>TotalSpace</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=227>Total Space in bytes.</td>
+</tr>
+<tr><td align="LEFT"><code>FreeSpace</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=227>Free Space in bytes.</td>
+</tr>
+<tr><td align="LEFT"><code>CriticalSpace</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=227>This is the critical free space in bytes.</td>
+</tr>
+<tr><td align="LEFT"><code>MediaType</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=227>0: <code>MediaNotPresent</code> <br>
+1: <code>MediaUnknown</code> <br>
+2: <code>MediaFloppyDisk</code> <br>
+3: <code>MediaHardDisk</code> <br>
+4: <code>MediaCdRom</code> <br>
+5: <code>MediaRam</code> <br>
+6: <code>MediaFlash</code> <br>
+7: <code>MediaRom</code> <br>
+8: <code>MediaRemote</code> <br>
+9: <code>MediaNANDFlash</code> <br>
+10: <code>MediaRotatingMedia</code></td>
+</tr>
+<tr><td align="LEFT"><code>BatteryState</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=227>0: <code>BatNotSupported</code> <br>
+1: <code>BatGood</code> <br>
+2: <code>BatLow</code></td>
+</tr>
+<tr><td align="LEFT"><code>DriveName</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=227>Drive name</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="20576"></a>
+<table>
+<caption><strong>Table 6.229:</strong>
+Resolution</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>DataType</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">XPixels</td>
+<td align="LEFT">int</td>
+<td align="LEFT">X-Pixels</td>
+</tr>
+<tr><td align="LEFT">YPixels</td>
+<td align="LEFT">int</td>
+<td align="LEFT">Y-Pixels</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="20590"></a>
+<table>
+<caption><strong>Table 6.230:</strong>
+DriveList</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>DataType</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>DriveList</code></td>
+<td align="LEFT">List of strings</td>
+<td align="LEFT" valign="TOP" width=227>This List points to the list of drives in the terminal. Drives are represented as strings. For example, <b>c:&gt;\\</b> and so on.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="20602"></a>
+<table>
+<caption><strong>Table 6.231:</strong>
+StringList</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>DataType</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>StringList</code></td>
+<td align="LEFT">List of strings</td>
+<td align="LEFT">This List points to the list of available USB modes.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.11.4.1 system Attributes"
+  href="node173.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.11.4 key Values"
+  href="node172.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.12 Appendix"
+  href="node175.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node173.html">6.11.4.1 System Attributes</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node172.html">6.11.4 Key Values</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node175.html">6.12 Appendix</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

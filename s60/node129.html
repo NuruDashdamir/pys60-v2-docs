@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node130.html" />
+<link rel="prev" href="node128.html" />
+<link rel="parent" href="node127.html" />
+<link rel="next" href="node130.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.4.2 Add</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.4.1 GetList"
+  href="node128.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.4 Contacts"
+  href="node127.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.4.3 Delete"
+  href="node130.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node128.html">6.4.1 GetList</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node127.html">6.4 Contacts</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node130.html">6.4.3 Delete</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008420000000000000000"></a>
+<a name="subsec:contactadd"></a>
+<br>
+6.4.2 Add
+</h2>
+
+<p>
+<code>Add</code> is used to add a contact or contact group to a contacts database. If the contact or contact group already exists in the database, it is replaced with the new entry. <br>
+
+<p>
+You can use this method to both add and edit contacts and contact groups. The data is added to the specified database. When no database is specified, the data is added to the default database. If the default database does not exist, <code>Add</code> creates a new database. This method can be called both in synchronous and asynchronous mode.
+
+<p>
+The following is an example for using <code>Add</code>:
+
+<p>
+<b>Synchronous</b>
+
+<p>
+<div class="verbatim"><pre>
+contacts_handle.call('Add', {'Type': u'Contact', 'Data':
+            {'FirstName': {'Label': u'first name', 'Value': u'Daniel'},
+             'LastName': {'Label': u'last name', 'Value': u'Craig'},
+             'MobilePhoneGen': {'Label': u'mobile', 'Value': u'9008025211'},
+             'EmailHome': {'Label': u'email', 'Value': u'dcraig@ford.com'}}})
+</pre></div>
+
+<p>
+The following table summarizes the specification of <code>Add</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>Interface</b></td>
+<td align="LEFT" valign="TOP" width=255><code>IDataSource</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Operation</b></td>
+<td align="LEFT" valign="TOP" width=255>Adds contact/group to the specified/default contacts database.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Response Model</b></td>
+<td align="LEFT" valign="TOP" width=255>Synchronous and asynchronous for Third Edition FP2 and Fifth Edition devices. <br>
+Synchronous for Third Edition and Third Edition FP1 devices.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Pre-condition</b></td>
+<td align="LEFT" valign="TOP" width=255><code>IDataSource</code> interface is loaded. For editing an existing contact/group, the specified Id must exist. You must use <code>GetList</code> to retrieve the Id for editing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Post-condition</b></td>
+<td align="LEFT" valign="TOP" width=255>Adds a new contact item to the database in case of add and updates an existing contact in case of edit.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter contains the contact information to add or edit and also the target database.
+<br><p></p>
+<div align="CENTER"><a name="11547"></a>
+<table>
+<caption><strong>Table 6.65:</strong>
+Input parameters for Add</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=57><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=57>Type</td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=85><code>Contact</code> <br>
+<code>Group</code></td>
+<td align="LEFT" valign="TOP" width=170>Operation performed on the specified Type.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=57>Data</td>
+<td align="LEFT" valign="TOP" width=85><b>Contact</b> (map) <a href="#tab:contactaddmap">6.66</a> <br>
+<b>Group</b> (map) <br>
+<code>[DBUri]</code>: string <br>
+<code>[id]</code>: string <br>
+<code>GroupLabel</code>: string</td>
+<td align="LEFT" valign="TOP" width=85>All string values in the map are unicode. <br>
+<em>Key 1, Key 2, and so on</em> are based on the keys supported. <br>
+<code>id</code>: For Type <code>Contact</code>, <code>Id</code> is the unique identifier for the contact to be modified. <br>
+
+<p>
+<code>id</code>: for Type <code>Group</code>, <code>Id</code> is the unique identifier for the group to be modified. <br>
+<code>GroupLabel</code>: Label for the group being added or modified.</td>
+<td align="LEFT" valign="TOP" width=170>Information about the contact/group to be added to the contacts database. <br>
+
+<p>
+You must not set the Id/Id field to add a new entry and also, must not modify the value of the Id/Id field when editing an existing entry. <br>
+
+<p>
+You must use the id that is given to it by <code>GetList</code> sapi. <br>
+
+<p>
+In case of editing an existing contact, it overwrites the existing entry of that id completely. Edit operation is not editing of selected fields, it is replacement of the entire contact/group. <br>
+
+<p>
+If string value given for Value key is empty, then that field is not added to the contact. Rest of the fields are still added. <br>
+
+<p>
+If the database does not support Label then, the Label is ignored if it is given (sim database does not support Label).</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="11561"></a>
+<table>
+<caption><strong>Table 6.66:</strong>
+Contact(map)</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>Value</b></td>
+<td align="LEFT">NA</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT"><code>[DBUri]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT"><code>[id]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT"><em>Key1</em></td>
+<td align="LEFT">map</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">NA</td>
+<td align="LEFT">Label</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">string</td>
+</tr>
+<tr><td align="LEFT">NA</td>
+<td align="LEFT">Value</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">string</td>
+</tr>
+<tr><td align="LEFT"><em>Key2</em></td>
+<td align="LEFT">map</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">NA</td>
+<td align="LEFT">Label</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">NA</td>
+<td align="LEFT">Value</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">NA</td>
+<td align="LEFT">Next</td>
+<td align="LEFT">map</td>
+<td align="LEFT">NA</td>
+</tr>
+</table>
+
+<a name="tab:contactaddmap"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+The output contains <code>ErrorCode</code> and an <code>ErrorMessage</code> if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="11579"></a>
+<table>
+<caption><strong>Table 6.67:</strong>
+Output parameters for Add</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">Contains the SAPI specific error code when the operation fails.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">Error Description in Engineering English.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the errors and their values:
+<br><p></p>
+<div align="CENTER"><a name="11595"></a>
+<table>
+<caption><strong>Table 6.68:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>0</code></td>
+<td align="LEFT">Success</td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1004</code></td>
+<td align="LEFT">Service not supported</td>
+</tr>
+<tr><td align="LEFT"><code>1005</code></td>
+<td align="LEFT">Service in use</td>
+</tr>
+<tr><td align="LEFT"><code>1011</code></td>
+<td align="LEFT">Access denied</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description:
+<br><p></p>
+<div align="CENTER"><a name="11635"></a>
+<table>
+<caption><strong>Table 6.69:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=170><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Type is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates Type is missing</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Invalid Type, must be Contact/Group</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates invalid value for Type, can have values Contact/Group only.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Invalid Sort Type, Map is required</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the sort order type passed is invalid, map is expected</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Add Data is Missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the key <code>Data</code> is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Add data Map is Missing</code></td>
+<td align="LEFT" valign="TOP" width=227>indicates that the value of the <code>Data</code> is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Group Label is Missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the label for group is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Mandatory Argument is not present</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates not all mandatory parameters are present.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Type of Contact Id is wrong</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that Contact Id value is not a string.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Invalid Type of Data, Map is required</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that <code>Data</code> value must be of Type map.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Invalid Type of Field value, Map is required</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that value of a given Key (for example: <em>Key1</em>, <em>Key2</em>), is not a Map.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Invalid Type of NextField value, Map is required</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that value of Next field is not a Map.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Invalid Type of Id</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that value Group Id is not a string.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Invalid Type of GroupLabel</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that value Group Label is not a string.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Wrong Type of ContentType</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the value Type is not a string.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Atleast one field is required</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that atleast one field must be specified.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Group Label is Empty</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the mandatory input parameter <code>GroupLabel</code> is an empty string.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Invalid Field Key:<em>fieldkey</em></code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the key <em>fieldkey</em>, is not a valid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Field Key Not Supported on this Database:<em>fieldkey</em></code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the <em>fieldkey</em> is not supported on the given database.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Add:Field Value too long for key:<em>fieldkey</em></code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the <em>fieldkey</em> has a greater length than the maximum allowed for the particular key.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to add a contact information:
+
+<p>
+<div class="verbatim"><pre>
+# Load contacts module
+contacts_handle = scriptext.load('Service.Contact', 'IDataSource')
+try:
+    contacts_handle.call('Add', {'Type': u'Contact', 'Data':
+            	{'FirstName': {'Label': u'first name', 'Value': u'Daniel'},
+                 'LastName': {'Label': u'last name', 'Value': u'Craig'},
+                 'MobilePhoneGen': {'Label': u'mobile', 'Value': u'9008025211'},
+                 'EmailHome': {'Label': u'email', 'Value': u'dcraig@ford.com'}}})
+    print "Contact added Successfully"
+
+except scriptext.ScriptextError, err:
+    print "Error adding the contact : ", err
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.4.1 GetList"
+  href="node128.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.4 Contacts"
+  href="node127.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.4.3 Delete"
+  href="node130.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node128.html">6.4.1 GetList</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node127.html">6.4 Contacts</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node130.html">6.4.3 Delete</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

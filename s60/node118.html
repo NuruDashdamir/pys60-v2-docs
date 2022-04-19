@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="prev" href="node117.html" />
+<link rel="parent" href="node115.html" />
+<link rel="next" href="node119.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.2.3 LaunchDoc</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.2.2 LaunchApp"
+  href="node117.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.2 application Manager"
+  href="node115.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.3 Calendar"
+  href="node119.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node117.html">6.2.2 LaunchApp</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node115.html">6.2 Application Manager</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node119.html">6.3 Calendar</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008230000000000000000"></a>
+<a name="subsec:appmgrlaunchdoc"></a>
+<br>
+6.2.3 LaunchDoc
+</h2>
+
+<p>
+<code>LaunchDoc</code> is used to launch a document in standalone mode or embedded mode. It takes a set of input parameters that specifies the <code>DocumentPath</code>, <code>MimeType</code>, and options.
+
+<p>
+The following are the examples for using <code>LaunchDoc</code>:
+
+<p>
+<b>Synchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+appmanager_id = appmanager_handle.call('LaunchDoc', 
+                                       {'Document': {'DocumentPath': u'c:\\data\\beak.jpg'}})
+</pre></div>
+
+<p>
+<b>Asynchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+appmanager_id = appmanager_handle.call('LaunchDoc', 
+                                       {'Document': {'DocumentPath': u'c:\\data\\beak.jpg'}}, 
+                                       callback=launch_doc_callback)
+</pre></div>
+
+<p>
+where, <code>launch_doc_callback</code> is a user defined callback function.
+
+<p>
+The following table summarizes the specification of <code>LaunchDoc</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT"><code>IAppManager</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT">Launches the application based on a given document.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT">Synchronous and asynchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT">Valid instance of <code>IAppManager</code> interface is instantiated.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT">Nil</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the <code>DocumentPath</code>, <code>MimeType</code>, and mode options.
+<br><p></p>
+<div align="CENTER"><a name="8451"></a>
+<table>
+<caption><strong>Table 6.10:</strong>
+Input parameters for Launchdoc</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=198><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Document</td>
+<td align="LEFT">map</td>
+<td align="LEFT" valign="TOP" width=85><b>Key</b>: <code>DocumentPath</code> or <code>Handle</code> <br>
+<b>Value</b>: <code>string</code></td>
+<td align="LEFT" valign="TOP" width=198>Specifies path of the document to launch. <br>
+
+<p>
+If <code>MimeType</code> is not given in input then, it is mandatory to give document as input parameter. <br>
+
+<p>
+If Handle and DocumentPath both are present in map then Handle will get preference.</td>
+</tr>
+<tr><td align="LEFT"><code>MimeType</code></td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=198><code>MimeType</code> of the application to be Launch. <br>
+If document is not given in input then it is mandatory to give <code>MimeType</code> as input parameter.</td>
+</tr>
+<tr><td align="LEFT">[Options]</td>
+<td align="LEFT">map</td>
+<td align="LEFT" valign="TOP" width=85><b>Key</b>: <code>Mode</code> <br>
+<b>Value</b>: Chained or Standalone</td>
+<td align="LEFT" valign="TOP" width=198>By default the mode is Standalone.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<code>Launchdoc</code> finds the Handler application internally, in the absence of <code>MimeType</code>. It launches the application based on the MIME type and returns the path of the new document, if the <code>Document</code> is absent from the input. <br>
+
+<p>
+In Asynchronous mode the launching application receives a notification when the launched application dies. The notification is not received if this request is cancelled. Cancelling the request does not close the launched application. <br>
+
+<p>
+Chained mode is applicable for UI based applications only.
+
+<p>
+<br>
+<b>Output Parameters</b> <br>
+
+<p>
+Output parameters contain <code>ReturnValue</code>. They also contain <code>ErrorCode</code>, and an <code>ErrorMessage</code>, if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="8477"></a>
+<table>
+<caption><strong>Table 6.11:</strong>
+Output parameters for LaunchDoc</caption>
+<tr><td><small class="SMALL"></small>
+<div align="CENTER"><small class="SMALL"></small><table cellpadding=3 border="1">
+<tr><td align="LEFT"><small class="SMALL">
+</small><small class="SMALL"><b>Name</b> </small></td>
+<td align="LEFT"><small class="SMALL"> </small><small class="SMALL"><b>Type</b> </small></td>
+<td align="LEFT" valign="TOP" width=170><small class="SMALL"> </small><small class="SMALL"><b>Range</b> </small></td>
+<td align="LEFT" valign="TOP" width=142><small class="SMALL"> </small><small class="SMALL"><b>Description</b> </small></td>
+</tr>
+<tr><td align="LEFT"><small class="SMALL"> 
+
+<code>ErrorCode</code> </small></td>
+<td align="LEFT"><small class="SMALL"> int </small></td>
+<td align="LEFT" valign="TOP" width=170><small class="SMALL"> NA </small></td>
+<td align="LEFT" valign="TOP" width=142><small class="SMALL"> Contains the SAPI specific error code when the operation fails. </small></td>
+</tr>
+<tr><td align="LEFT"><small class="SMALL"> 
+
+<code>ErrorMessage</code> </small></td>
+<td align="LEFT"><small class="SMALL"> string </small></td>
+<td align="LEFT" valign="TOP" width=170><small class="SMALL"> NA </small></td>
+<td align="LEFT" valign="TOP" width=142><small class="SMALL"> Error Description in Engineering English. </small></td>
+</tr>
+<tr><td align="LEFT"><small class="SMALL"> 
+
+[ReturnValue] </small></td>
+<td align="LEFT"><small class="SMALL"> string </small></td>
+<td align="LEFT" valign="TOP" width=170><small class="SMALL"> <code>LaunchDoc</code> returns the document name if it creates a new one. (that is, Return value is optional as only some application creates default document.) <br>
+</small>
+<p>
+<small class="SMALL">If <code>Document</code> is not mentioned and only the <code>MimeType</code> is mentioned, then application is launched based on the <code>MimeType</code> and returns the default document of the application. Creation of the default document depends upon the launched application.  </small></td>
+<td align="LEFT" valign="TOP" width=142><small class="SMALL"></small></td>
+</tr>
+</table><small class="SMALL">
+</small></div><small class="SMALL"></small></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="8491"></a>
+<table>
+<caption><strong>Table 6.12:</strong>
+Error codes</caption>
+<tr><td><small class="SMALL"></small>
+<div align="CENTER"><small class="SMALL"></small><table cellpadding=3 border="1">
+<tr><td align="LEFT"><small class="SMALL">
+</small><small class="SMALL"><b>Error code value</b> </small></td>
+<td align="LEFT"><small class="SMALL"> </small><small class="SMALL"><b>Description</b> </small></td>
+</tr>
+<tr><td align="LEFT"><small class="SMALL"> 
+
+<code>0</code> </small></td>
+<td align="LEFT"><small class="SMALL"> Success  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="SMALL"> 
+
+<code>1004</code> </small></td>
+<td align="LEFT"><small class="SMALL"> Service not supported  </small></td>
+</tr>
+<tr><td align="LEFT"><small class="SMALL"> 
+
+<code>1012</code> </small></td>
+<td align="LEFT"><small class="SMALL"> Item not found  </small></td>
+</tr>
+</table><small class="SMALL">
+</small></div><small class="SMALL"></small></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description:
+<br><p></p>
+<div align="CENTER"><a name="8510"></a>
+<table>
+<caption><strong>Table 6.13:</strong>
+Error messages</caption>
+<tr><td><small class="SMALL"></small>
+<div align="CENTER"><small class="SMALL"></small><table cellpadding=3 border="1">
+<tr><td align="LEFT" valign="TOP" width=128><small class="SMALL">
+</small><small class="SMALL"><b>Error messages</b> </small></td>
+<td align="LEFT" valign="TOP" width=255><small class="SMALL"> </small><small class="SMALL"><b>Description</b> </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=128><small class="SMALL"> 
+
+<code>AppManager:LaunchDoc: Document/MimeType Missing or datatype mismatch</code> </small></td>
+<td align="LEFT" valign="TOP" width=255><small class="SMALL"> Indicates missing of <code>Document</code> or <code>MimeType</code> or a mismatch in the datatype of the given <code>Document</code> or <code>MimeType</code>.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=128><small class="SMALL"> 
+
+<code>AppManager:LaunchDoc: OptionMap type mismatch</code> </small></td>
+<td align="LEFT" valign="TOP" width=255><small class="SMALL"> Indicates a mismatch in the datatype of Command Line.  </small></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=128><small class="SMALL"> 
+
+<code>AppManager:LaunchDoc: OptionMap type mismatch</code> </small></td>
+<td align="LEFT" valign="TOP" width=255><small class="SMALL"> Indicates a mismatch in the datatype of Options.  </small></td>
+</tr>
+</table><small class="SMALL">
+</small></div><small class="SMALL"></small></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to launch an application on S60 device, in asynchronous mode:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+import e32
+lock = e32.Ao_lock()
+
+# Callback function will be called when the requested service is complete
+def launch_doc_callback(trans_id, event_id, input_params):
+    if trans_id != appmanager_id and event_id != scriptext.EventCompleted:
+        print "Error in servicing the request"
+        print "Error code is: " + str(input_params["ReturnValue"]["ErrorCode"])
+        if "ErrorMessage" in input_params["ReturnValue"]:
+            print "Error message is: " + input_params["ReturnValue"]["ErrorMessage"]
+    else:
+        print "Application Launched Successfully: "
+
+    lock.signal()
+
+# Load appmanage service
+appmanager_handle = scriptext.load('Service.AppManager', 'IAppManager')
+
+# Make a request to query the required information in asynchronous mode
+# Path dependent on the environment on which the application is run
+appmanager_id = appmanager_handle.call('LaunchDoc', {'Document': {'DocumentPath': u'c:\\data\\beak.jpg'}}, callback=launch_doc_callback)
+print "Waiting for the request to be processed!"
+lock.wait()
+print "Request complete!"
+</pre></div>
+
+<p>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.2.2 LaunchApp"
+  href="node117.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.2 application Manager"
+  href="node115.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.3 Calendar"
+  href="node119.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node117.html">6.2.2 LaunchApp</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node115.html">6.2 Application Manager</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node119.html">6.3 Calendar</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

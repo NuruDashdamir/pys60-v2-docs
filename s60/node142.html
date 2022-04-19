@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node143.html" />
+<link rel="prev" href="node141.html" />
+<link rel="parent" href="node135.html" />
+<link rel="next" href="node143.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.5.7 Organise</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.5.6 Export"
+  href="node141.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.5 Landmarks"
+  href="node135.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.5.8 key Values"
+  href="node143.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node141.html">6.5.6 Export</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node135.html">6.5 Landmarks</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node143.html">6.5.8 Key Values</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008570000000000000000"></a>
+<a name="subsec:landmarkorg"></a>
+<br>
+6.5.7 Organise
+</h2>
+
+<p>
+<code>Organise</code> is used to associate or disassociate a list of landmarks in a database to a category. It accepts a set of parameters that defines the Type, data, and operation type for performing the operation. It is available only in synchronous mode.
+
+<p>
+The following is an example for using <code>Organise</code>:
+
+<p>
+<div class="verbatim"><pre>
+org_output = landmark_handle.call('Organise', {'Type': u'Landmark', 
+                                               'Data': {'id': unicode(cat_id),
+                                               'idList': [id_val1,id_val2]},
+                                               'Operation Type': 'Associate'})
+</pre></div>
+
+<p>
+The following table summarizes the specification of <code>Organise</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>Interface</b></td>
+<td align="LEFT" valign="TOP" width=283><code>IDataSource</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Description</b></td>
+<td align="LEFT" valign="TOP" width=283>Associates or disassociates a list of landmarks in a database to a category.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Response Model</b></td>
+<td align="LEFT" valign="TOP" width=283>Synchronous</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Pre-condition</b></td>
+<td align="LEFT" valign="TOP" width=283><code>IDataSource</code> interface is loaded.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Post-condition</b></td>
+<td align="LEFT" valign="TOP" width=283>The default or active database is opened for reading landmarks and categories. A default database is created, if it does not exist and is set as active. <br>
+
+<p>
+Landmarks is exported to the specified file.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the type, data, and type of operation for performing the operation.
+<br><p></p>
+<div align="CENTER"><a name="13822"></a>
+<table>
+<caption><strong>Table 6.110:</strong>
+Input parameters for Organise</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=85><code>Landmark</code></td>
+<td align="LEFT" valign="TOP" width=170>Performs operation based on the specified content types.</td>
+</tr>
+<tr><td align="LEFT">Data</td>
+<td align="LEFT" valign="TOP" width=85>map <br>
+<code>[DatabaseURI]</code>: unicode string <br>
+<code>Id</code>: unicode string <br>
+<code>IdList</code>: List (Id1, Id2)</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=170><b>DatabaseURI</b>: Organise landmarks in this database.  <br>
+
+<p>
+<b>Id</b>: Associate or disassociate landmarks to the category <code>Id</code>. <br>
+
+<p>
+<b>IdList</b>: List of landmarks need to be organized.</td>
+</tr>
+<tr><td align="LEFT"><code>OperationType</code></td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=85><b>OperationType</b>: <br>
+<code>Associate</code> <br>
+<code>Disassociate</code></td>
+<td align="LEFT" valign="TOP" width=170>NA</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output parameters contain <code>ErrorCode</code>, and <code>ErrorMessage</code> if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="13839"></a>
+<table>
+<caption><strong>Table 6.111:</strong>
+Output parameters for Organise</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range (Type: string)</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>Error description in Engineering English.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="13854"></a>
+<table>
+<caption><strong>Table 6.112:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1003</code></td>
+<td align="LEFT">Missing argument</td>
+</tr>
+<tr><td align="LEFT"><code>1011</code></td>
+<td align="LEFT">Access denied</td>
+</tr>
+<tr><td align="LEFT"><code>1012</code></td>
+<td align="LEFT">Item not found</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description: 
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="13880"></a>
+<table>
+<caption><strong>Table 6.113:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=198><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:Organise:Type or Data or OperationType is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates Type is missing or data type of Content Type is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:Organise:Type is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that Type is not a value in the given range.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:Organise:Data is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates Data is missing or data type of Data is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:Organise:Id is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates category Id is missing or data type of category Id is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:Organise:IdList is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates <code>IdList</code> is missing or data type of <code>IdList</code> is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:Organise:IdList is empty</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates <code>IdList</code> is empty.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:Organise:OperationType is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates <code>OperationType</code> is missing or data type of <code>OperationType</code> is mismatched.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=198><code>Landmarks:Organise:OperationType is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates <code>OperationType</code> is not a value in the given range.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to associate or disassociate list of landmarks in a database to a category:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+
+landmark_handle = scriptext.load('Service.Landmarks', 'IDataSource')
+try:
+    getlist_cat_output = landmark_handle.call('GetList', {'Type': u'Category'})
+    retval_cat = getlist_cat_output['ReturnValue']
+    cat_id = retval_cat['id']
+
+    getlist_land1_output = landmark_handle.call('GetList', {'Type': u'Landmark',  
+                                                       'Filter': {'LandmarkName': u'land1'}})
+    retval1 = getlist_land1_output['ReturnValue']
+    id_val1 = retval['id']
+
+    getlist_land2_output = landmark_handle.call('GetList', {'Type': u'Landmark',
+                                                       'Filter': {'LandmarkName': u'land2'}})
+    retval2 = getlist_land2_output['ReturnValue']
+    id_val2 = retval['id']
+
+    org_output = landmark_handle.call('Organise', {'Type': u'Landmark', 
+                                                   'Data': {'id': unicode(cat_id),
+                                                            'idList': [id_val1,id_val2]},
+                                                   'Operation Type': 'Associate'})
+    error = org_output['ErrorCode']
+    if error != 0:
+        print "Error in organising contacts"
+    else:
+        print "Conatcs organised"
+
+except scriptext.ScriptextError, err:
+    print "Error performing the operation : ", err
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.5.6 Export"
+  href="node141.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.5 Landmarks"
+  href="node135.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.5.8 key Values"
+  href="node143.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node141.html">6.5.6 Export</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node135.html">6.5 Landmarks</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node143.html">6.5.8 Key Values</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

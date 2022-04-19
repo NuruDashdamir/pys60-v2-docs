@@ -1,0 +1,531 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="prev" href="node142.html" />
+<link rel="parent" href="node135.html" />
+<link rel="next" href="node144.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.5.8 Key Values</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.5.7 Organise"
+  href="node142.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.5 Landmarks"
+  href="node135.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.6 Location"
+  href="node144.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node142.html">6.5.7 Organise</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node135.html">6.5 Landmarks</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node144.html">6.6 Location</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008580000000000000000"></a>
+<a name="subsec:landmarkkeyval"></a>
+<br>
+6.5.8 Key Values
+</h2>
+
+<p>
+<b>Landmark</b> <br>
+<br><p></p>
+<div align="CENTER"><a name="13909"></a>
+<table>
+<caption><strong>Table 6.114:</strong>
+Key values- Landmark</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=283><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>[LandmarkName]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=283>Specifies a name for the landmark. Landmark name is not unique in a database. Maximum string Length is 255.</td>
+</tr>
+<tr><td align="LEFT"><code>[id]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=283>A unique identifier created in the database on addition of a new landmark. <br>
+
+<p>
+This field must not be specified when a new landmark is added to the database.</td>
+</tr>
+<tr><td align="LEFT"><code>[CategoryInfo]</code></td>
+<td align="LEFT">List of strings</td>
+<td align="LEFT" valign="TOP" width=283>List of Category IDs to which a landmark belongs.</td>
+</tr>
+<tr><td align="LEFT"><code>[LandmarkDesc]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=283>Description about the landmark. Maximum string Length is 4095.</td>
+</tr>
+<tr><td align="LEFT"><code>[LandmarkPosition]</code></td>
+<td align="LEFT">map</td>
+<td align="LEFT" valign="TOP" width=283>map describes latitude, longitude, altitude of a landmark. For more information, see <b>Position Information of a Landmark</b>.</td>
+</tr>
+<tr><td align="LEFT"><code>[CoverageRadius]</code></td>
+<td align="LEFT">Double</td>
+<td align="LEFT" valign="TOP" width=283>Radius from a position defined in landmark.</td>
+</tr>
+<tr><td align="LEFT"><code>[IconFile]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=283>Specifies Icon associated with landmark. Maximum string Length is 255.</td>
+</tr>
+<tr><td align="LEFT"><code>[IconIndex]</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=283>Index of icon within the Icon file.</td>
+</tr>
+<tr><td align="LEFT"><code>[IconMaskIndex]</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=283>Index of the icon mask within the Icon file.</td>
+</tr>
+<tr><td align="LEFT"><code>[LandmarkFields]</code></td>
+<td align="LEFT">map</td>
+<td align="LEFT" valign="TOP" width=283>This is a name-value pair. For more information, see <b>LandmarkPositionFields</b>.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Category</b> <br>
+<br><p></p>
+<div align="CENTER"><a name="13927"></a>
+<table>
+<caption><strong>Table 6.115:</strong>
+Key values- Category</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=283><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>[CategoryName]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=283>Specifies a name for the category. Category name is unique in a database. Maximum string Length is 124.</td>
+</tr>
+<tr><td align="LEFT"><code>[id]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=283>A unique identifier created in the database on addition of a new category to a database. <br>
+
+<p>
+This field must not be specified when a new landmark is added to the database.</td>
+</tr>
+<tr><td align="LEFT"><code>[GlobalId]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=283>Specifies global category ID. This field is a non-modifiable field. It is ignored if passed as input.</td>
+</tr>
+<tr><td align="LEFT"><code>[IconFile]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=283>Specifies Icon associated with landmark. Maximum string Length is 255.</td>
+</tr>
+<tr><td align="LEFT"><code>[IconIndex]</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=283>Index of icon within the Icon file.</td>
+</tr>
+<tr><td align="LEFT"><code>[IconMaskIndex]</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=283>Index of the icon mask within the Icon file.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Database</b> <br>
+<br><p></p>
+<div align="CENTER"><a name="13963"></a>
+<table>
+<caption><strong>Table 6.116:</strong>
+Key values- Database</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=312><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>[DatabaseName]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=312>Specifies a name for a database. Database name need not be unique.</td>
+</tr>
+<tr><td align="LEFT"><code>DatabaseURI</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=312>Database file name defined in specific format: <br>
+<b>&lt;protocol&gt;://&lt;filename&gt;</b>. <br>
+
+<p>
+For example: <br>
+<b>file://c:landmark.ldb</b> [local database]. <br>
+<b>protocol://location</b> [Remote database].</td>
+</tr>
+<tr><td align="LEFT"><code>[DbDrive]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=312>Specifies drive in which database is stored. For example, <b>C</b>.</td>
+</tr>
+<tr><td align="LEFT"><code>[DbProtocol]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=312>Specifies protocol by which database can be accessed.</td>
+</tr>
+<tr><td align="LEFT"><code>[DbMedia]</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=312>0: <code>MediaNotPresent</code> <br>
+1: <code>MediaUnknown</code> <br>
+2: <code>MediaFloppyDisk</code> <br>
+3: <code>MediaHardDisk</code> <br>
+4: <code>MediaCdRom</code> <br>
+5: <code>MediaRam</code> <br>
+6: <code>MediaFlash</code> <br>
+7: <code>MediaRom</code> <br>
+8: <code>MediaRemote</code> <br>
+9: <code>MediaNANDFlash</code> <br>
+10: <code>MediaRotatingMedia</code></td>
+</tr>
+<tr><td align="LEFT"><code>[DbSize]</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=312>Specifies the size of the database in bytes.</td>
+</tr>
+<tr><td align="LEFT"><code>[DbActive]</code></td>
+<td align="LEFT">bool</td>
+<td align="LEFT" valign="TOP" width=312>Indicates if this database is opened by default (that is, device default database). <br>
+<b>True</b>: Default database. <br>
+<b>False</b>: Not a default database.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Position Information of a Landmark</b> <br>
+<br><p></p>
+<div align="CENTER"><a name="13980"></a>
+<table>
+<caption><strong>Table 6.117:</strong>
+Key values- Position Information of a Landmark</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=312><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>Latitude</code></td>
+<td align="LEFT">Double</td>
+<td align="LEFT" valign="TOP" width=312>Specifies latitude of a location in WGS-84 format. This needs to be specified in decimal degrees. Normal range of values [-90,+90]. Out of range values will be normalized to range as per standards. Negative degrees indicate west latitude and positive value indicated east latitude.</td>
+</tr>
+<tr><td align="LEFT"><code>Longitude</code></td>
+<td align="LEFT">Double</td>
+<td align="LEFT" valign="TOP" width=312>Specifies longitude of a location in WGS-84 format. This needs to be specified in decimal degrees. Normal range of values [-180 ,+180]. Out of range values will be normalized to range as per standards. Negative value indicates south longitude and positive value indicates north longitude.</td>
+</tr>
+<tr><td align="LEFT"><code>[Altitude]</code></td>
+<td align="LEFT">Double</td>
+<td align="LEFT" valign="TOP" width=312>Specifies altitude of a location in WGS-84 format, in meters.</td>
+</tr>
+<tr><td align="LEFT"><code>[HAccuracy]</code></td>
+<td align="LEFT">Double</td>
+<td align="LEFT" valign="TOP" width=312>Error estimate of horizontal accuracy to Latitude, Longitude, and  Altitude in meters.</td>
+</tr>
+<tr><td align="LEFT"><code>[VAccuracy]</code></td>
+<td align="LEFT">Double</td>
+<td align="LEFT" valign="TOP" width=312>Error estimate of vertical accuracy to Latitude, Longitude, and  Altitude in meters.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>LandmarkPositionFields</b> <br>
+<br><p></p>
+<div align="CENTER"><a name="13999"></a>
+<table>
+<caption><strong>Table 6.118:</strong>
+Key values- LandmarkPositionFields</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>[Street]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">Address of the landmark. Maximum string Length is 255.</td>
+</tr>
+<tr><td align="LEFT"><code>[BuildingName]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">Address of the landmark. Maximum string Length is 255.</td>
+</tr>
+<tr><td align="LEFT"><code>[District]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">Address of the landmark. Maximum string Length is 255.</td>
+</tr>
+<tr><td align="LEFT"><code>[City]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">Address of the landmark. Maximum string Length is 255.</td>
+</tr>
+<tr><td align="LEFT"><code>[AreaCode]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">Address of the landmark. Maximum string Length is 255.</td>
+</tr>
+<tr><td align="LEFT"><code>[Telephone]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">Contact number. Maximum string Length is 255.</td>
+</tr>
+<tr><td align="LEFT"><code>[Country]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">Address of the landmark. Maximum string Length is 255.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Landmark Search Criteria</b> <br>
+<br><p></p>
+<div align="CENTER"><a name="14036"></a>
+<table>
+<caption><strong>Table 6.119:</strong>
+Key values- Landmark Search Criteria</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=283><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>[DatabaseURI]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=283>Search is performed on the specified database. If database is not specified then, search is performed on default database. Maximum string Length is 255.</td>
+</tr>
+<tr><td align="LEFT"><code>[LandmarkName]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=283>Text is case insensitive, wild cards supported- '?' for single character, '*' for zero or more characters. Maximum string Length is 255.</td>
+</tr>
+<tr><td align="LEFT"><code>[LandmarkPosition]</code></td>
+<td align="LEFT">map</td>
+<td align="LEFT" valign="TOP" width=283>Map describes latitude, longitude, altitude of a landmark. For more information, see <b>Position Information of a Landmark</b>. <br>
+
+<p>
+Only Latitude and Longitude fields are considered for search.</td>
+</tr>
+<tr><td align="LEFT"><code>[CoverageRadiusOption]</code></td>
+<td align="LEFT">bool</td>
+<td align="LEFT" valign="TOP" width=283><b>True</b>: The coverage radius of landmarks is  considered in the distance calculation. For example, if the circular search area and centre coordinates, which are mentioned in <b>LandmarkPosition</b> and radius mentioned in <b>MaximumDistance</b> intersects the landmark circular area, centre coordinates specified by the coordinates of the landmark and radius specified by <code>CoverageRadius</code> then, such landmark will be returned. <br>
+
+<p>
+<b>False</b>: The <code>CoverageRadius</code> of the landmark is not considered in the distance calculation. <br>
+The default value is <b>False</b>.</td>
+</tr>
+<tr><td align="LEFT"><code>[MaximumDistance]</code></td>
+<td align="LEFT">Double</td>
+<td align="LEFT" valign="TOP" width=283>It is the distance from centre coordinate if <code>CoverageRadius</code> option is <b>False</b> else it is the effective distance calculated as landmark centre minus the coverage radius.</td>
+</tr>
+<tr><td align="LEFT"><code>[CategoryName]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=283>Search results only for landmarks that belong to this category. Maximum string Length is 124. <br>
+
+<p>
+If specified <b>False</b> then, only unlisted landmarks are listed.</td>
+</tr>
+<tr><td align="LEFT"><code>[LandmarkDesc]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=283>Text is case insensitive, wild cards supported- '?' for single character, '*' for zero or more characters. Maximum string Length is 4095.</td>
+</tr>
+<tr><td align="LEFT"><code>[BoundedArea]</code></td>
+<td align="LEFT">map</td>
+<td align="LEFT" valign="TOP" width=283>Area specified within NSEW latitudes and longitudes. For more information, see <b>Bounded area</b>.</td>
+</tr>
+<tr><td align="LEFT"><code>[MaximumMatches]</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=283>The maximum number of items retrieved when provided with criteria information. If not mentioned then all landmarks are returned.</td>
+</tr>
+<tr><td align="LEFT"><code>[PreviousMatchesOnly]</code></td>
+<td align="LEFT">bool</td>
+<td align="LEFT" valign="TOP" width=283>You can request to search within previous search results only. <br>
+<b>True</b>: Searches in previous search results. <br>
+<b>False</b>: A new search will be carried out on database. <br>
+
+<p>
+If you do not specify this option then, <b>False</b> will be taken as default.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>BoundedArea</b> <br>
+
+<p>
+Bounded area is the area enclosed at the intersection of the latitudes and longitudes as mentioned in the following table:
+<br><p></p>
+<div align="CENTER"><a name="14052"></a>
+<table>
+<caption><strong>Table 6.120:</strong>
+Key values- BoundedArea</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>NorthLatitude</code></td>
+<td align="LEFT">Double</td>
+<td align="LEFT">The northern-most latitude of the bounded area in WGS-84 format.</td>
+</tr>
+<tr><td align="LEFT"><code>SouthLatitude</code></td>
+<td align="LEFT">Double</td>
+<td align="LEFT">The southern-most latitude of the bounded area in WGS-84 format.</td>
+</tr>
+<tr><td align="LEFT"><code>EastLongitude</code></td>
+<td align="LEFT">Double</td>
+<td align="LEFT">The eastern longitude of the bounded area in WGS-84 format.</td>
+</tr>
+<tr><td align="LEFT"><code>WestLongitude</code></td>
+<td align="LEFT">Double</td>
+<td align="LEFT">The western longitude of the bounded area in WGS-84 format.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Category Search Criteria</b> <br>
+<br><p></p>
+<div align="CENTER"><a name="14071"></a>
+<table>
+<caption><strong>Table 6.121:</strong>
+Key values- Category Search Criteria</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=312><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>[DatabaseURI]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=312>Search is performed on a specified database. If the database is not specified then, search is performed on default database. Maximum string Length is 255.</td>
+</tr>
+<tr><td align="LEFT"><code>[CategoryName]</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=312>Text is case insensitive, wild cards supported- '?' for single character, '*' for zero or more characters. Maximum string Length is 124.</td>
+</tr>
+<tr><td align="LEFT"><code>[MaximumMatches]</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=312>The maximum number of items retrieved when provided with  criteria information. If not mentioned then all landmarks are returned.</td>
+</tr>
+<tr><td align="LEFT"><code>[PreviousMatchesOnly]</code></td>
+<td align="LEFT">bool</td>
+<td align="LEFT" valign="TOP" width=312>You can request to search within previous search results only. <br>
+<b>True</b>: Searches in previous search results. <br>
+<b>False</b>: A new search will be carried out on a database. <br>
+
+<p>
+If you do not specify this option then <b>False</b> will be taken as default.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.5.7 Organise"
+  href="node142.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.5 Landmarks"
+  href="node135.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.6 Location"
+  href="node144.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node142.html">6.5.7 Organise</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node135.html">6.5 Landmarks</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node144.html">6.6 Location</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

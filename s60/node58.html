@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node59.html" />
+<link rel="prev" href="node57.html" />
+<link rel="parent" href="node56.html" />
+<link rel="next" href="node59.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>3.9.2.2 Base Class</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="3.9.2.1 module Level Functions"
+  href="node57.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="3.9.2 module for devices"
+  href="node56.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="3.9.2.3 class AccelerometerXYZAxisData"
+  href="node59.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node57.html">3.9.2.1 Module Level Functions</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node56.html">3.9.2 Module for devices</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node59.html">3.9.2.3 class AccelerometerXYZAxisData</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h3><a name="SECTION005922000000000000000">
+3.9.2.2 Base Class</a>
+</h3>
+
+<p>
+The base class to all types of sensor class is <tt class="class">_Sensor</tt>. This class provides the methods: <tt class="method">set_callback</tt>, <tt class="method">start_listening</tt>, and <tt class="method">stop_listening</tt> that are common to all the sensor class objects. The individual sensor class objects must be used for a specific sensor.
+
+<p>
+<b>Object Creation</b> <br>
+Function signature: <tt class="method">__init__([data_filter=None])</tt>
+
+<p>
+The <code>data_filter</code> argument is only applicable for <tt class="class">*XYZAxisData</tt> and <tt class="class">RotationData</tt> sensor classes.
+
+<p>
+Possible Values: <tt class="method">MedianFilter()</tt>, <tt class="method">LowPassFilter()</tt>
+
+<p>
+
+<ul>
+<li>If nothing is passed then the data remains in its present condition without any filtering.
+</li>
+<li><code>MedianFilter</code> and <code>LowPassFilter</code> are standard noise filtering algorithms that provide a smoother form of a signal removing the short-term oscillations, leaving only the long-term trend.
+</li>
+</ul>
+
+<p>
+<b>Set Data and Error Callback</b> <br>
+Function signature: <tt class="method">set_callback(data_callback, [error_callback=None])</tt>
+
+<p>
+Sets the data and error callback function. The error callback function will get an argument that contains a map with Channel ID and error string. The data callback function is not passed with any arguments.
+
+<p>
+<b>Open and Listen</b> <br>
+Function signature: <tt class="method">start_listening()</tt>
+
+<p>
+Opens the sensor channel and start listening. Returns <code>True</code> on success and <code>False</code> on failure.
+
+<p>
+<b>Stop and Close</b> <br>
+Function signature: <tt class="method">stop_listening()</tt>
+
+<p>
+Stop listening to the open channel and close the channel. To start receiving updates again the <tt class="method">start_listening</tt> method can be called on the same sensor object.
+
+<p>
+<b>Set/Get Sensor Channel Property</b> <br>
+
+<p>
+Each sensor class has methods which can be used to set or get the sensor channel properties like data rate, measure range, axis active etc...
+
+<p>
+<b>Class Attributes</b> <br>
+
+<p>
+The sensor classes have one or more attributes which contains the data returned by the respective sensor. These attributes will be set before the registered data callback function is called and can be accessed using the respective sensor class object.
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="3.9.2.1 module Level Functions"
+  href="node57.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="3.9.2 module for devices"
+  href="node56.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="3.9.2.3 class AccelerometerXYZAxisData"
+  href="node59.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node57.html">3.9.2.1 Module Level Functions</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node56.html">3.9.2 Module for devices</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node59.html">3.9.2.3 class AccelerometerXYZAxisData</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

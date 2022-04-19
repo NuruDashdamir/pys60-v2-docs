@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node159.html" />
+<link rel="prev" href="node157.html" />
+<link rel="parent" href="node154.html" />
+<link rel="next" href="node159.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.8.4 CancelNotification</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.8.3 RegisterNotification"
+  href="node157.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.8 Messaging"
+  href="node154.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.8.5 ChangeStatus"
+  href="node159.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node157.html">6.8.3 RegisterNotification</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node154.html">6.8 Messaging</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node159.html">6.8.5 ChangeStatus</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008840000000000000000"></a>
+<a name="subsec:msgcanclnotify"></a>
+<br>
+6.8.4 CancelNotification
+</h2>
+
+<p>
+<code>CancelNotification</code> method cancels the registration for notification of new messages. It is available only in synchronous mode.
+
+<p>
+The following is an example for using <code>CancelNotification</code>:
+
+<p>
+<b>Synchronous</b>
+
+<p>
+<div class="verbatim"><pre>
+messaging_handle.call('CancelNotification',{'Type': u'NewMessage'})
+</pre></div>
+
+<p>
+The following table summarizes the specification of <code>CancelNotification</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT"><code>IMessaging</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT">Cancels registration for notification of new messages.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT">Synchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT">Valid instance of <code>IMessaging</code> interface is instantiated.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT">Stop getting new message notifications.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the request for canceling notification of new messages. This must contain the Notification Type, and this property must contain the value <code>NewMessage</code>.
+<br><p></p>
+<div align="CENTER"><a name="17788"></a>
+<table>
+<caption><strong>Table 6.174:</strong>
+Input parameters for CancelNotification</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT"><code>NewMessage</code></td>
+<td align="LEFT">Performs operation based on the specified content types.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output parameters contain <code>ErrorCode</code>, and <code>ErrorMessage</code> if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="17805"></a>
+<table>
+<caption><strong>Table 6.175:</strong>
+Output parameters for CancelNotification</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range (Type: string)</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">Error description in Engineering English.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="17820"></a>
+<table>
+<caption><strong>Table 6.176:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>0</code></td>
+<td align="LEFT">Success</td>
+</tr>
+<tr><td align="LEFT"><code>1000</code></td>
+<td align="LEFT">Invalid service argument</td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1003</code></td>
+<td align="LEFT">Missing argument</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description: 
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="17840"></a>
+<table>
+<caption><strong>Table 6.177:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=255><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=198><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=255><code>Messaging:CancelNotification:Type Type Invalid</code></td>
+<td align="LEFT" valign="TOP" width=198>Specifies if the type of <code>Type</code> parameter is invalid.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=255><code>Messaging:CancelNotification:Type Value Incorrect</code></td>
+<td align="LEFT" valign="TOP" width=198>Specifies if the value of <code>Type</code> parameter is incorrect.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=255><code>Messaging:CancelNotification:Type Missing</code></td>
+<td align="LEFT" valign="TOP" width=198>Specifies if the <code>Type</code> parameter is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=255><code>Messaging:CancelNotification:Asynchronous Operation not supported</code></td>
+<td align="LEFT" valign="TOP" width=198>Specifies if <code>CancelNotification</code> is called asynchronously.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to cancel a notification:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+import e32
+
+lock = e32.Ao_lock()
+messaging_handle = scriptext.load('Service.Messaging', 'IMessaging')
+
+def new_sms_callback(trans_id, event_id, output_params):
+    if trans_id == sms_id and event_id == scriptext.EventCompleted:
+        print "SMS received from" + output_params['ReturnValue']['Sender'])
+    else:
+        print "Error in callback"
+    # Cancel notification request
+    messaging_handle.call('CancelNotification', {'Type': u'NewMessage'})
+    lock.signal()
+
+# The callback 'new_sms_callback' will be called when a sms is received
+sms_id = messaging_handle.call('RegisterNotification', {'Type': u'NewMessage'},
+                               callback=new_sms_callback)
+
+# Send SMS to self so that the notification callback is hit
+messaging_handle.call('Send', {'MessageType': u'SMS', 'To': u'12345678', 
+                               'BodyText': u'Hi self'})
+lock.wait()
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.8.3 RegisterNotification"
+  href="node157.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.8 Messaging"
+  href="node154.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.8.5 ChangeStatus"
+  href="node159.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node157.html">6.8.3 RegisterNotification</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node154.html">6.8 Messaging</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node159.html">6.8.5 ChangeStatus</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

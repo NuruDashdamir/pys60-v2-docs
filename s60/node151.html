@@ -1,0 +1,488 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node152.html" />
+<link rel="prev" href="node150.html" />
+<link rel="parent" href="node149.html" />
+<link rel="next" href="node152.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.7.2 GetList</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.7.1 Add"
+  href="node150.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.7 Logging"
+  href="node149.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.7.3 Delete"
+  href="node152.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node150.html">6.7.1 Add</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node149.html">6.7 Logging</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node152.html">6.7.3 Delete</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008720000000000000000"></a>
+<a name="subsec:loggetlist"></a>
+<br>
+6.7.2 GetList
+</h2>
+
+<p>
+<code>GetList</code> retrieves an event from the event log as specified by the input filter. It takes a set of input parameters that define Type and Filter for retrieving information.
+
+<p>
+The following are the examples for using <code>GetList</code>:
+
+<p>
+<b>Synchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+logging_info = logging_handle.call('GetList', {'Type': u'Log',})
+</pre></div>
+
+<p>
+<b>Asynchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+logging_handle.call('GetList', {'Type': u'Log',}, callback=logging_callback)
+</pre></div>
+
+<p>
+where, <code>logging_callback</code> is the callback function.
+
+<p>
+The following table summarizes the specification of <code>GetList</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT"><code>IDataSource</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT">Gets the specified event details from event log.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT">Synchronous and asynchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT">IDataSource interface is loaded.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT">Nil</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the Type and Filter.
+<br><p></p>
+<div align="CENTER"><a name="16508"></a>
+<table>
+<caption><strong>Table 6.149:</strong>
+Input parameters for GetList</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=57><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=142><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT" valign="TOP" width=57>unicode string</td>
+<td align="LEFT" valign="TOP" width=170><code>Log</code></td>
+<td align="LEFT" valign="TOP" width=142>Specifies the Content Type.</td>
+</tr>
+<tr><td align="LEFT">[Filter]</td>
+<td align="LEFT" valign="TOP" width=57>map <br>
+For more information, refer map <a href="#tab:getlistmap">6.150</a></td>
+<td align="LEFT" valign="TOP" width=170><b>RecentList</b> <br>
+<code>EKLogNullRecentList</code>: -1 <br>
+<code>EKLogRecentIncomingCalls</code>: 1 <br>
+<code>EKLogRecentOutgoingCalls</code>: 2 <br>
+<code>EKLogRecentMissedCalls</code>: 3 <br>
+
+<p>
+A value of <code>EKLogNullRecentList</code> indicates to include events from all of the recent event lists.
+
+<p>
+<b>EventType</b> <br>
+<code>EKLogCallEventType</code>: 0 <br>
+<code>EKLogDataEventType</code>: 1 <br>
+<code>EKLogFaxEventType</code>: 2 <br>
+<code>EKLogShortMessageEventType</code>: 3 <br>
+<code>EKLogPacketDataEventType</code>: 4 <br>
+
+<p>
+<b>Direction</b> <br>
+<code>EIncomingEvent</code>: 0 <br>
+<code>EOutgoingEvent</code>: 1 <br>
+<code>EIncomingEvent</code> <code>Alternateline</code>: 2 <br>
+<code>EOutgoingEvent</code> <code>Alternateline</code>: 3 <br>
+<code>EFetchedEvent</code>: 4 <br>
+<code>EMissedEvent</code>: 5 <br>
+<code>EMissedEvent</code> <code>Alternateline</code>: 6 <br>
+
+<p>
+<b>DeliveryStatus</b> <br>
+<code>EStatusPending</code>: 0 <br>
+<code>EStatusSent</code>: 1 <br>
+<code>EStatusFalied</code>: 2 <br>
+<code>EStatusNone</code>: 3 <br>
+<code>EStatusDone</code>: 4 <br>
+<code>EStatusNotSent</code>: 5 <br>
+<code>EStatusScheduled</code>: 6 <br>
+
+<p>
+<b>LogFlags</b> <br>
+<code>EKLogEventContactSearched</code>: 0 <br>
+<code>EKLogEventRead</code>: 1 <br>
+
+<p>
+<b>note:</b> <br>
+Flag <code>EKLogEventRead</code> is set when you read the event in the log database. <br>
+Flag <code>EKLogEventContactSearched</code> is set when you search through contact database for performing any operation, like voice call or sms.</td>
+<td align="LEFT" valign="TOP" width=142>This is an optional parameter. Filter contains the search criteria for specific event search in the log database. <br>
+
+<p>
+When an empty filter is passed, it gets all the events from the database by default.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="16531"></a>
+<table>
+<caption><strong>Table 6.150:</strong>
+map</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>Value</b></td>
+<td align="LEFT" valign="TOP" width=198><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>Id</code></td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=198>Unique Id for the particular event in the log. <br>
+
+<p>
+<b>note:</b> <br>
+To specify values for other fields in the map are not valid, when the Id field is used for querying. <br>
+If specified, then the values are ignored.</td>
+</tr>
+<tr><td align="LEFT"><code>RecentList</code></td>
+<td align="LEFT">32 bit int</td>
+<td align="LEFT" valign="TOP" width=198>Gets the 20 recent call list. Initialises or refreshes the view for the specified recent event list, conforming to the specified filter. On successful completion, the view is positioned at the first that is, most recent event in the recent event list. <br>
+
+<p>
+Recent lists also have a mechanism for duplicate event handling, set up via the recent list configuration. for example, two calls to the same number will only take up one entry on the outgoing calls list. <br>
+
+<p>
+<b>note:</b> <br>
+To specify values for other fields in the map are not valid, when the <code>RecentList</code> field is used for querying. <br>
+If specified then, the values are ignored.</td>
+</tr>
+<tr><td align="LEFT"><code>EventType</code></td>
+<td align="LEFT">32 bit int</td>
+<td align="LEFT" valign="TOP" width=198>Unique Id to identify event type.</td>
+</tr>
+<tr><td align="LEFT"><code>[PhoneNumber]</code></td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=198>The phone number is associated with the event. This is used when the number cannot be stored in any other field. If the length of the specified string is greater than 100 characters, then the number is truncated.</td>
+</tr>
+<tr><td align="LEFT"><code>[RemoteParty]</code></td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=198>Describes the destination of the out going event or source of incoming event. If the length of the specified string is greater than 64 characters, then the data is truncated.</td>
+</tr>
+<tr><td align="LEFT"><code>[Direction]</code></td>
+<td align="LEFT">32 bit int</td>
+<td align="LEFT" valign="TOP" width=198>The direction of a call means incoming, outgoing, and so on.</td>
+</tr>
+<tr><td align="LEFT"><code>[DeliveryStatus]</code></td>
+<td align="LEFT">32 bit int</td>
+<td align="LEFT" valign="TOP" width=198>Delivered, pending, or failed.</td>
+</tr>
+<tr><td align="LEFT"><code>[EndTime]</code></td>
+<td align="LEFT">datetime</td>
+<td align="LEFT" valign="TOP" width=198>Sets the specified EndTime to be used by the filter.</td>
+</tr>
+<tr><td align="LEFT"><code>[LogFlags]</code></td>
+<td align="LEFT">32 bit int</td>
+<td align="LEFT" valign="TOP" width=198>Sets the specified flags for this event.</td>
+</tr>
+</table>
+
+<a name="tab:getlistmap"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output contains <code>ReturnValue</code>. It also contains <code>ErrorCode</code> and an <code>ErrorMessage</code> if the operation fails. <br>
+<code>ReturnValue</code> contains an iterable wrapper of entries containing all relevant fields of the user specified Item.
+<br><p></p>
+<div align="CENTER"><a name="16573"></a>
+<table>
+<caption><strong>Table 6.151:</strong>
+Output parameters for GetList</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=142><b>Type</b></td>
+<td align="LEFT"><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ReturnValue</code></td>
+<td align="LEFT" valign="TOP" width=142><b>Iterator</b> (map) <br>
+<code>EventType</code>: 32 bit int <br>
+<code>RemoteParty</code>: String <br>
+<code>Direction</code>: 32 bit int <br>
+<code>EventTime</code>: datetime <br>
+<code>EventDuration</code>: 32 bit int <br>
+<code>DeliveryStatus</code>: 32 bit int <br>
+<code>Subject</code>: string <br>
+<code>PhoneNumber</code>: string <br>
+<code>Description</code>: string <br>
+<code>EventData</code>: 8-bit Data <br>
+<code>Link</code>: 32 bit int <br>
+<code>id</code>: string <br>
+<code>LogFlags</code>: 32 bit int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=113>The output is an iterable list of entries, which on each invocation returns a map containing all relevant fields of an Item. <br>
+
+<p>
+<b>note:</b> <br>
+Description and <code>EventTime</code> are automatically set by the system for a created event. <br>
+For example, The Description for <code>CallEvent</code> is <b>voice call</b>, SMS Event is <b>short message</b>. <br>
+<code>EventTime</code> is the time at which the event is created. This should be a datetime object.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT" valign="TOP" width=142>string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=113>Error Description in Engineering English.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT" valign="TOP" width=142>32 bit int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=113>Contains the SAPI specific error code when the operation fails.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="16588"></a>
+<table>
+<caption><strong>Table 6.152:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>0</code></td>
+<td align="LEFT">Success</td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1003</code></td>
+<td align="LEFT">Missing argument</td>
+</tr>
+<tr><td align="LEFT"><code>1004</code></td>
+<td align="LEFT">Service not supported</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description:
+<br><p></p>
+<div align="CENTER"><a name="16621"></a>
+<table>
+<caption><strong>Table 6.153:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error messages</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>Logging:GetList:TypeInvalid</code></td>
+<td align="LEFT">Invalid Type is passed to <code>contenttype</code> parameter.</td>
+</tr>
+<tr><td align="LEFT"><code>Logging:GetList:TypeMissing</code></td>
+<td align="LEFT">Content Type missing in the inputparam list.</td>
+</tr>
+<tr><td align="LEFT"><code>Logging:GetList:FilterInvalid</code></td>
+<td align="LEFT">Invalid Type is passed to Filter parameter.</td>
+</tr>
+<tr><td align="LEFT"><code>Logging:GetList:IdInvalid</code></td>
+<td align="LEFT">Invalid Type is passed to <code>Id</code> parameter.</td>
+</tr>
+<tr><td align="LEFT"><code>Logging:GetList:RecentListInvalid</code></td>
+<td align="LEFT">Invalid Type is passed to <code>RecentList</code> parameter.</td>
+</tr>
+<tr><td align="LEFT"><code>Logging:GetList:PhoneNumberInvalid</code></td>
+<td align="LEFT">Invalid Type is passed to <code>PhoneNumber</code> parameter.</td>
+</tr>
+<tr><td align="LEFT"><code>Logging:GetList:DirectionInvalid</code></td>
+<td align="LEFT">Invalid Type is passed to <code>Direction</code> parameter.</td>
+</tr>
+<tr><td align="LEFT"><code>Logging:GetList:DeliveryStatusInvalid</code></td>
+<td align="LEFT">Invalid Type is passed to <code>DeliveryStatus</code> parameter.</td>
+</tr>
+<tr><td align="LEFT"><code>Logging:GetList:LogFlagsInvalid</code></td>
+<td align="LEFT">Invalid Type is passed to <code>LogFlags</code> parameter.</td>
+</tr>
+<tr><td align="LEFT"><code>Logging:GetList:EndTimeInvalid</code></td>
+<td align="LEFT">Invalid Type is passed to <code>EndTime</code> parameter.</td>
+</tr>
+<tr><td align="LEFT"><code>Logging:GetList:RemotePartyInvalid</code></td>
+<td align="LEFT">Invalid Type is passed to <code>RemoteParty</code> parameter.</td>
+</tr>
+<tr><td align="LEFT"><code>Logging:GetList:EventTypeInvalid</code></td>
+<td align="LEFT">Invalid Type is passed to <code>EventType</code> parameter.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to get the logging details on the phone:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+# Load the desired SAPI
+logging_handle = scriptext.load('Service.Logging', 'IDataSource')
+try:
+    logging_info = logging_handle.call('GetList', {'Type': u'Log',})
+    for item in logging_info:
+        print item['EventType']
+        print item['RemoteParty']
+        print item['Direction']
+        print item['EventTime']
+        print item['Subject']
+        print item['PhoneNumber']
+        print item['Description']
+        print item['EventData']
+except scriptext.ScriptextError, err:
+        print "Error getting the list of Installed Application : ", err
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.7.1 Add"
+  href="node150.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.7 Logging"
+  href="node149.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.7.3 Delete"
+  href="node152.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node150.html">6.7.1 Add</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node149.html">6.7 Logging</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node152.html">6.7.3 Delete</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

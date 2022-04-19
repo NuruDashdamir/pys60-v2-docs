@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="prev" href="node147.html" />
+<link rel="parent" href="node144.html" />
+<link rel="next" href="node149.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.6.4 MathOperations</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.6.3 CancelNotification"
+  href="node147.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.6 Location"
+  href="node144.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.7 Logging"
+  href="node149.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node147.html">6.6.3 CancelNotification</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node144.html">6.6 Location</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node149.html">6.7 Logging</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008640000000000000000"></a>
+<a name="subsec:localmathopr"></a>
+<br>
+6.6.4 MathOperations
+</h2>
+
+<p>
+<code>MathOperations</code> performs mathematical calculations based on a source location and a target location.
+
+<p>
+The following is an example for using <code>MathOperations</code>:
+
+<p>
+<div class="verbatim"><pre>
+Distance_measured = location_handle.call('MathOperations', {'MathRequest': u'FindDistance', 'DistanceParamSource': {'Longitude': u'10', 'Latitude': u'15', 'Altitude': u'20'}, 'DistanceParamDestination': {'Longitude': u'40', 'Latitude': u'55', 'Altitude': u'20'}})
+</pre></div>
+
+<p>
+The following table summarizes the specification of <code>MathOperations</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>Interface</b></td>
+<td align="LEFT" valign="TOP" width=283><code>ILocation</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Description</b></td>
+<td align="LEFT" valign="TOP" width=283>Performs mathematical calculations based on a source location and a target location.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Response Model</b></td>
+<td align="LEFT" valign="TOP" width=283>Synchronous</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Pre-condition</b></td>
+<td align="LEFT" valign="TOP" width=283>Device must be Location aware (that is, it must have some location service provider in form of GPS, AGPS, or Bluetooth). <br>
+
+<p>
+ILocation interface loaded.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Post-condition</b></td>
+<td align="LEFT" valign="TOP" width=283>Nil</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the mathematical operation such as <code>FindDistance</code>, <code>FindBearingTo</code> and so on, and position co-ordinates for performing the mathematical operation.
+<br><p></p>
+<div align="CENTER"><a name="15559"></a>
+<table>
+<caption><strong>Table 6.136:</strong>
+Input parameters for MathOperations</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=142><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=57><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=142><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=142><code>MathRequest</code></td>
+<td align="LEFT" valign="TOP" width=57>string</td>
+<td align="LEFT" valign="TOP" width=85><code>FindDistance</code> <br>
+<code>FindBearingTo</code> <br>
+<code>MoveCoordinates</code></td>
+<td align="LEFT" valign="TOP" width=142>Specifies the mathematical operation.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=142><code>DistanceParamSource</code></td>
+<td align="LEFT" valign="TOP" width=57>map. For more information, refer table map- <code>Distance Param Source</code> <a href="#tab:mapdistsourc">6.137</a></td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=142>This specifies the position co-ordinates. <br>
+Note that expected datum here is WGS-84 with decimal degree representation. <br>
+Also note that altitude supplied does not effect the result of calculation. It is used to maintain a uniform input argument, which makes it easy to use.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=142><code>DistanceParamDestination</code></td>
+<td align="LEFT" valign="TOP" width=57>map. For more information, refer table map- <code>Distance Param Destination</code> <a href="#tab:mapdistdest">6.138</a></td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=142>Specifies co-ordinates of another position. It is not required when value specified in the first parameter is <code>MoveCoordinates</code>. <br>
+Note that expected datum here is WGS-84 with decimal degree representation.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=142><code>MoveByThisDistance</code> <br>
+(only if <code>MathRequestType</code> is <code>MoveCoordinates</code>)</td>
+<td align="LEFT" valign="TOP" width=57>double</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=142>Move source position by the specified the distance.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=142>(Only if <code>MathRequestType</code> is <code>MoveCoordinates</code>)</td>
+<td align="LEFT" valign="TOP" width=57>double</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=142>Move the source position by the specified bearing.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="15570"></a>
+<table>
+<caption><strong>Table 6.137:</strong>
+map- DistanceParamSource</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Longitude</td>
+<td align="LEFT">double</td>
+<td align="LEFT">Longitude data</td>
+</tr>
+<tr><td align="LEFT">Latitude</td>
+<td align="LEFT">double</td>
+<td align="LEFT">Latitude data</td>
+</tr>
+<tr><td align="LEFT">Altitude</td>
+<td align="LEFT">double</td>
+<td align="LEFT">Altitude data</td>
+</tr>
+</table>
+
+<a name="tab:mapdistsourc"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="15582"></a>
+<table>
+<caption><strong>Table 6.138:</strong>
+map- DistanceParamDestination</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Longitude</td>
+<td align="LEFT">double</td>
+<td align="LEFT">Longitude data</td>
+</tr>
+<tr><td align="LEFT">Latitude</td>
+<td align="LEFT">double</td>
+<td align="LEFT">Latitude data</td>
+</tr>
+<tr><td align="LEFT">Altitude</td>
+<td align="LEFT">double</td>
+<td align="LEFT">Altitude data</td>
+</tr>
+</table>
+
+<a name="tab:mapdistdest"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output parameter contains <code>ReturnValue</code>. It also contains <code>ErrorCode</code>, and <code>ErrorMessage</code> if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="15607"></a>
+<table>
+<caption><strong>Table 6.139:</strong>
+Output parameters for MathOperations</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=57><b>Range (Type: string)</b></td>
+<td align="LEFT" valign="TOP" width=198><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ReturnValue</code></td>
+<td align="LEFT" valign="TOP" width=85>The table <a href="#tab:result">6.140</a> describes output obtained for various input combination</td>
+<td align="LEFT" valign="TOP" width=57>NA</td>
+<td align="LEFT" valign="TOP" width=198>Resultant calculation. <br>
+In case you request to <code>Move coordinates</code>, map described in column 2 will be returned. <br>
+Note that if distance between two coordinate is requested, it is returned in meters while <code>FindBearingTo</code> returned is in degrees counting clockwise relative to true north.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT" valign="TOP" width=85>int</td>
+<td align="LEFT" valign="TOP" width=57>NA</td>
+<td align="LEFT" valign="TOP" width=198>Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT" valign="TOP" width=85>string</td>
+<td align="LEFT" valign="TOP" width=57>NA</td>
+<td align="LEFT" valign="TOP" width=198>Error description in Engineering English.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="15624"></a>
+<table>
+<caption><strong>Table 6.140:</strong>
+map- Resultant output</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>MathRequest type in input</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Obtained output type</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>FindDistance</code></td>
+<td align="LEFT" valign="TOP" width=85>double</td>
+<td align="LEFT" valign="TOP" width=227>Contains the calculated distance in meters.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>FindBearingTo</code></td>
+<td align="LEFT" valign="TOP" width=85>double</td>
+<td align="LEFT" valign="TOP" width=227>Bearing between two points.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>MoveCoordinates</code> map</td>
+<td align="LEFT" valign="TOP" width=85>Map described in the table <a href="#tab:movcoord">6.141</a> is returned, which represents the translated coordinate.</td>
+<td align="LEFT" valign="TOP" width=227>&nbsp;</td>
+</tr>
+</table>
+
+<a name="tab:result"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="15636"></a>
+<table>
+<caption><strong>Table 6.141:</strong>
+map- MoveCoordinates</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Longitude</td>
+<td align="LEFT">double</td>
+<td align="LEFT">Longitude data</td>
+</tr>
+<tr><td align="LEFT">Latitude</td>
+<td align="LEFT">double</td>
+<td align="LEFT">Latitude data</td>
+</tr>
+<tr><td align="LEFT">Altitude</td>
+<td align="LEFT">double</td>
+<td align="LEFT">Altitude data</td>
+</tr>
+</table>
+
+<a name="tab:movcoord"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="15649"></a>
+<table>
+<caption><strong>Table 6.142:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description: 
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="15675"></a>
+<table>
+<caption><strong>Table 6.143:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=170><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Location:MathOperations:Missing argument- MathRequest</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates missing <code>Mathrequest</code> argument.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Location:MathOperations:Wrong argument- MathRequest</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates supplied <code>MathRequest</code> argument is wrong.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Location:MathOperations:Missing argument- locationcoordinate</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates missing <code>locationCoordinate</code> in input.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Location:MathOperations:Missing argument- MoveByThisDistance</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates missing <code>MoveByThisDistance</code> in input.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Location:MathOperations:Missing argument- MoveByThisBearing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates missing <code>MoveByThisBearing</code> in input.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Location:MathOperations:TypeMismatch- MoveByThisDistance</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates type for <code>Movebydistance</code> is wrong.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Location:MathOperations:TypeMismatch- MoveByThisBearing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates type for <code>Movebythisbearing</code> is wrong.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to perform specific calculations on user provided data:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+location_handle = scriptext.load('Service.location', 'ILocation')
+
+try:
+    Distance_measured = location_handle.call('MathOperations', {'MathRequest': u'FindDistance', 'DistanceParamSource': {'Longitude': u'10', 'Latitude': u'15', 'Altitude': u'20'}, 'DistanceParamDestination': {'Longitude': u'40', 'Latitude': u'55', 'Altitude': u'20'}})
+    errorcode = Distance_measured["ErrorCode"]
+    if errorcode != 0:
+        print "Error in retrieving the Distance covered"
+    else:
+        ret_val = Distance_measured["ReturnValue"]
+        if ret_val["distance covered"]["Value"] == '50':
+            print "The distance covered is  retrieved"
+
+except scriptext.ScriptextError, err:
+    print "Error performing the operation : ", err
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.6.3 CancelNotification"
+  href="node147.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.6 Location"
+  href="node144.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.7 Logging"
+  href="node149.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node147.html">6.6.3 CancelNotification</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node144.html">6.6 Location</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node149.html">6.7 Logging</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

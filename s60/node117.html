@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node118.html" />
+<link rel="prev" href="node116.html" />
+<link rel="parent" href="node115.html" />
+<link rel="next" href="node118.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.2.2 LaunchApp</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.2.1 GetList"
+  href="node116.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.2 application Manager"
+  href="node115.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.2.3 LaunchDoc"
+  href="node118.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node116.html">6.2.1 GetList</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node115.html">6.2 Application Manager</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node118.html">6.2.3 LaunchDoc</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008220000000000000000"></a>
+<a name="subsec:appmgrlaunchapp"></a>
+<br>
+6.2.2 LaunchApp
+</h2>
+
+<p>
+<code>LaunchApp</code> is used to launch an application. It takes a set of input parameters that define application ID and the options for launching the application.
+
+<p>
+The following are the examples for using <code>LaunchApp</code>:
+
+<p>
+<b>Synchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+appmanager_id = appmanager_handle.call('LaunchApp', {'ApplicationID': u's60uid://0x10005a22'})
+</pre></div>
+
+<p>
+
+<b>Asynchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+appmanager_id = appmanager_handle.call('LaunchApp', 
+                                       {'ApplicationID': u's60uid://0x10005a22'},  
+                                       callback=launch_app_callback)
+</pre></div>
+
+<p>
+where, <code>launch_app_callback</code> is a user defined callback function.
+
+<p>
+The following table summarizes the specification of <code>LaunchApp</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT"><code>IAppManager</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT">Launches the application based on UID.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT">Synchronous and asynchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT">Valid instance of <code>IAppManager</code> interface is instantiated.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT">Nil</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the <code>ApplicationID</code> and the mode for launching the application. Input parameter has three properties: application ID, command line argument, and options.  Options contain mode, position, and document path. 
+<br><p></p>
+<div align="CENTER"><a name="8329"></a>
+<table>
+<caption><strong>Table 6.5:</strong>
+Input parameters for LaunchApp</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range</b></td>
+</tr>
+<tr><td align="LEFT"><code>ApplicationID</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT"><code>s60uid://&lt;UID&gt;</code></td>
+</tr>
+<tr><td align="LEFT">[CmdLine]</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT">Command line argument</td>
+</tr>
+<tr><td align="LEFT">[Options]</td>
+<td align="LEFT">map</td>
+<td align="LEFT">For detail information on Options, refer to the following table <a href="#tab:apprange">6.6</a></td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="8343"></a>
+<table>
+<caption><strong>Table 6.6:</strong>
+Options that can be used with LaunchApp, default values are emphasized</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Key</b></td>
+<td align="LEFT"><b>Value</b></td>
+</tr>
+<tr><td align="LEFT">[Mode]</td>
+<td align="LEFT"><code>Chained</code> or <em>Standalone</em></td>
+</tr>
+<tr><td align="LEFT">[Position]</td>
+<td align="LEFT"><code>Background</code> or <em>foreground</em></td>
+</tr>
+<tr><td align="LEFT">[DocumentPath]</td>
+<td align="LEFT">unicode string</td>
+</tr>
+</table>
+
+<a name="tab:apprange"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+In Asynchronous mode the launching application receives the notification when the launched application dies. The notification is not received if this request is cancelled. Cancelling the request does not close the launched application. <br>
+
+<p>
+Chained mode is applicable for UI based applications only. You will not be able to launch the application in background position in chained mode. <br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+In asynchronous mode, the <code>input_params</code> that is passed to the callback function contains <code>ErrorCode</code>, and an <code>ErrorMessage</code> if the operation fails. <br>
+<br><p></p>
+<div align="CENTER"><a name="8362"></a>
+<table>
+<caption><strong>Table 6.7:</strong>
+Output parameters for LaunchApp</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">Contains the SAPI specific error code when the operation fails.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">Error Description in Engineering English.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="8377"></a>
+<table>
+<caption><strong>Table 6.8:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>0</code></td>
+<td align="LEFT">Success</td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1004</code></td>
+<td align="LEFT">Service not supported</td>
+</tr>
+<tr><td align="LEFT"><code>1012</code></td>
+<td align="LEFT">Item not found</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description:
+<br><p></p>
+<div align="CENTER"><a name="8391"></a>
+<table>
+<caption><strong>Table 6.9:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>AppManager:LaunchApp:Application ID Missing</code></td>
+<td align="LEFT" valign="TOP" width=170>Indicates missing of Application ID or a mismatch in the datatype of the given Application ID.</td>
+</tr>
+<tr><td align="LEFT"><code>AppManager:LaunchApp:Command Line type mismatch</code></td>
+<td align="LEFT" valign="TOP" width=170>Indicates a mismatch in the datatype of Command Line.</td>
+</tr>
+<tr><td align="LEFT"><code>AppManger:LaunchApp:OptionMap type mismatch</code></td>
+<td align="LEFT" valign="TOP" width=170>Indicates a mismatch in the datatype of Options.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to launch the <b>Help.exe</b>, in asynchronous mode:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+import e32
+lock = e32.Ao_lock()
+
+# Callback function will be called when the requested service is complete. 
+def launch_app_callback(trans_id, event_id, input_params):
+    if trans_id != appmanager_id and event_id != scriptext.EventCompleted:
+        print "Error in servicing the request"
+        print "Error code is: " + str(input_params["ReturnValue"]["ErrorCode"])
+        if "ErrorMessage" in input_params["ReturnValue"]:
+            print "Error message is: " + input_params["ReturnValue"]["ErrorMessage"]
+    else:
+        print "Application Launched Successfully: "
+
+    lock.signal()
+
+# Load appmanage service
+appmanager_handle = scriptext.load('Service.AppManager', 'IAppManager')
+
+# Make a request to query the required information in asynchronous mode
+appmanager_id = appmanager_handle.call('LaunchApp', {'ApplicationID': u's60uid://0x10005a22'}, callback=launch_app_callback)
+
+print "Waiting for the request to be processed!"
+lock.wait()
+print "Request complete!"
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.2.1 GetList"
+  href="node116.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.2 application Manager"
+  href="node115.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.2.3 LaunchDoc"
+  href="node118.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node116.html">6.2.1 GetList</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node115.html">6.2 Application Manager</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node118.html">6.2.3 LaunchDoc</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="prev" href="node166.html" />
+<link rel="parent" href="node164.html" />
+<link rel="next" href="node168.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.10.3 GetChannelProperty</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.10.2 RegisterForNotification"
+  href="node166.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.10 Sensors"
+  href="node164.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.11 sys Info"
+  href="node168.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node166.html">6.10.2 RegisterForNotification</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node164.html">6.10 Sensors</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node168.html">6.11 Sys Info</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION0081030000000000000000"></a>
+<a name="subsec:sensorgetchanel"></a>
+<br>
+6.10.3 GetChannelProperty
+</h2>
+
+<p>
+<code>GetChannelProperty</code> is used to get the channel property of the specified sensor channel.
+
+<p>
+The following is an example for using <code>GetChannelProperty</code>:
+
+<p>
+<div class="verbatim"><pre>
+sensor_handle.call('GetChannelProperty', 
+                   {'ChannelInfoMap':{'ChannelId': result['ChannelId'], 
+                                      'ContextType': result['ContextType'], 
+                                      'Quantity': result['Quantity'], 
+                                      'ChannelType': result['ChannelType'], 
+                                      'Location': result['Location'], 
+                                      'VendorId': result['VendorId'], 
+                                      'DataItemSize': result['DataItemSize'], 
+                                      'ChannelDataTypeId': result['ChannelDataTypeId']}, 
+                   'propertyId': u'DataRate'})
+</pre></div>
+
+<p>
+The following table summarizes the specification of <code>GetChannelProperty</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT"><code>ISensor</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT">Gets the specified property of a sensor channel.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT">Synchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT">ISensor interface is loaded.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT">Client application receives the requested property details.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameters define the <code>ChannelInfoMap</code> and <code>PropertyId</code>.
+<br><p></p>
+<div align="CENTER"><a name="19549"></a>
+<table>
+<caption><strong>Table 6.201:</strong>
+Input parameters for GetChannelProperty</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=96><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=96><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ChannelInfoMap</code></td>
+<td align="LEFT" valign="TOP" width=96>map as mentioned in <code>FindSensorChannel</code>. Refer <b>ChannelInfoMap</b> <a href="node165.html#tab:channelinfomap">6.194</a></td>
+<td align="LEFT" valign="TOP" width=96>NA</td>
+<td align="LEFT" valign="TOP" width=113>The map is obtained by invoking <code>FindSensorChannel</code>.</td>
+</tr>
+<tr><td align="LEFT"><code>PropertyId</code></td>
+<td align="LEFT" valign="TOP" width=96>unicode string</td>
+<td align="LEFT" valign="TOP" width=96>Range for <code>PropertyId</code>: <br>
+<code>DataRate</code> <br>
+<code>Availability</code> <br>
+<code>MeasureRange</code> <br>
+<code>ChannelDataFormat</code> <br>
+<code>ChannelAccuracy</code> <br>
+<code>ChannelScale</code> <br>
+<code>ScaledRange</code> <br>
+<code>ChannelUnit</code> <br>
+<code>SensorModel</code> <br>
+<code>ConnectionType</code> <br>
+<code>Description</code></td>
+<td align="LEFT" valign="TOP" width=113>The property ID string for which the property is being queried.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output contains <code>ReturnValue</code>. It also contains <code>ErrorCode</code> and an <code>ErrorMessage</code> if the operation fails. <code>ReturnValue</code> contains the requested channel property. 
+<br><p></p>
+<div align="CENTER"><a name="19580"></a>
+<table>
+<caption><strong>Table 6.202:</strong>
+Output parameters for GetChannelProperty</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=99><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=96><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=142><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT" valign="TOP" width=99>int</td>
+<td align="LEFT" valign="TOP" width=96>NA</td>
+<td align="LEFT" valign="TOP" width=142>Contains the SAPI specific error code when the operation fails.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT" valign="TOP" width=99>string</td>
+<td align="LEFT" valign="TOP" width=96>NA</td>
+<td align="LEFT" valign="TOP" width=142>Error Description in Engineering English.</td>
+</tr>
+<tr><td align="LEFT"><code>ReturnValue</code></td>
+<td align="LEFT" valign="TOP" width=99>Channel property map: <br>
+<b>Type</b>: <b>Name</b> <br>
+string: <code>PropertyId</code> <br>
+32 bit int: <code>PropertyDataType</code> <br>
+32 bit Integer: <code>ItemIndex</code> <br>
+bool: <code>ReadOnly</code> <br>
+32 bit int/ double/ string: <code>PropertyValue</code></td>
+<td align="LEFT" valign="TOP" width=96>The channel property can either be of type integer, double, or string. <br>
+
+<p>
+Range for <code>PropertyDataType</code>: <br>
+0: For Integer datatype <br>
+1: For Double datatype <br>
+2: For String datatype</td>
+<td align="LEFT" valign="TOP" width=142><code>ReturnValue</code> contains a map of key-value pair for channel property.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the error codes and their values:
+<br><p></p>
+<div align="CENTER"><a name="19595"></a>
+<table>
+<caption><strong>Table 6.203:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>0</code></td>
+<td align="LEFT">Success</td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1003</code></td>
+<td align="LEFT">Missing argument</td>
+</tr>
+<tr><td align="LEFT"><code>1012</code></td>
+<td align="LEFT">Item not found</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description:
+<br><p></p>
+<div align="CENTER"><a name="19612"></a>
+<table>
+<caption><strong>Table 6.204:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=227><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Sensors:GetChannelProperty: Property id missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the property ID input parameter is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Sensors:GetChannelProperty: Invalid property id</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the input property ID is invalid and does not fall within the specified range of property ID strings.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Sensors:GetChannelProperty: ChannelInfoMap missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the channel information map is not provided as input parameter.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Sensors:GetChannelProperty: Channel property not supported</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the channel property is not supported hence no value is returned.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Sensors:GetChannelProperty: Incomplete input param list</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the input param list is incomplete.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to get the specified property of sensor channel:
+
+<p>
+<div class="verbatim"><pre>
+try:
+    result = sensor_handle.call('FindSensorChannel',
+                                   {'SearchCriterion': u'Rotation'})
+
+    ChannelId = result[0]['ChannelId']
+    ContextType = result[0]['ContextType']
+    Quantity = result[0]['Quantity']
+    ChannelType = result[0]['ChannelType']
+    Location = result[0]['Location']
+    VendorId = result[0]['VendorId']
+    DataItemSize = result[0]['DataItemSize']
+    ChannelDataTypeId = result[0]['ChannelDataTypeId']
+
+    result = sensor_handle.call('GetChannelProperty',
+                    {'ChannelInfoMap':{'ChannelId': ChannelId,
+                                       'ContextType': ContextType,
+                                       'Quantity': Quantity,
+                                       'ChannelType': ChannelType,
+                                       'Location': Location,
+                                       'VendorId': VendorId,
+                                       'DataItemSize': DataItemSize,
+                                       'ChannelDataTypeId': ChannelDataTypeId},
+                                       'PropertyId': u'DataRate'})
+    print "Property Id: ", result["PropertyId"]
+    print "PropertyDataType: ", result["PropertyDataType"]
+    print "ItemIndex: ",  result["ItemIndex"]
+    print "ReadOnly: ", result["ReadOnly"]
+    print "PropertyValue: ",result["PropertyValue"]
+
+except scriptext.ScriptextError, err:
+    print "Error performing the operation : ", err
+</pre></div>
+
+<p>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.10.2 RegisterForNotification"
+  href="node166.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.10 Sensors"
+  href="node164.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.11 sys Info"
+  href="node168.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node166.html">6.10.2 RegisterForNotification</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node164.html">6.10 Sensors</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node168.html">6.11 Sys Info</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

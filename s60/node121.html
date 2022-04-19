@@ -1,0 +1,895 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node122.html" />
+<link rel="prev" href="node120.html" />
+<link rel="parent" href="node119.html" />
+<link rel="next" href="node122.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.3.2 Add</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.3.1 GetList"
+  href="node120.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.3 Calendar"
+  href="node119.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.3.3 Delete"
+  href="node122.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node120.html">6.3.1 GetList</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node119.html">6.3 Calendar</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node122.html">6.3.3 Delete</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008320000000000000000"></a>
+<a name="subsec:calendaradd"></a>
+<br>
+6.3.2 Add
+</h2>
+
+<p>
+<code>Add</code> is used to create a new calendar on the device, add an entry to a calendar, or modify the entry if an entry with the same <code>LocalId</code> already exists in the calendar. The entry is added to the specified calendar or, if no calendar is specified, to the default one. In case the default calendar does not exist, it is created. It is available only in synchronous mode.
+
+<p>
+The following is an example for using <code>Add</code>:
+
+<p>
+<div class="verbatim"><pre>
+calendar_handle.call('Add', {'Type': u'CalendarEntry', 'Item': {'Description': u'This is the meeting description', 'StartTime', start_time, 'EndTime', end_time}})
+where start_time and end_time are datetime objects.
+</pre></div>
+
+<p>
+The following table summarizes the specification of <code>Add</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT" valign="TOP" width=283><code>IDataSource</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT" valign="TOP" width=283>Adds a new calendar in the device or a new entry in a specific calendar file.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT" valign="TOP" width=283>Synchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT" valign="TOP" width=283><code>IDataSource</code> interface is loaded. For updating a specific entry, the  <code>Id</code> must exist and can be retrieved by a call to <code>Add</code> or <code>GetList</code>.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT" valign="TOP" width=283>Nil</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters for Calendar</b> <br>
+
+<p>
+Input parameter specifies the details of a new calendar. Input parameter has two properties: Type, and Item.
+<br><p></p>
+<div align="CENTER"><a name="9242"></a>
+<table>
+<caption><strong>Table 6.25:</strong>
+Input parameters for Calendar Add</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=113><code>Calendar</code></td>
+<td align="LEFT" valign="TOP" width=170>Adds a new calendar</td>
+</tr>
+<tr><td align="LEFT">Item</td>
+<td align="LEFT">map</td>
+<td align="LEFT" valign="TOP" width=113><code>CalendarName</code>: unicode string</td>
+<td align="LEFT" valign="TOP" width=170>Specifies the name of the calendar to be added in the format <b>Drivexxx: FileNamexxx</b>.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters for Calendar</b> <br>
+
+<p>
+Output parameter contains an error code and an optional error message if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="9257"></a>
+<table>
+<caption><strong>Table 6.26:</strong>
+Output parameters for Calendar Add</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT">Error description in Engineering English.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Input Parameters for Calendar Entry</b> <br>
+
+<p>
+<code>Add</code> performs add or update operations depending on the input parameters of Calendar Entry. Input parameters differ based on the Entry Type (<code>Meeting</code>, <code>To-Do</code>, <code>Reminder</code>, <code>DayEvent</code>, <code>Anniversary</code>).
+<br><p></p>
+<div align="CENTER"><a name="9292"></a>
+<table>
+<caption><strong>Table 6.27:</strong>
+Input parameters for Calendar Entry Add</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=113><code>CalendarEntry</code></td>
+<td align="LEFT" valign="TOP" width=227>Adds a new entry or modifies an existing entry depending on the input of Calendar Entry.</td>
+</tr>
+<tr><td align="LEFT">Item</td>
+<td align="LEFT">map</td>
+<td align="LEFT" valign="TOP" width=113><b>[CalendarName]</b>: unicode string <br>
+For specific information on Type, refer to the following tables: <br>
+<code>Meeting</code>: <a href="#tab:addmeeting">6.28</a> <br>
+<code>To-Do</code>: <a href="#tab:addtodo">6.29</a> <br>
+<code>Anniversary</code>: <a href="#tab:addanni">6.30</a> <br>
+<code>DayEvent</code>: <a href="#tab:adddayevent">6.31</a>
+<br>
+<code>Reminder</code>: <a href="#tab:addreminder">6.32</a></td>
+<td align="LEFT" valign="TOP" width=227>For different entry types, the corresponding input maps are given. <br>
+
+<p>
+For more information about keys, refer the section Key Values <a href="node126.html#subsec:calendarkeyval">6.3.7</a>. <br>
+The keys mentioned in the tables for each 'Type' are only applicable for that Type, rest are ignored. <br>
+
+<p>
+The attendee field has a value of type 'map'. <br>
+The <code>phoneowner</code> must match the 'Address' field of one of the attendees, which means that a <code>phoneowner</code> is an attendee.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="9316"></a>
+<table>
+<caption><strong>Table 6.28:</strong>
+Entry type: Meeting</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=113><b>unicode string</b></td>
+<td align="LEFT"><b>Meeting</b></td>
+</tr>
+<tr><td align="LEFT">[Summary]</td>
+<td align="LEFT" valign="TOP" width=113>unicode string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[SeqNum]</td>
+<td align="LEFT" valign="TOP" width=113>32-bit int</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">StartTime</td>
+<td align="LEFT" valign="TOP" width=113>datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">EndTime</td>
+<td align="LEFT" valign="TOP" width=113>datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[Replication]</td>
+<td align="LEFT" valign="TOP" width=113>unicode string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[Description]</td>
+<td align="LEFT" valign="TOP" width=113>unicode string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[Priority]</td>
+<td align="LEFT" valign="TOP" width=113>32-bit int</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[AlarmTime]</td>
+<td align="LEFT" valign="TOP" width=113>datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[Location]</td>
+<td align="LEFT" valign="TOP" width=113>unicode string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[Status]</td>
+<td align="LEFT" valign="TOP" width=113>unicode string</td>
+<td align="LEFT"><code>Tentative</code> <br>
+<code>Confirmed</code> <br>
+<code>Cancelled</code> <br>
+<code>NullStatus</code></td>
+</tr>
+<tr><td align="LEFT">[RepeatDates]</td>
+<td align="LEFT" valign="TOP" width=113>List of dates</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[ExDates]</td>
+<td align="LEFT" valign="TOP" width=113>List of dates</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[Method]</td>
+<td align="LEFT" valign="TOP" width=113><code>None</code> <br>
+<code>Publish</code> <br>
+<code>Request</code> <br>
+<code>Reply</code> <br>
+<code>Add</code> <br>
+<code>Cancel</code> <br>
+<code>Refresh</code> <br>
+<code>Counter</code> <br>
+<code>DeclineCounter</code></td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[PhoneOwner]</td>
+<td align="LEFT" valign="TOP" width=113>unicode string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[Organizer]</td>
+<td align="LEFT" valign="TOP" width=113>[CommonName]: string <br>
+Address: string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[Attendees]</td>
+<td align="LEFT" valign="TOP" width=113>List of maps</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[RepeatRule]</td>
+<td align="LEFT" valign="TOP" width=113>map</td>
+<td align="LEFT">NA</td>
+</tr>
+</table>
+
+<a name="tab:addmeeting"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="9336"></a>
+<table>
+<caption><strong>Table 6.29:</strong>
+Entry type: ToDo</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>unicode string</b></td>
+<td align="LEFT" valign="TOP" width=170><b>ToDo</b></td>
+</tr>
+<tr><td align="LEFT">[Summary]</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=170>NA</td>
+</tr>
+<tr><td align="LEFT">[EndTime]</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT" valign="TOP" width=170>NA</td>
+</tr>
+<tr><td align="LEFT">[Replication]</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=170><code>Open</code> <br>
+<code>Private</code> <br>
+<code>Restricted</code></td>
+</tr>
+<tr><td align="LEFT">[Description]</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=170>NA</td>
+</tr>
+<tr><td align="LEFT">[Priority]</td>
+<td align="LEFT">32-bit int</td>
+<td align="LEFT" valign="TOP" width=170>NA</td>
+</tr>
+<tr><td align="LEFT">[AlarmTime]</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT" valign="TOP" width=170>NA</td>
+</tr>
+<tr><td align="LEFT">[Status]</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=170><code>TodoNeedsAction</code> <br>
+<code>TodoCompleted</code> <br>
+<code>TodoInProcess</code> <br>
+<code>Cancelled</code> <br>
+<code>NullStatus</code></td>
+</tr>
+</table>
+
+<a name="tab:addtodo"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="9351"></a>
+<table>
+<caption><strong>Table 6.30:</strong>
+Entry type: Anniversary</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>unicode string</b></td>
+<td align="LEFT"><b>Anniversary</b></td>
+</tr>
+<tr><td align="LEFT">[Summary]</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">StartTime</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[Replication]</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT"><code>Open</code> <br>
+<code>Private</code> <br>
+<code>Restricted</code></td>
+</tr>
+<tr><td align="LEFT">[Description]</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[Priority]</td>
+<td align="LEFT">32-bit int</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[AlarmTime]</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+</table>
+
+<a name="tab:addanni"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="9366"></a>
+<table>
+<caption><strong>Table 6.31:</strong>
+Entry type: DayEvent</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>unicode string</b></td>
+<td align="LEFT"><b>DayEvent</b></td>
+</tr>
+<tr><td align="LEFT">[Summary]</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">StartTime</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[EndTime]</td>
+<td align="LEFT">datetime (If not specified, the value will be same as StartTime)</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[Replication]</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT"><code>Open</code> <br>
+<code>Private</code> <br>
+<code>Restricted</code></td>
+</tr>
+<tr><td align="LEFT">[Description]</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[Priority]</td>
+<td align="LEFT">32-bit int</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[AlarmTime]</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+</table>
+
+<a name="tab:adddayevent"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="9381"></a>
+<table>
+<caption><strong>Table 6.32:</strong>
+Entry type: Reminder</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>string</b></td>
+<td align="LEFT"><b>Reminder</b></td>
+</tr>
+<tr><td align="LEFT">[Summary]</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">StartTime</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[Replication]</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT"><code>Open</code> <br>
+<code>Private</code> <br>
+<code>Restricted</code></td>
+</tr>
+<tr><td align="LEFT">[Description]</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[Priority]</td>
+<td align="LEFT">32-bit int</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">[AlarmTime]</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+</table>
+
+<a name="tab:addreminder"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters for Calendar Entry</b> <br>
+
+<p>
+Output parameter contains the requested information, an <code>ErrorCode</code>, and an <code>ErorrMessage</code> if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="9404"></a>
+<table>
+<caption><strong>Table 6.33:</strong>
+Output parameters for Calendar Entry Add</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>Error description in Engineering English.</td>
+</tr>
+<tr><td align="LEFT"><code>ReturnValue</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>Returns <code>Id</code> string of the new entry added. The <code>LocalId</code> is obtained by a call to <code>GetList</code>, with <code>Id</code> as filter parameter.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Input Parameters for Update</b> <br>
+
+<p>
+Input parameter specifies the type on which an operation is performed and the details of the particular Type.
+<br><p></p>
+<div align="CENTER"><a name="9431"></a>
+<table>
+<caption><strong>Table 6.34:</strong>
+Input parameters for Update</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT" valign="TOP" width=113><code>CalendarEntry</code></td>
+<td align="LEFT" valign="TOP" width=227>Adds a new entry or modifies an existing entry depending on the input of Calendar Entry.</td>
+</tr>
+<tr><td align="LEFT">Item</td>
+<td align="LEFT">map</td>
+<td align="LEFT" valign="TOP" width=113><b>[CalendarName]</b>: unicode string <br>
+<b>[LocalId]</b>: unicode string <br>
+<b>[InstanceStartTime]</b>: int</td>
+<td align="LEFT" valign="TOP" width=227><code>CalendarName</code> must be specified in <b>Drivexxx:Filenamexxx</b>.
+If <b>CalendarName</b> is not specified then update operation is performed on default calendar. <br>
+
+<p>
+Identifies the Entry by the <code>LocalId</code>. In case of repeating entry, <code>InstanceStartTime</code> (applicable only for <code>Meeting</code> type) is used to identify the instance to be modified. If <code>InstanceStartTime</code> is not specified then it modifies the whole entry.
+The modifiable fields(except type) is taken from <code>CalendarEntry</code>. <code>RepeatRule</code> can be modified or added for Parent entry only. <br>
+
+<p>
+The keys mentioned in the tables for each 'Type' are only applicable for that Type, rest are ignored.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters for Update</b> <br>
+
+<p>
+Output parameter contains the <code>Id</code> of the new entry added, <code>ErrorCode</code>, and an <code>ErrorMessage</code>, if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="9454"></a>
+<table>
+<caption><strong>Table 6.35:</strong>
+Output parameters for Update</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>Error description in Engineering English.</td>
+</tr>
+<tr><td align="LEFT"><code>ReturnValue</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>Returns <code>Id</code> string of the new entry added. The <code>LocalId</code> is obtained by a call to <code>GetList</code>, with <code>Id</code> as filter parameter.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the errors and their values:
+<br><p></p>
+<div align="CENTER"><a name="9470"></a>
+<table>
+<caption><strong>Table 6.36:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>1000</code></td>
+<td align="LEFT">Invalid service argument</td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1004</code></td>
+<td align="LEFT">Service not supported</td>
+</tr>
+<tr><td align="LEFT"><code>1010</code></td>
+<td align="LEFT">Entry exists</td>
+</tr>
+<tr><td align="LEFT"><code>1012</code></td>
+<td align="LEFT">Item not found</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description:
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="9562"></a>
+<table>
+<caption><strong>Table 6.37:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=227><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Entry Type is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>Type</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:InstanceStartTime is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>InstanceStartTime</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:LocalId is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>LocalId</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Summary is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>Summary</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Description is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>Description</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Location is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>Location</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Replication is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>Replication</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Status is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>Status</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Method is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>Method</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:SeqNum is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>SeqNum </code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Priority is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>Priority</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:StartTime is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>StartTime</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:EndTime is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>EndTime</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:AlarmTime is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>AlarmTime</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:PhoneOwner is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>PhoneOwner</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Organizer is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>Organizer</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Attendees is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>Attendees</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:CommonName is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>CommonName</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Address is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>Address</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Role is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>Role</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Status is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>Status</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Rsvp is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>Rsvp</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:RepeatDates is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>RepeatDates</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:ExDates is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>ExDates</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:RepeatRule is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>RepeatRule</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Type is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>RepeatRule:Type</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Type is missing</code></td>
+<td align="LEFT" valign="TOP" width=227><code>RepeatRule:Type</code> parameter is missing</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:DaysInWeek is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type passed for <code>RepeatRule:DaysInWeek</code> or list contains invalid data</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:UntilDate is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type passed for <code>RepeatRule:UntilDate</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:RepeatRule:StartDate is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type passed for <code>RepeatRule:StartDate</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Interval is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>RepeatRule:Interval</code> parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:MonthDays is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type passed for <code>RepeatRule:MonthDays</code> or list contains invalid data</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:DaysInWeek is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type passed for <code>RepeatRule:DaysInWeek</code> or list contains invalid data</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:DaysOfMonth is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type passed for <code>RepeatRule:DaysOfMonth</code> or list contains invalid data</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:RepeatRule:DaysOfMonth:Day</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type passed for <code>RepeatRule:DaysOfMonth:Day</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:RepeatRule:DaysOfMonth:WeekNumber</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type passed for <code>RepeatRule:DaysOfMonth:WeekNumber</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Month</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type passed for <code>RepeatRule:Month</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:Item is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>Item</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add:CalendarName is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code>CalendarName</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=227><code>Calendar:Add: is invalid</code></td>
+<td align="LEFT" valign="TOP" width=227>Invalid type is passed for <code></code> parameter</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to add a calendar entry:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+import datetime
+
+# Load Calendar service
+calendar_handle = scriptext.load('Service.Calendar', 'IDataSource')
+
+start_time = datetime.datetime(2009,03,12,17,0,0)
+end_time = datetime.datetime(2009,03,12,18,0,0)
+
+try:
+    calendar_handle.call('Add', {'Type': u'CalendarEntry', 'Item': {'Type': u'Meeting', 'Description': u'This is the meeting description', 'StartTime': start_time, 'EndTime': end_time}})
+except scriptext.ScriptextError:
+    print 'Error in servicing the request'
+else:
+    print "Add request successfully complete!"
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.3.1 GetList"
+  href="node120.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.3 Calendar"
+  href="node119.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.3.3 Delete"
+  href="node122.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node120.html">6.3.1 GetList</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node119.html">6.3 Calendar</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node122.html">6.3.3 Delete</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

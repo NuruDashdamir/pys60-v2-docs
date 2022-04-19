@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node126.html" />
+<link rel="prev" href="node124.html" />
+<link rel="parent" href="node119.html" />
+<link rel="next" href="node126.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.3.6 RequestNotification</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.3.5 Export"
+  href="node124.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.3 Calendar"
+  href="node119.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.3.7 key Values"
+  href="node126.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node124.html">6.3.5 Export</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node119.html">6.3 Calendar</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node126.html">6.3.7 Key Values</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008360000000000000000"></a>
+<a name="subsec:calendarrequest"></a>
+<br>
+6.3.6 RequestNotification
+</h2>
+
+<p>
+<code>RequestNotification</code> is used to notify the registered client when events such as entry creation, updation, or deletion occurs in a specified calendar. If no calendar is specified, the default calendar is used. This is an asynchronous method.
+
+<p>
+The following is an example for using <code>RequestNotification</code>:
+
+<p>
+<div class="verbatim"><pre>
+event_id = calendar_handle.call("RequestNotification", {'Type': u'CalendarEntry'}, callback=calendar_callback)
+</pre></div>
+
+<p>
+The following table summarizes the specification of <code>RequestNotification</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT"><code>IDataSource</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT">Notifies when add, delete, or modify is performed on the entries in the calendar store.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT">Asynchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT"><code>IDataSource</code> interface is loaded.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT">Nil</td>
+</tr>
+<tr><td align="LEFT"><b>Note</b></td>
+<td align="LEFT">The specified calendar must exist.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+Input parameter specifies the Type and its details to perform operation.
+<br><p></p>
+<div align="CENTER"><a name="10032"></a>
+<table>
+<caption><strong>Table 6.52:</strong>
+Input parameters RequestNotification</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=28><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=57><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=198><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=28>Type</td>
+<td align="LEFT" valign="TOP" width=57>unicode string</td>
+<td align="LEFT" valign="TOP" width=113><code>CalendarEntry</code></td>
+<td align="LEFT" valign="TOP" width=198>Performs the operation on calendar entries.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=28>[Filter]</td>
+<td align="LEFT" valign="TOP" width=57>map</td>
+<td align="LEFT" valign="TOP" width=113><b>[CalendarName]</b>: unicode string <br>
+<b>[LocalIdList]</b>: List of unicode strings <br>
+<b>[EndRange]</b>: datetime <br>
+<b>[IncludeUndatedTodos]</b>: bool</td>
+<td align="LEFT" valign="TOP" width=198>If this entry is not specified then, notifies changes to the default calendar. <code>CalendarName</code> must be in the format <b>Drivexxx:FileNamexxx</b>. <br>
+
+<p>
+<code>LocalIdList</code> specifies Ids for notification. These are obtained by a call to <code>Getlist</code>. If it is not specified all the entries are considered. <br>
+
+<p>
+The <code>StartRange</code> and <code>EndRange</code> fields specify the time range during which notifications are required. <br>
+
+<p>
+<code>IncludeUndatedTodos</code> specifies whether notifications are required for <code>ToDo</code> entries that have no date.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+Output parameter contains the type of modification performed on the entries in the Calendar store and the <code>LocalId</code> of that entry. It also contains <code>ErrorCode</code>, and an <code>ErrorMessage</code>, if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="10060"></a>
+<table>
+<caption><strong>Table 6.53:</strong>
+Output parameters RequestNotification</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=170>Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=85>NA</td>
+<td align="LEFT" valign="TOP" width=170>Error description in Engineering English.</td>
+</tr>
+<tr><td align="LEFT"><code>ReturnValue</code></td>
+<td align="LEFT">Iterator (map)</td>
+<td align="LEFT" valign="TOP" width=85><b>ChangeType</b>: string: <code>Add</code> <br>
+<code>Delete</code> <br>
+<code>Modify</code> <br>
+<code>Unknown</code> <br>
+<b>LocalId</b>: string</td>
+<td align="LEFT" valign="TOP" width=170>The <code>ChangeType</code> field indicates the type of modification made to the entries in the calendar store. <br>
+The <code>LocalId</code> gives the Id of the entry that is modified, added, or deleted.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the errors and their values:
+<br><p></p>
+<div align="CENTER"><a name="10072"></a>
+<table>
+<caption><strong>Table 6.54:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>1000</code></td>
+<td align="LEFT">Service argument out of range</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+the following table lists the error messages and their description:
+<br><p></p>
+<div align="CENTER"><a name="10097"></a>
+<table>
+<caption><strong>Table 6.55:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=283><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=283><code>Calendar:RequestNotification:CalendarName is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type is passed for <code>CalendarName</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=283><code>Calendar:RequestNotification:Type is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170><code>RequestNotification</code> called with invalid Type</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=283><code>Calendar:RequestNotification:StartRange is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type for Filter:StartRange parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=283><code>Calendar:RequestNotification:EndRange is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>IInvalid type for Filter:EndRange parameter</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=283><code>Calendar:RequestNotification:IncludeUndatedTodos is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type for Filter: IncludeUndatedTodos parameter.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=283><code>Calendar:RequestNotification:FileName is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type for <code>FileName</code> parameter or, <code>FileName</code> exceeds 239 characters</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=283><code>Calendar:RequestNotification:LocalIdList is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type for Filter:LocalIdList parameter or, <code>LocalIdList</code> contains invalid data</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=283><code>Calendar:RequestNotification:Filter is invalid</code></td>
+<td align="LEFT" valign="TOP" width=170>Invalid type for Filter parameter</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+import e32
+
+lock = e32.Ao_lock()
+calendar_handle = scriptext.load('Service.Calendar', 'IDataSource')
+
+def calendar_callback(trans_id, event_id, input_params):
+    if event_id != scriptext.EventCompleted:   
+# Check the event status
+        print "Error in retrieving required info"
+        print "Error code is: " + str(input_params["ReturnValue"]["ErrorCode"])
+        if "ErrorMessage" in input_params["ReturnValue"]:
+            print "Error message is: " + input_params["ReturnValue"]["ErrorMessage"]
+    else:
+        print "Modification is: " + str(input_params["ReturnValue"]["ChangeType"])
+    lock.signal()
+
+# Make a request to get notification
+event_id = calendar_handle.call("RequestNotification", {'Type': u'CalendarEntry'}, callback=calendar_callback)
+
+lock.wait()
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.3.5 Export"
+  href="node124.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.3 Calendar"
+  href="node119.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.3.7 key Values"
+  href="node126.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node124.html">6.3.5 Export</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node119.html">6.3 Calendar</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node126.html">6.3.7 Key Values</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

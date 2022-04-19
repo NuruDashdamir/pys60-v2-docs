@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node182.html" />
+<link rel="prev" href="node180.html" />
+<link rel="parent" href="node180.html" />
+<link rel="next" href="node182.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>8.1.1 Example Extension Module</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="8.1 extending PyS60"
+  href="node180.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="8.1 extending PyS60"
+  href="node180.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="8.1.2 compiling the extension"
+  href="node182.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node180.html">8.1 Extending PyS60</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node180.html">8.1 Extending PyS60</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node182.html">8.1.2 Compiling the extension</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION0010110000000000000000">
+8.1.1 Example Extension Module</a>
+</h2>
+To demonstrate the writing of an extension module the source and MMP contents
+for an example module , 'elemlist' is given below. This module is about extracting
+the pointers in a cons cell. A cons cell is composed of two pointers. The car and cdr
+are primitive operations upon linked lists composed of cons cells. The car operation
+extracts the first pointer, and the cdr operation extracts the second.
+
+<p>
+<div class="verbatim"><pre>
+#include "Python.h"
+
+/* type-definition &amp; utility-macros */
+typedef struct {
+    PyObject_HEAD
+    PyObject *car, *cdr;
+} cons_cell;
+
+staticforward PyTypeObject cons_type;
+
+/* a typetesting macro (we don't use it here) */
+#define is_cons(v) ((v)-&gt;ob_type == &amp;cons_type)
+
+/* macros to access car &amp; cdr, both as lvalues &amp; rvalues */
+#define carof(v) (((cons_cell*)(v))-&gt;car)
+#define cdrof(v) (((cons_cell*)(v))-&gt;cdr)
+
+/* ctor (factory-function) and dtor */
+static cons_cell*
+cons_new(PyObject *car, PyObject *cdr)
+{
+    cons_cell *cons = PyObject_NEW(cons_cell, &amp;cons_type);
+    if(cons) {
+        cons-&gt;car = car; Py_INCREF(car);  /* INCREF when holding a PyObject* */
+        cons-&gt;cdr = cdr; Py_INCREF(cdr);  /* ditto */
+    }
+    return cons;
+}
+static void
+cons_dealloc(cons_cell* cons)
+{
+    /* DECREF when releasing previously-held PyObject*'s */
+    Py_DECREF(carof(cons)); Py_DECREF(cdrof(cons));
+    PyObject_DEL(cons);
+}
+
+/* Python type-object */
+statichere PyTypeObject cons_type = {
+    PyObject_HEAD_INIT(0)    /* initialize to 0 to ensure Win32 portability */
+    0,                 /*ob_size*/
+    "cons",            /*tp_name*/
+    sizeof(cons_cell), /*tp_basicsize*/
+    0,                 /*tp_itemsize*/
+    /* methods */
+    (destructor)cons_dealloc, /*tp_dealloc*/
+    /* implied by ISO C: all zeros thereafter */
+};
+
+/* module-functions */
+static PyObject*
+cons(PyObject *self, PyObject *args)    /* the exposed factory-function */
+{
+    PyObject *car, *cdr;
+    if(!PyArg_ParseTuple(args, "OO", &amp;car, &amp;cdr))
+        return 0;
+    return (PyObject*)cons_new(car, cdr);
+}
+static PyObject*
+car(PyObject *self, PyObject *args)     /* car-accessor */
+{
+    PyObject *cons;
+    if(!PyArg_ParseTuple(args, "O!", &amp;cons_type, &amp;cons))  /* type-checked */
+        return 0;
+    return Py_BuildValue("O", carof(cons));
+}
+static PyObject*
+cdr(PyObject *self, PyObject *args)     /* cdr-accessor */
+{
+    PyObject *cons;
+    if(!PyArg_ParseTuple(args, "O!", &amp;cons_type, &amp;cons))  /* type-checked */
+        return 0;
+    return Py_BuildValue("O", cdrof(cons));
+}
+static PyMethodDef elemlist_methods[] = {
+    {"cons",   cons,   METH_VARARGS},
+    {"car",    car,    METH_VARARGS},
+    {"cdr",    cdr,    METH_VARARGS},
+    {0, 0}
+};
+
+/* module entry-point (module-initialization) function */
+PyMODINIT_FUNC
+initelemlist(void)
+{
+    /* Create the module and add the functions */
+    PyObject *m = Py_InitModule("elemlist", elemlist_methods);
+    /* Finish initializing the type-objects */
+    cons_type.ob_type = &amp;PyType_Type;
+}
+</pre></div>
+A brief description of the concepts involved in writing an extension module is
+put down below. For more information about writing an extension module refer
+<em class="citetitle"><a
+ href="../ext/intro.html"
+ title="Extending Python"
+ >Extending Python</a></em> from the mainline Python documentation.
+
+<p>
+The header file Python.h makes the Python API's accessible in the code.
+<tt class="cfunction">car()</tt>, <tt class="cfunction">cdr()</tt> and <tt class="cfunction">cons()</tt> are the functions exposed
+at Python level so that they can be called after importing the <code>elemlist</code> module.
+The C implementation of these functions take arguments as Python objects.
+To do anything with them in the C function we have to convert them to C values.
+
+<p>
+<code>elemlist_methods</code> is the method table for the module. The method table is
+passed to the interpreter in the module's initialization function, <tt class="cfunction">initelemlist()</tt>.
+The initialization function must be named <tt class="cfunction">initname()</tt>, where name is the
+name of the module, and should be the only non-static item defined in the module file.
+The PyMODINIT_FUNC declares the function as <code>void</code> return type, declares any special
+linkage declarations required by the platform, and for C++ declares the function
+as <code>extern "C"</code>. When the Python program imports module  elemlist for the
+first time, <tt class="cfunction">initelemlist()</tt> is called.
+
+<p>
+The MMP file contents for the above source is as follows:
+
+<p>
+<div class="verbatim"><pre>
+TARGETTYPE  dll
+TARGET    kf_elemlist.pyd
+
+CAPABILITY LocalServices NetworkServices ReadUserData WriteUserData UserEnvironment
+
+NOSTRICTDEF
+DEFFILE   elemlist.def
+
+/* If global data is present in the extension module then this macro should be
+ * defined in the mmp file.
+ */
+EPOCALLOWDLLDATA
+
+SYSTEMINCLUDE    \epoc32\include\python25
+SYSTEMINCLUDE    \epoc32\include\stdapis
+SYSTEMINCLUDE    \epoc32\include
+
+LIBRARY     python25.lib
+
+SOURCEPATH  ..\src
+SOURCE      elemlist.c
+</pre></div>
+
+<p>
+An example usage of the 'elemlist' extension module can be:
+
+<p>
+<div class="verbatim"><pre>
+from elemlist import *
+cell = cons(1, 2)
+print "car(cell) :", car(cell)
+print "cdr(cell) :", cdr(cell)
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="8.1 extending PyS60"
+  href="node180.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="8.1 extending PyS60"
+  href="node180.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="8.1.2 compiling the extension"
+  href="node182.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node180.html">8.1 Extending PyS60</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node180.html">8.1 Extending PyS60</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node182.html">8.1.2 Compiling the extension</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

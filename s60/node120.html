@@ -1,0 +1,780 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node121.html" />
+<link rel="prev" href="node119.html" />
+<link rel="parent" href="node119.html" />
+<link rel="next" href="node121.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.3.1 GetList</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.3 Calendar"
+  href="node119.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.3 Calendar"
+  href="node119.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.3.2 Add"
+  href="node121.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node119.html">6.3 Calendar</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node119.html">6.3 Calendar</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node121.html">6.3.2 Add</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008310000000000000000"></a>
+<a name="subsec:calendargetlist"></a>
+<br>
+6.3.1 GetList
+</h2>
+
+<p>
+<code>GetList</code> is used to retrieve the information about available calendar databases or calendar entries. It takes a set of input parameters that define the type of information to return, and how to filter the returned list. It is available only in synchronous.
+
+<p>
+The following is an example for using <code>GetList</code>:
+
+<p>
+<div class="verbatim"><pre>
+meeting_list = calendar_handle.call('GetList', {'Type': u'CalendarEntry', 'Filter': {'CalendarName': u'C:Calendar', 'Type': u'Meeting'}})
+</pre></div>
+
+<p>
+The following table summarizes the specification of <code>GetList</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Interface</b></td>
+<td align="LEFT"><code>IDataSource</code></td>
+</tr>
+<tr><td align="LEFT"><b>Description</b></td>
+<td align="LEFT">Returns a list of available calendars or calendar entries.</td>
+</tr>
+<tr><td align="LEFT"><b>Response Model</b></td>
+<td align="LEFT">Synchronous</td>
+</tr>
+<tr><td align="LEFT"><b>Pre-condition</b></td>
+<td align="LEFT"><code>IDataSource</code> interface is loaded.</td>
+</tr>
+<tr><td align="LEFT"><b>Post-condition</b></td>
+<td align="LEFT">Nil</td>
+</tr>
+<tr><td align="LEFT"><b>Note</b></td>
+<td align="LEFT">The calendar file must be present to get a list of entries from a specific calendar.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters for Calendar</b> <br>
+
+<p>
+Input parameter specifies the Type and Filter to perform <code>GetList</code> service.
+<br><p></p>
+<div align="CENTER"><a name="8965"></a>
+<table>
+<caption><strong>Table 6.14:</strong>
+Input parameters for Calendar Getlist</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT">unicode string</td>
+<td align="LEFT"><code>Calendar</code></td>
+<td align="LEFT" valign="TOP" width=170>Indicates that the <code>GetList</code> service is to be performed on a calendar.</td>
+</tr>
+<tr><td align="LEFT">[Filter]</td>
+<td align="LEFT">map</td>
+<td align="LEFT"><code>DefaultCalendar</code>: bool</td>
+<td align="LEFT" valign="TOP" width=170>This is an optional parameter. If <code>DefaultCalendar</code> is set to <b>True</b>, <code>GetList</code> returns the list with one element (default calendar) else, it returns a list of all calendars.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters for Calendar</b> <br>
+
+<p>
+Output parameters contain the requested information. It also contains <code>ErrorCode</code>, and an <code>ErrorMessage</code> if the operation fails. <code>ReturnValue</code> contains an array of all Calendars.
+<br><p></p>
+<div align="CENTER"><a name="8987"></a>
+<table>
+<caption><strong>Table 6.15:</strong>
+Output parameters for Calendar Getlist</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=113>NA</td>
+<td align="LEFT" valign="TOP" width=85>Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=113>NA</td>
+<td align="LEFT" valign="TOP" width=85>Error description in Engineering English.</td>
+</tr>
+<tr><td align="LEFT"><code>ReturnValue</code></td>
+<td align="LEFT"><code>ScriptextIterableWrapper</code></td>
+<td align="LEFT" valign="TOP" width=113>This is an Iterable list of available calendars in the format : <b>Drivexxx:FileNamexxx</b>.</td>
+<td align="LEFT" valign="TOP" width=85>&nbsp;</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Input Parameters for Calendar Entry</b> <br>
+
+<p>
+Input parameter specifies the Type and Filter to perform <code>GetList</code> service.
+<br><p></p>
+<div align="CENTER"><a name="9029"></a>
+<table>
+<caption><strong>Table 6.16:</strong>
+Input parameters for Calendar Entry Getlist</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=28><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=142><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT">Type</td>
+<td align="LEFT" valign="TOP" width=28>unicode string</td>
+<td align="LEFT" valign="TOP" width=142><code>CalendarEntry</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the <code>GetList</code> service is performed on calendar entries.</td>
+</tr>
+<tr><td align="LEFT">[Filter]</td>
+<td align="LEFT" valign="TOP" width=28>map</td>
+<td align="LEFT" valign="TOP" width=142><b>[CalendarName]</b>: unicode string <br>
+<b>[id]</b>: unicode string <br>
+<b>[LocalId]</b>: unicode string <br>
+<b>[StartRange]</b>: datetime <br>
+<b>[EndRange]</b>: datetime <br>
+<b>[SearchText]</b>: unicode string <br>
+<b>[Type]</b>: unicode string <br>
+where, [Type] is one of the following: <br>
+<code>Meeting</code> <br>
+<code>ToDo</code> <br>
+<code>Anniversary</code> <br>
+<code>Reminder</code> <br>
+<code>DayEvent</code> <br>
+<code>IncludeAll</code></td>
+<td align="LEFT" valign="TOP" width=227>All instances are fetched if Filter is not present. <br>
+<code>CalendarName</code> specifies the calendar used in the format <b>Drivexxx:Filenamexxx</b>. If this parameter is not specified then, the default calendar is used.  <code>GetList</code> returns the entries matching with <code>id</code> or <code>LocalId</code>, if only <code>id</code> or <code>LocalId</code> is specified. In case of <code>id</code>, the first entry is the parent entry. This case ignores the other fields in the input map. <br>
+
+<p>
+If any of the Ids (<code>id</code> and <code>LocalId</code>) are not specified then, <code>GetList</code> interprets the input as follows: <br>
+
+<p>
+Returns the instances falling within StartRange and EndRange, if they are specified. <br>
+Returns all instances present in Calendar, if StartRange and EndRange are not specified. <br>
+Returns all instances present on or after the specified date if only StartRange is specified. <br>
+Returns all instances present on or before the specified date if only EndRange is specified. <br>
+Matches the string with the summary field of the entry if Search Text is specified. The match is not case sensitive. <br>
+Includes only entries of the Type specified in the output if Type parameter is present else, includes all entry types.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Output Parameters for Calendar Entry</b> <br>
+
+<p>
+Output parameter contains <code>ReturnValue</code>. It also contain <code>ErrorCode</code>, and an <code>ErrorMessage</code> if the operation fails. <br>
+
+<p>
+<code>ReturnValue</code> of  Calendar Entry is an iterable list of entries, which contains all relevant fields of the calendar entry based on the Entry Type (<code>Meeting</code>, <code>To-Do</code>, <code>Reminder</code>, <code>DayEvent</code>, <code>Anniversary</code>).
+<br><p></p>
+<div align="CENTER"><a name="9075"></a>
+<table>
+<caption><strong>Table 6.17:</strong>
+Output parameters for Calendar Entry Getlist</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=113><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT" valign="TOP" width=113>NA</td>
+<td align="LEFT" valign="TOP" width=85>Service specific error code on failure of the operation.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT" valign="TOP" width=113>NA</td>
+<td align="LEFT" valign="TOP" width=85>Error description in Engineering English.</td>
+</tr>
+<tr><td align="LEFT"><code>ReturnValue</code></td>
+<td align="LEFT"><code>ScriptextIterableWrapper</code></td>
+<td align="LEFT" valign="TOP" width=113>For specific information on Types, refer to the following tables: <br>
+<code>Meeting</code>: <a href="#tab:calendarmeeting">6.18</a> <br>
+<code>To-Do</code>: <a href="#tab:calendarToDo">6.19</a> <br>
+<code>Anniversary</code>: <a href="#tab:calendaranniversary">6.20</a> <br>
+<code>DayEvent</code>: <a href="#tab:calendardayevent">6.21</a> <br>
+<code>Reminder</code>: <a href="#tab:calendarreminder">6.22</a></td>
+<td align="LEFT" valign="TOP" width=85><code>ReturnValue</code> of  Calendar Entry is an iterable list of entries, which contains all relevant fields of the calendar entry based on the Entry Type (<code>Meeting</code>, <code>To-Do</code>, <code>Reminder</code>, <code>DayEvent</code>, <code>Anniversary</code>). <br>
+
+<p>
+The output is an Iterable list of instances if <code>id</code> and <code>LocalId</code> are not specified in filter. <br>
+
+<p>
+For more information on keys, refer to the section Key Values <a href="node126.html#subsec:calendarkeyval">6.3.7</a>.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="9093"></a>
+<table>
+<caption><strong>Table 6.18:</strong>
+Entry type: Meeting</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>string</b></td>
+<td align="LEFT"><b>Meeting</b></td>
+</tr>
+<tr><td align="LEFT">id</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">LocalId</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Summary</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">SeqNum</td>
+<td align="LEFT">32-bit int</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">StartTime</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">EndTime</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">InstanceStartTime</td>
+<td align="LEFT">datetime (Valid only for instance list)</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">InstanceEndTime</td>
+<td align="LEFT">datetime (Valid only for instance list)</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Replication</td>
+<td align="LEFT">string</td>
+<td align="LEFT"><code>Open</code> <br>
+<code>Private</code> <br>
+<code>Restricted</code></td>
+</tr>
+<tr><td align="LEFT">Description</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Priority</td>
+<td align="LEFT">32-bit int</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">AlarmTime</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Location</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Status</td>
+<td align="LEFT">string</td>
+<td align="LEFT"><code>Tentative</code> <br>
+<code>Confirmed</code> <br>
+<code>Cancelled</code> <br>
+<code>NullStatus</code></td>
+</tr>
+<tr><td align="LEFT">RepeatDates</td>
+<td align="LEFT">List of dates</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">ExDates</td>
+<td align="LEFT">List of dates</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Method</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">PhoneOwner</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Organizer</td>
+<td align="LEFT">CommonName: string <br>
+Address: string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Attendees</td>
+<td align="LEFT">List of maps</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">RepeatRule</td>
+<td align="LEFT">map</td>
+<td align="LEFT">NA</td>
+</tr>
+</table>
+
+<a name="tab:calendarmeeting"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="9113"></a>
+<table>
+<caption><strong>Table 6.19:</strong>
+Entry type: ToDo</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>string</b></td>
+<td align="LEFT"><b>ToDo</b></td>
+</tr>
+<tr><td align="LEFT">id</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">LocalId</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Summary</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">EndTime</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Replication</td>
+<td align="LEFT">string</td>
+<td align="LEFT"><code>Open</code> <br>
+<code>Private</code> <br>
+<code>Restricted</code></td>
+</tr>
+<tr><td align="LEFT">Description</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Priority</td>
+<td align="LEFT">32-bit int</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">AlarmTime</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Status</td>
+<td align="LEFT">string</td>
+<td align="LEFT"><code>TodoNeedsAction</code> <br>
+<code>TodoCompleted</code> <br>
+<code>TodoInProcess</code> <br>
+<code>Cancelled</code> <br>
+<code>NullStatus</code></td>
+</tr>
+</table>
+
+<a name="tab:calendarToDo"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="9128"></a>
+<table>
+<caption><strong>Table 6.20:</strong>
+Entry type: Anniversary</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>string</b></td>
+<td align="LEFT"><b>Anniversary</b></td>
+</tr>
+<tr><td align="LEFT">id</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">LocalId</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Summary</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">StartTime</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Replication</td>
+<td align="LEFT">string</td>
+<td align="LEFT"><code>Open</code> <br>
+<code>Private</code> <br>
+<code>Restricted</code></td>
+</tr>
+<tr><td align="LEFT">Description</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Priority</td>
+<td align="LEFT">32-bit int</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">AlarmTime</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+</table>
+
+<a name="tab:calendaranniversary"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="9143"></a>
+<table>
+<caption><strong>Table 6.21:</strong>
+Entry type: DayEvent</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>string</b></td>
+<td align="LEFT"><b>DayEvent</b></td>
+</tr>
+<tr><td align="LEFT">id</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">LocalId</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Summary</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">StartTime</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">EndTime</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Replication</td>
+<td align="LEFT">string</td>
+<td align="LEFT"><code>Open</code> <br>
+<code>Private</code> <br>
+<code>Restricted</code></td>
+</tr>
+<tr><td align="LEFT">Description</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Priority</td>
+<td align="LEFT">32-bit int</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">AlarmTime</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+</table>
+
+<a name="tab:calendardayevent"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="9158"></a>
+<table>
+<caption><strong>Table 6.22:</strong>
+Entry type: Reminder</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>string</b></td>
+<td align="LEFT"><b>Reminder</b></td>
+</tr>
+<tr><td align="LEFT">id</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">LocalId</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Summary</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">StartTime</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Replication</td>
+<td align="LEFT">string</td>
+<td align="LEFT"><code>Open</code> <br>
+<code>Private</code> <br>
+<code>Restricted</code></td>
+</tr>
+<tr><td align="LEFT">Description</td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">Priority</td>
+<td align="LEFT">32-bit int</td>
+<td align="LEFT">NA</td>
+</tr>
+<tr><td align="LEFT">AlarmTime</td>
+<td align="LEFT">datetime</td>
+<td align="LEFT">NA</td>
+</tr>
+</table>
+
+<a name="tab:calendarreminder"></a>
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the errors and their values:
+<br><p></p>
+<div align="CENTER"><a name="9172"></a>
+<table>
+<caption><strong>Table 6.23:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>1000</code></td>
+<td align="LEFT">Invalid service argument</td>
+</tr>
+<tr><td align="LEFT"><code>1012</code></td>
+<td align="LEFT">Item not found</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Message</b> <br>
+
+<p>
+The following table lists the error messages and their description:
+
+<p>
+<br><p></p>
+<div align="CENTER"><a name="9197"></a>
+<table>
+<caption><strong>Table 6.24:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error messages</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:GetList:Type is invalid</code></td>
+<td align="LEFT">Type is missing or invalid Type is passed</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:GetList:Filter is invalid</code></td>
+<td align="LEFT">Type of Filter parameter is invalid</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:GetList:DefaultCalendar is invalid</code></td>
+<td align="LEFT">Type passed for <code>DefaultCalendar</code> is invalid</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:GetList:Id is invalid</code></td>
+<td align="LEFT">Type passed for <code>Id</code> is invalid</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:GetList:LocalId is invalid</code></td>
+<td align="LEFT">Type passed for <code>LocalId</code> is invalid</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:GetList:StartRange is invalid</code></td>
+<td align="LEFT">Type passed for StartRange is invalid</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:GetList:EndRange is invalid</code></td>
+<td align="LEFT">Type passed for EndRange is invalid</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:GetList:SearchText is invalid</code></td>
+<td align="LEFT">Type passed for <code>SearchText</code> is invalid</td>
+</tr>
+<tr><td align="LEFT"><code>Calendar:GetList:CalendarName is invalid</code></td>
+<td align="LEFT">Type passed for <code>CalendarName</code> is invalid</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to display all calendar entries:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+
+# Load Calendar service
+calendar_handle = scriptext.load('Service.Calendar', 'IDataSource')
+meeting_list = calendar_handle.call('GetList', {'Type': u'CalendarEntry', 'Filter':  {'CalendarName': u'C:Calendar', 'Type': u'Meeting'}})
+for meeting in meeting_list:
+	print 'Id = ' + meeting['id']
+        print 'Description = ' + meeting['Description']
+
+        value = meeting['StartTime']
+        print "Meeting starting time is ", value.day, value.month, value.year, value.hour, ":", value.minute, ":", value.second
+
+        value = meeting['EndTime']
+        print "Meeting End time is ", value.day, value.month, value.year, value.hour, ":", value.minute, ":", value.second
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.3 Calendar"
+  href="node119.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.3 Calendar"
+  href="node119.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.3.2 Add"
+  href="node121.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node119.html">6.3 Calendar</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node119.html">6.3 Calendar</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node121.html">6.3.2 Add</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

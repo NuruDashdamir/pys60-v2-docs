@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node133.html" />
+<link rel="prev" href="node131.html" />
+<link rel="parent" href="node127.html" />
+<link rel="next" href="node133.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.4.5 Export</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.4.4 Import"
+  href="node131.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.4 Contacts"
+  href="node127.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.4.6 Organise"
+  href="node133.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node131.html">6.4.4 Import</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node127.html">6.4 Contacts</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node133.html">6.4.6 Organise</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008450000000000000000"></a>
+<a name="subsec:contactexport"></a>
+<br>
+6.4.5 Export
+</h2>
+
+<p>
+<code>Export</code> is used to export a contact from a contacts database. The information is exported to a vCard file. This API can be called both in synchronous and asynchronous mode.
+
+<p>
+The following is an example for using <code>Export</code>:
+
+<p>
+<b>Asynchronous</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+event_id = contacts_handle.call('Export', {'Type': u'Contact','Data': {'DestinationFile': u'c:\\Data\\python\\contactlist.vcf', 'id': unicode(req_id)}}, callback=export_contact)
+</pre></div>
+
+<p>
+where, <code>export_contact</code> is a user defined callback function.
+
+<p>
+The following table summarizes the specification of <code>Export</code>:
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>Interface</b></td>
+<td align="LEFT" valign="TOP" width=283><code>IDataSource</code></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Operation</b></td>
+<td align="LEFT" valign="TOP" width=283>Exports the selected item from the contacts database specified as VCard.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Response Model</b></td>
+<td align="LEFT" valign="TOP" width=283>Asynchronous and synchronous for Third Edition FP2 and Fifth Edition devices. <br>
+Synchronous for Third Edition and Third Edition FP1 devices.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Pre-condition</b></td>
+<td align="LEFT" valign="TOP" width=283>Valid <code>IDataSource</code> interface is loaded. <br>
+Valid contact store must exist. <br>
+The specified contact ID, retrieved using <code>GetList</code>, must be available.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><b>Post-condition</b></td>
+<td align="LEFT" valign="TOP" width=283>Exports contact to the specified file and creates a file in the specified location.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<b>Input Parameters</b> <br>
+
+<p>
+The following table describes input parameter properties:            
+<br><p></p>
+<div align="CENTER"><a name="11915"></a>
+<table>
+<caption><strong>Table 6.78:</strong>
+Input parameters Export</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=57><b>Name</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Type</b></td>
+<td align="LEFT" valign="TOP" width=85><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=57>Type</td>
+<td align="LEFT" valign="TOP" width=85>unicode string</td>
+<td align="LEFT" valign="TOP" width=85><code>Contact</code></td>
+<td align="LEFT" valign="TOP" width=170>Operation is performed on the specified type.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=57>Data</td>
+<td align="LEFT" valign="TOP" width=85>map <br>
+<code>[DBUri]</code>: unicode string <br>
+<code>DestinationFile</code>: unicode string <br>
+<code>id</code>: unicode string</td>
+<td align="LEFT" valign="TOP" width=85>All string values in the map are unicode. <br>
+
+<p>
+<b>Note:</b> <br>
+<code>DestinationFile</code> can have any extension or no extension, usually it is <b>.vcf</b> <br>
+<code>DestinationFile</code> is of Vcard format. <br>
+
+<p>
+Example of vcard formatis given below <br>
+
+<p>
+<br>
+If complete path is not specified, the file is created in private folder of the process.</td>
+<td align="LEFT" valign="TOP" width=170><code>DBUri</code>: Exports contact from the specified database or to the default database if not specified. <br>
+
+<p>
+<code>DestinationFile</code>: Exports contact to the specified file. It cannot be greater than 256 characters. <br>
+
+<p>
+<code>id</code>: Exports the contact item with the specified id.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<div class="verbatim"><pre>
+BEGIN:VCARD
+VERSION:2.1
+N:Kent; Clark
+FN:Clark Kent
+ORG:Superman Inc.
+TITLE:Super Man
+TEL;WORK:VOICE:(111) 556-9898
+TEL;HOME;VOICE:(090) 556-6767
+ADR;WORK:;;3rd Rock from Sun;Solar System;Milky Way
+LABEL;WORK;ENCODING=QUOTED-PRINTABLE:3rd Rock from Sun=0D=0ASolar System=0D=0AMilky Way
+ADR;HOME:;;Krypton
+LABEL;HOME;ENCODING=QUOTED-PRINTABLE:Krypton
+EMAIL;PREF;INTERNET:clarkkent@krypton.com
+REV:2008042T195243Z
+END:VCARD
+</pre></div>
+
+<p>
+<b>Output Parameters</b> <br>
+
+<p>
+The output is an object, which contains <code>ErrorCode</code> and an <code>ErrorMessage</code> if the operation fails.
+<br><p></p>
+<div align="CENTER"><a name="11935"></a>
+<table>
+<caption><strong>Table 6.79:</strong>
+Output parameters for Export</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Name</b></td>
+<td align="LEFT"><b>Type</b></td>
+<td align="LEFT"><b>Range</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT">int</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>Contains the SAPI specific error code when the operation fails and <code>SErrNone</code> on success.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT">string</td>
+<td align="LEFT">NA</td>
+<td align="LEFT" valign="TOP" width=227>Error Description in Engineering English.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Errors</b> <br>
+
+<p>
+The following table lists the errors and their values:
+<br><p></p>
+<div align="CENTER"><a name="11949"></a>
+<table>
+<caption><strong>Table 6.80:</strong>
+Error codes</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Error code value</b></td>
+<td align="LEFT"><b>Description</b></td>
+</tr>
+<tr><td align="LEFT"><code>1002</code></td>
+<td align="LEFT">Bad argument type</td>
+</tr>
+<tr><td align="LEFT"><code>1010</code></td>
+<td align="LEFT">Entry exists</td>
+</tr>
+<tr><td align="LEFT"><code>1012</code></td>
+<td align="LEFT">Item not found</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Error Messages</b> <br>
+
+<p>
+The following table lists the error messages and their description:
+<br><p></p>
+<div align="CENTER"><a name="11974"></a>
+<table>
+<caption><strong>Table 6.81:</strong>
+Error messages</caption>
+<tr><td>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=170><b>Error messages</b></td>
+<td align="LEFT" valign="TOP" width=227><b>Description</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Export:Type is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates Type is missing</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Export:Invalid Type, it must be Contact</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates invalid value for Type, it can be only Contact.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Export:Export data Missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the key <code>Data</code> is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Export:Invalid Type of Data, Map is required</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the value of the Data is not a Map.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Export:Export Destination Filename is Missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates the argument to signify the filename to which contact is to be exported is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Export:Contact Id to be exported is missing</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the id of the contact to be exported is missing.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Export:Wrong Type of ContentType</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the value for Type is not a string.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Export:Destination Filename is of wrong Type</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the filename is not a string.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Export:Id is of wrong Type</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the id is not a string.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Export:Mandatory Argument is not present</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that not all mandatory arguments are present.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Export:Export DataBaseUri is not a String</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that the uri specified is not a string.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=170><code>Contacts:Export:Filename too long</code></td>
+<td align="LEFT" valign="TOP" width=227>Indicates that filename has exceeded 256 characters.</td>
+</tr>
+</table>
+
+</div></td></tr>
+</table>
+</div><p></p>
+<br>
+
+<p>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to export contacts to a file in VCard format:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+import e32
+
+# Using e32.Ao_lock() to make main function wait till callback is hit
+lock = e32.Ao_lock()
+
+# Callback function will be called when the requested service is complete
+def export_contact(trans_id, event_id, input_params):
+    if event_id != scriptext.EventCompleted:   # Check the event status
+        print "Error in retrieving required info"
+        print "Error code is: " + str(input_params["ReturnValue"]["ErrorCode"])
+        if "ErrorMessage" in input_params["ReturnValue"]:
+            print "Error message:" + input_params["ReturnValue"]["ErrorMessage"]
+    else:
+        print "The contact is exported"
+        lock.signal()
+
+# Load contacts module
+contacts_handle = scriptext.load("Service.Contact", "IDataSource")
+
+list_contacts = contacts_handle.call('GetList', {'Type': u'Contact', 'Filter': {'SearchVal': u'Clark'}})
+for i in list_contacts: req_id = i['id']
+
+event_id = contacts_handle.call('Export', {'Type': u'Contact', 'Data': {'DestinationFile': u'c:\\Data\\python\\contactlist.vcf', 'id': unicode(req_id)}}, callback=export_contact)
+
+print "Waiting for the request to be processed!"
+lock.wait()
+print "Request complete!"
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.4.4 Import"
+  href="node131.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.4 Contacts"
+  href="node127.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.4.6 Organise"
+  href="node133.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node131.html">6.4.4 Import</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node127.html">6.4 Contacts</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node133.html">6.4.6 Organise</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>

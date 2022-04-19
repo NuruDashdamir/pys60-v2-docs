@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<link rel="STYLESHEET" href="s60.css" type='text/css' />
+<link rel="SHORTCUT ICON" href="../icons/pyfav.png" type="image/png" />
+<link rel='start' href='../index.html' title='Python documentation Index' />
+<link rel="first" href="s60.html" title='S60 module Reference' />
+<link rel='contents' href='contents.html' title="Contents" />
+<link rel='index' href='genindex.html' title='Index' />
+<link rel='last' href='about.html' title='About this document...' />
+<link rel='help' href='about.html' title='About this document...' />
+<link rel="next" href="node114.html" />
+<link rel="prev" href="node112.html" />
+<link rel="parent" href="node109.html" />
+<link rel="next" href="node114.html" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name='aesop' content='information' />
+<title>6.1.4 Making Asynchronous Request</title>
+</head>
+<body>
+<div class="navigation">
+<div id='top-navigation-panel' xml:id='top-navigation-panel'>
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.1.3 making Synchronous Request"
+  href="node112.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.1 overview of scriptext"
+  href="node109.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.1.5 cancelling of Asynchronous"
+  href="node114.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node112.html">6.1.3 Making Synchronous Request</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node109.html">6.1 Overview of scriptext</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node114.html">6.1.5 Cancelling of Asynchronous</a>
+</div>
+<hr /></div>
+</div>
+<!--End of Navigation Panel-->
+
+<h2><a name="SECTION008140000000000000000"></a>
+<a name="subsec:pyrequestasyncservice"></a>
+<br>
+6.1.4 Making Asynchronous Request
+</h2>
+
+<p>
+For making an asynchronous request, a call back function needs to be defined and passed as an additional parameter to the <code>call()</code> API.
+
+<p>
+<b>Syntax</b> <br>
+
+<p>
+<div class="verbatim"><pre>
+result = service_instance_object.call(operation, parameters, callback=callback_function)
+</pre></div>
+
+<p>
+<b>Arguments</b> <br>
+
+<p>
+The operation argument describes the service requested from the service provider. The parameters argument is a dictionary, which specifies input parameters to the specified request. <br>
+
+<p>
+<code>callback_function</code> is an user defined callback function.
+
+<p>
+The following sample code illustrates how to define a callback handler function to handle the response from an asynchronous request:
+
+<p>
+<div class="verbatim"><pre>
+def callback_function(transactionID, eventID, outParam)
+</pre></div>
+
+<p>
+The following table describes the arguments of the call back function:
+
+<p>
+<br>
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT" valign="TOP" width=85><b>Argument</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Value</b></td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>transactionID</code></td>
+<td align="LEFT" valign="TOP" width=170>This is the unique transaction ID associated with the particular asynchronous request.</td>
+<td align="LEFT" valign="TOP" width=170>It is returned as part of the result of the initial asynchronous call.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>eventID</code></td>
+<td align="LEFT" valign="TOP" width=170>Specifies the asynchronous operation status.</td>
+<td align="LEFT" valign="TOP" width=170>For a complete list of <code>EventID</code>, see <code>EventID</code> <a href="node177.html#subsec:appenevent">6.12.2</a> section in the <b>Appendix</b>.</td>
+</tr>
+<tr><td align="LEFT" valign="TOP" width=85><code>outParam</code></td>
+<td align="LEFT" valign="TOP" width=170>This argument is a dictionary that holds the output of an asynchronous call.</td>
+<td align="LEFT" valign="TOP" width=170>Refer to the following table for the dictionary items in <code>outParam</code>.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+The <code>outParam</code> argument of callback method is a map containing the return value, an error code, and an error message.
+
+<p>
+<br>
+<div align="CENTER">
+<table cellpadding=3 border="1" align="CENTER">
+<tr><td align="LEFT"><b>Properties</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Description</b></td>
+<td align="LEFT" valign="TOP" width=170><b>Values</b></td>
+</tr>
+<tr><td align="LEFT"><code>ReturnValue</code></td>
+<td align="LEFT" valign="TOP" width=170>This key contains the information requested by the asynchronous call that initiated the callback. <br>
+
+<p>
+This key is present only if the requested service has a value to return. In this case, <code>outParam</code> contains only <code>ErrorCode</code> and <code>ErrorMessage</code>.</td>
+<td align="LEFT" valign="TOP" width=170>Depends on the Platform Service API and the asynchronous method that was called. Not all calls return this property.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorCode</code></td>
+<td align="LEFT" valign="TOP" width=170>Specifies a pre-defined error code</td>
+<td align="LEFT" valign="TOP" width=170>For detail information about Platform Service API error codes and their descriptions, see Service API Error Codes and Description <a href="node176.html#subsec:appenerrors">6.12.1</a> section in the <b>Appendix</b>.</td>
+</tr>
+<tr><td align="LEFT"><code>ErrorMessage</code></td>
+<td align="LEFT" valign="TOP" width=170>Describes the error</td>
+<td align="LEFT" valign="TOP" width=170>Depends on the Platform Service API and the asynchronous method that is called.</td>
+</tr>
+</table>
+</div>
+<br>
+
+<p>
+<br>
+<b>Example</b> <br>
+
+<p>
+The following sample code illustrates how to retrieve media files from a database, using the operation:
+
+<p>
+<div class="verbatim"><pre>
+import scriptext
+import e32
+
+def media_callback(trans_id, event_id, output_params):
+    # Check if we are interested in this transaction
+    if trans_id == media_trans_id:
+        print "Not the transaction in which we are interested!"
+        return
+
+    # Check if the transaction is complete
+    if event_id != scriptext.EventCompleted:
+        print "Transaction not complete!"
+        return
+
+    # Check if the transaction has resulted in any error
+    if output_params['ReturnCode'] != 0:
+        print output_params['ReturnMessage']
+    else:
+        song_list = []
+        for item in output_params['ReturnValue']: 
+            song_list.append(item['FileName'])
+        print "List of files retrieved:", song_list
+
+    lock.signal()
+
+
+lock = e32.Ao_lock()
+media_handle = scriptext.load('Service.MediaManagement', 'IDataSource')
+
+# Request for the list of mp3s in ascending order
+
+media_trans_id = media_handle.call('GetList', 
+                                   {'Type': u'FileInfo': u'FileExtension', 
+                                               'StartRange': u'.mp3'},
+                                    'Sort': {'Key': u'FileName', 'Order': u'Ascending'}}, 
+                                   callback=media_callback)
+
+lock.wait()
+</pre></div>
+
+<p>
+
+<div class="navigation">
+<div class='online-navigation'>
+<p></p><hr />
+<table align="center" width="100%" cellpadding="0" cellspacing="2">
+<tr>
+<td class='online-navigation'><a rel="prev" title="6.1.3 making Synchronous Request"
+  href="node112.html"><img src='../icons/previous.png'
+  border='0' height='32'  alt='Previous Page' width='32' /></a></td>
+<td class='online-navigation'><a rel="parent" title="6.1 overview of scriptext"
+  href="node109.html"><img src='../icons/up.png'
+  border='0' height='32'  alt='Up one Level' width='32' /></a></td>
+<td class='online-navigation'><a rel="next" title="6.1.5 cancelling of Asynchronous"
+  href="node114.html"><img src='../icons/next.png'
+  border='0' height='32'  alt='Next Page' width='32' /></a></td>
+<td align="center" width="100%">S60 Module Reference</td>
+<td class='online-navigation'><a rel="contents" title="Table of Contents"
+  href="contents.html"><img src='../icons/contents.png'
+  border='0' height='32'  alt='Contents' width='32' /></a></td>
+<td class='online-navigation'><a href="modindex.html" title="Module Index"><img src='../icons/modules.png'
+  border='0' height='32'  alt='Module Index' width='32' /></a></td>
+<td class='online-navigation'><a rel="index" title="Index"
+  href="genindex.html"><img src='../icons/index.png'
+  border='0' height='32'  alt='Index' width='32' /></a></td>
+</tr></table>
+<div class='online-navigation'>
+<b class="navlabel">Previous:</b>
+<a class="sectref" rel="prev" href="node112.html">6.1.3 Making Synchronous Request</a>
+<b class="navlabel">Up:</b>
+<a class="sectref" rel="parent" href="node109.html">6.1 Overview of scriptext</a>
+<b class="navlabel">Next:</b>
+<a class="sectref" rel="next" href="node114.html">6.1.5 Cancelling of Asynchronous</a>
+</div>
+</div>
+<hr />
+<span class="release-info">Release 2.0.0 final  , documentation updated on 10 Feb 2010.</span>
+</div>
+<!--End of Navigation Panel-->
+<address>
+See <i><a href="about.html">About this document...</a></i> for information on suggesting changes.
+</address>
+</body>
+</html>
